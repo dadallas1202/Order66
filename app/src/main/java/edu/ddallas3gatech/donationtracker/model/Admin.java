@@ -1,6 +1,6 @@
-import java.util.Collection;
-
 package edu.ddallas3gatech.donationtracker.model;
+
+import java.util.Collection;
 
 public class Admin extends User {
     private String username;

@@ -7,7 +7,7 @@ public class User {
     private String password;
     private Location place;
 
-    public User (String username, String password, Location place) {
+    public User(String username, String password, Location place) {
         this.username = username;
         this.password = password;
         this.place = place;
