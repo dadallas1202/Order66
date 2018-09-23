@@ -8,21 +8,20 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
-public class MainActivity extends AppCompatActivity {
+public class HomePageActivity extends AppCompatActivity {
 
-    private Button Login;
-    //private Button Register;
+    private Button Logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_page);
-        Login= (Button)findViewById(R.id.welcomeloginButton);
+        setContentView(R.layout.activity_home_page);
+        Logout= (Button)findViewById(R.id.logOutButton);
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(HomePageActivity.this, WelcomePageActivity.class);
                 startActivity(intent);
             }
         });
