@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context="edu.mgrace31gatech.donationtracker.controllers.MainActivity">
 
     <EditText
@@ -14,7 +15,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="175dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Username"
@@ -27,9 +28,8 @@
         android:id="@+id/passWordBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/userNameBox"
-        android:layout_marginTop="208dp"
+        android:layout_centerVertical="true"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
@@ -66,11 +66,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
+        android:layout_alignStart="@+id/userNameBox"
+        android:layout_marginTop="66dp"
         android:text="SIGN IN"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
