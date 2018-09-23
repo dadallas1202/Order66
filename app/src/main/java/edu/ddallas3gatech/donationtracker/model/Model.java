@@ -42,6 +42,27 @@ public class Model {
         return true;
     }
 
+    public User getCurrentUser() { return currentUser; }
+
+    public void setCurrentUser(User user) { currentUser = user; }
+
+    public User getUserByUsername(String username) {
+        for (User u : users) {
+            if (u.getUsername().equals(username)) {
+                return u;
+            }
+        }
+        return theNullUser;
+    }
+
+    public void replaceUserPassword(User user) {
+        User existing = getUserByUsername(user.getUsername());
+
+        if (BuildConfig.DEBUG && (existing == null)) { throw new AssertionError(); }
+
+        existing.setPassword(user.getPassword());
+    }
+
 
 
 

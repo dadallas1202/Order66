@@ -1,6 +1,6 @@
-import java.util.Collection;
-
 package edu.ddallas3gatech.donationtracker.model;
+
+import java.util.Collection;
 
 public class User {
     private String username;
@@ -15,4 +15,11 @@ public class User {
 
     public void viewData(Collection<T> data) {
     }
+
+    public String getUsername() { return username; }
+
+    public String getPassword() { return password; }
+
+    public void setPassword(String p) { password = p; }
+
 }
