@@ -1,4 +1,4 @@
-package edu.mgrace31gatech.donationtracker.controllers;
+package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

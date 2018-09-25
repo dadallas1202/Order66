@@ -1,4 +1,4 @@
-package edu.mgrace31gatech.donationtracker.controllers;
+package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,13 +11,14 @@ import edu.mgrace31gatech.donationtracker.R;
 public class MainActivity extends AppCompatActivity {
 
     private Button Login;
-    //private Button Register;
+    private Button Register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
         Login= (Button)findViewById(R.id.welcomeloginButton);
+        Register = (Button) findViewById(R.id.registerButton);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override

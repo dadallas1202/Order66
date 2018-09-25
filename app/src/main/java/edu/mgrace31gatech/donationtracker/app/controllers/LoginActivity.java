@@ -1,4 +1,4 @@
-package edu.mgrace31gatech.donationtracker.controllers;
+package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Map;
+
 import edu.mgrace31gatech.donationtracker.R;
+import edu.mgrace31gatech.donationtracker.app.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -46,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword) {
-        if((userName.equals("user")) && (userPassword.equals("pass"))) {
+        Map<String, String> users = User.usersList();
+        if(users.containsKey(userName) && users.get(userName).equals(userPassword)) {
             Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
             startActivity(intent);
         } else{
