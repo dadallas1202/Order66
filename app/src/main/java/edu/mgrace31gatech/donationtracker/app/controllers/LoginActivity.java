@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.Map;
 
 import edu.mgrace31gatech.donationtracker.R;
+import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 import edu.mgrace31gatech.donationtracker.app.model.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -49,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validate(String userName, String userPassword) {
-        Map<String, String> users = User.usersList();
+        Map<String, String> users = RegisteredUser.usersList();
         if(users.containsKey(userName) && users.get(userName).equals(userPassword)) {
             Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
             startActivity(intent);
