@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="edu.mgrace31gatech.donationtracker.controllers.MainActivity">
+    tools:context="edu.mgrace31gatech.donationtracker.app.controllers.MainActivity">
 
     <EditText
         android:id="@+id/userNameBox"
@@ -38,6 +38,7 @@
 
     <Button
         android:id="@+id/logInbutton"
+        style="@android:style/Widget.Holo.Button"
         android:layout_width="199dp"
         android:layout_height="47dp"
         android:layout_alignParentBottom="true"
@@ -51,6 +52,7 @@
 
     <Button
         android:id="@+id/cancelbutton"
+        style="@android:style/Widget.Holo.Button"
         android:layout_width="199dp"
         android:layout_height="47dp"
         android:layout_alignParentBottom="true"
