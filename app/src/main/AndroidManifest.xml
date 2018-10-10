@@ -26,6 +26,8 @@
         <activity
             android:name=".app.controllers.RegistrationActivity"
             android:label="@string/title_activity_registration"></activity>
+        <activity android:name=".app.controllers.LocationList" />
+        <activity android:name=".app.controllers.LocationDetailActivity"/>
     </application>
 
 </manifest>
