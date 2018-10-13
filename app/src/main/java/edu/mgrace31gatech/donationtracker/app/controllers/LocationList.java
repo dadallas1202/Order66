@@ -58,6 +58,7 @@ public class LocationList extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
+            holder.mKeyView.setText("" + mValues.get(position).getKey());
             holder.mContentView.setText(mValues.get(position).getName());
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +67,7 @@ public class LocationList extends AppCompatActivity {
                     Context context = v.getContext();
                     Intent intent = new Intent(context, LocationDetailActivity.class);
                     Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getName());
+                    Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getKey());
                     context.startActivity(intent);
                 }
             });
@@ -73,14 +75,14 @@ public class LocationList extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
             public final View mView;
-            public final TextView mIdView;
+            public final TextView mKeyView;
             public final TextView mContentView;
             public Location mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mIdView = (TextView) view.findViewById(R.id.id);
+                mKeyView = (TextView) view.findViewById(R.id.id);
                 mContentView = (TextView) view.findViewById(R.id.content);
             }
 

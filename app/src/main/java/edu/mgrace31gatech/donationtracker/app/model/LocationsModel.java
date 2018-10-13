@@ -1,5 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +23,12 @@ public class LocationsModel {
             return locationsList;
         }
 
-//        public Location findLocationById(int id) {
-//            for (Location l : locationsList) {
-//                if (l.getId() == id) return l;
-//            }
-//            Log.d("MYAPP", "Warning - Failed to find id: " + id);
-//            return null;
-//        }
+        public Location findLocationByKey(int key) {
+            for (Location l : locationsList) {
+                if (l.getKey().equals(key)) return l;
+            }
+            Log.d("MYAPP", "Warning - Failed to find id: " + key);
+            return null;
+        }
 
 }

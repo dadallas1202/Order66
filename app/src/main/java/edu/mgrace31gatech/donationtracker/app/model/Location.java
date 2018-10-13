@@ -31,4 +31,28 @@ public class Location {
     public String getName() {
         return name;
     }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getLattitude() {
+        return lattitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }
