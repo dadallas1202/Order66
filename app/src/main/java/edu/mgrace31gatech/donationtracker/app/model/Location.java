@@ -1,5 +1,8 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Location {
     private String key;
     private String name;
@@ -12,6 +15,7 @@ public class Location {
     private String type;
     private String phone;
     private String website;
+    private List<Donation> inventory;
 
     public Location(String k, String n, String lon, String lat, String a,String c, String s, String z, String t, String p, String w) {
         key = k;
@@ -25,7 +29,7 @@ public class Location {
         state = s;
         zip = z;
         website = w;
-
+        inventory = new ArrayList<>();
     }
 
     public String getName() {
@@ -54,5 +58,15 @@ public class Location {
 
     public String getAddress() {
         return address;
+    }
+
+    public List<Donation> getInventory() { return inventory; }
+
+    public void addDonation(Donation d) {
+        inventory.add(d);
+    }
+
+    public int size() {
+        return inventory.size();
     }
 }
