@@ -1,7 +1,9 @@
-package edu.mgrace31gatech.donationtracker;
+package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.os.Bundle;
 import android.app.Activity;
+
+import edu.mgrace31gatech.donationtracker.R;
 
 public class DonationActivity extends Activity {
 

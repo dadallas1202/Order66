@@ -4,8 +4,6 @@ import java.time.LocalTime;
 
 public class Donation {
     private String comments;
-    private int id;
-    private static int id_count;
     private String long_description;
     private String name;
     private String short_description;
@@ -20,21 +18,14 @@ public class Donation {
         this.value = value;
         this.comments = comments;
         this.time = time;
-        id_count++;
-        id = id_count;
-        this.time = time;
     }
 
     public Donation(String name, String short_description, String long_description,
                     double value, LocalTime time) {
         this(name, short_description, long_description, value, "", time);
-        id_count++;
-        id = id_count;
     }
 
     public java.lang.String getComments() { return comments; }
-
-    public int getID() { return id; }
 
     public String getLongDescription() { return long_description; }
 

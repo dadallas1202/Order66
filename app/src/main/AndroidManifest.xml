@@ -29,7 +29,7 @@
         <activity android:name=".app.controllers.LocationList" />
         <activity android:name=".app.controllers.LocationDetailActivity" />
         <activity
-            android:name=".DonationActivity"
+            android:name=".app.controllers.DonationActivity"
             android:label="@string/title_activity_donation"></activity>
     </application>
 
