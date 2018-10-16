@@ -68,6 +68,7 @@ public class LocationList extends AppCompatActivity {
                     Intent intent = new Intent(context, LocationDetailActivity.class);
                     Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getName());
                     Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getKey());
+                    intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, holder.mItem.getKey());
                     context.startActivity(intent);
                 }
             });
