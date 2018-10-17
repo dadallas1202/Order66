@@ -18,7 +18,7 @@ public class Location {
     private List<Donation> inventory;
 
 
-    public Location(String k, String n, String lon, String lat, String a, String c, String s,
+    public Location(int k, String n, String lon, String lat, String a, String c, String s,
                     String z, String t, String p, String w) {
         key = k;
         name = n;

@@ -21,6 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
     private Button Locations;
+    private boolean readIn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,10 @@ public class HomePageActivity extends AppCompatActivity {
         Locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readSDFile();
+                if (!readIn) {
+                    readSDFile();
+                    readIn = true;
+                }
                 Intent intent = new Intent(HomePageActivity.this, LocationList.class);
                 startActivity(intent);
             }
@@ -72,7 +76,7 @@ public class HomePageActivity extends AppCompatActivity {
                 String phone = tokens[9];
                 String web = tokens[10];
 
-                model.addLocation(new Location(key,name, lat, lon, add, city, state, zip, type, phone, web));
+                model.addLocation(new Location(key, name, lat, lon, add, city, state, zip, type, phone, web));
             }
             br.close();
         } catch (IOException e) {
