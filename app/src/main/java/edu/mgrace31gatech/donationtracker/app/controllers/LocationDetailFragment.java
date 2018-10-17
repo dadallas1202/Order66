@@ -2,6 +2,7 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -56,8 +57,11 @@ public class LocationDetailFragment extends Fragment {
             } else {
                 Log.d("MYAPP", "Not null " + location_key);
             }
-
-            Activity activity = this.getActivity();
+//            Activity activity = this.getActivity();
+//            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+//            if (appBarLayout != null) {
+//                appBarLayout.setTitle(mItem.getName());
+//            }
         }
     }
 
@@ -69,7 +73,7 @@ public class LocationDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             Log.d("MYAPP", "Getting ready to set id");
-            ((TextView) rootView.findViewById(R.id.name2)).setText("" + mItem.getName());
+            ((TextView) rootView.findViewById(R.id.name)).setText("" + mItem.getName());
             Log.d("MYAPP", "Getting ready to set name :");
             ((TextView) rootView.findViewById(R.id.type)).setText(mItem.getType());
             ((TextView) rootView.findViewById(R.id.lat)).setText(mItem.getLattitude());

@@ -25,7 +25,7 @@ public class LocationsModel {
 
         public Location findLocationByKey(int key) {
             for (Location l : locationsList) {
-                if (l.getKey().equals(key)) return l;
+                if (l.getKey() == key) return l;
             }
             Log.d("MYAPP", "Warning - Failed to find id: " + key);
             return null;

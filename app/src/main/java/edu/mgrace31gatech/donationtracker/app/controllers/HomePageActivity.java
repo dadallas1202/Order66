@@ -3,6 +3,7 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -59,7 +60,7 @@ public class HomePageActivity extends AppCompatActivity {
             br.readLine(); //get rid of header line
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
-                String key= tokens[0];
+                int key = Integer.parseInt(tokens[0]);
                 String name = tokens[1];
                 String lat = tokens[2];
                 String lon = tokens[3];
@@ -75,7 +76,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
             br.close();
         } catch (IOException e) {
-
+            Log.e("MY_APP", "error reading assets", e);
         }
     }
 }

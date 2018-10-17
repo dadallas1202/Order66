@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Location {
-    private String key;
+    private int key;
     private String name;
     private String lattitude;
     private String longitude;
@@ -16,6 +16,7 @@ public class Location {
     private String phone;
     private String website;
     private List<Donation> inventory;
+
 
     public Location(String k, String n, String lon, String lat, String a, String c, String s,
                     String z, String t, String p, String w) {
@@ -37,7 +38,7 @@ public class Location {
         return name;
     }
 
-    public String getKey() {
+    public int getKey() {
         return key;
     }
 
