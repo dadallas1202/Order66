@@ -1,11 +1,11 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Donation {
     private String comments;
-    private int id;
-    private static int id_count;
+    private LocalDate date;
     private String long_description;
     private String name;
     private String short_description;
@@ -13,28 +13,24 @@ public class Donation {
     private double value;
 
     public Donation(String name, String short_description, String long_description, double value,
-                    String comments, LocalTime time) {
+                    String comments, LocalTime time, LocalDate date) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
         this.value = value;
         this.comments = comments;
         this.time = time;
-        id_count++;
-        id = id_count;
-        this.time = time;
+        this.date = date;
     }
 
     public Donation(String name, String short_description, String long_description,
-                    double value, LocalTime time) {
-        this(name, short_description, long_description, value, "", time);
-        id_count++;
-        id = id_count;
+                    double value, LocalTime time, LocalDate date) {
+        this(name, short_description, long_description, value, "", time, date);
     }
 
-    public java.lang.String getComments() { return comments; }
-
-    public int getID() { return id; }
+    public String getComments() { return comments; }
+    
+    public LocalDate getDate() {return date; }
 
     public String getLongDescription() { return long_description; }
 
@@ -42,7 +38,7 @@ public class Donation {
 
     public String getShortDescription() { return short_description; }
 
-    public String getTime() { return time.toString(); }
+    public LocalTime getTime() { return time; }
 
     public double getValue() { return value; }
 }
