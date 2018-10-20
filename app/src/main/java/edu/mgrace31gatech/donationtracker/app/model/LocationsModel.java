@@ -31,4 +31,6 @@ public class LocationsModel {
             return null;
         }
 
+        public List<Location> getLocations() { return locationsList; }
+
 }

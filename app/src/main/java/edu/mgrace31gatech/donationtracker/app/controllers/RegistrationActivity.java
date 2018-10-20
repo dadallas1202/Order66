@@ -14,6 +14,7 @@ import java.util.Map;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Admin;
+import edu.mgrace31gatech.donationtracker.app.model.LocationEmployee;
 import edu.mgrace31gatech.donationtracker.app.model.Model;
 import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 import edu.mgrace31gatech.donationtracker.app.model.User;
@@ -26,7 +27,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button Register;
     private Button Cancel;
     private Spinner UserType;
-
+    private EditText Location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Register = (Button)findViewById(R.id.registerButton);
         Cancel = (Button)findViewById(R.id.cancelbutton);
         UserType = (Spinner)findViewById(R.id.user_type_spinner);
+        Location = (EditText) findViewById(R.id.locationBox);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, RegisteredUser.userTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -47,9 +49,15 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RegisteredUser.usersList().put(Username.getText().toString(), Password.getText().toString());
-                RegisteredUser.myUsers.add(UserType.getSelectedItem().equals("User")
-                        ? new User(Name.getText().toString(), Username.getText().toString(), Password.getText().toString())
-                        : new Admin(Name.getText().toString(), Username.getText().toString(), Password.getText().toString()));
+                RegisteredUser newUser;
+                if (UserType.getSelectedItem().equals("User")) {
+                    newUser = new User(Name.getText().toString(), Username.getText().toString(), Password.getText().toString());
+                } else if (UserType.getSelectedItem().equals("Admin")) {
+                    newUser = new Admin(Name.getText().toString(), Username.getText().toString(), Password.getText().toString());
+                } else {
+                    newUser = new LocationEmployee(Name.getText().toString(), Username.getText().toString(), Password.getText().toString(), Location.getText().toString());
+                }
+                RegisteredUser.myUsers.add(newUser);
                 Intent intent = new Intent(RegistrationActivity.this, HomePageActivity.class);
                 startActivity(intent);
             }

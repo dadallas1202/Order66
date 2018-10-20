@@ -22,7 +22,7 @@ public class LocationDetailActivity extends AppCompatActivity {
             Log.d("MYAPP", "Location Detail Activity ");
             Bundle arguments = new Bundle();
             arguments.putInt(LocationDetailFragment.ARG_ITEM_ID,
-                    getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1));
+                    getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000));
             LocationDetailFragment fragment = new LocationDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
