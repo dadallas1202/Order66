@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
+    public Button Inventory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,16 @@ public class LocationDetailActivity extends AppCompatActivity {
                     .add(R.id.location_detail_container, fragment)
                     .commit();
         }
+
+        Inventory = (Button)findViewById(R.id.inventoryButton);
+        Inventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LocationDetailActivity.this, InventoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

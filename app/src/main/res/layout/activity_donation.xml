@@ -6,4 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".app.controllers.DonationActivity">
 
+    <TextView
+        android:id="@+id/donationTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Donation Item"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <EditText
+        android:id="@+id/shortDescriptionBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Short Description of Item"
+        android:inputType="textShortMessage"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <EditText
+        android:id="@+id/fullDescriptionBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Full Description of Item"
+        android:inputType="textLongMessage"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="195dp" />
+
+    <EditText
+        android:id="@+id/valueBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Value (in dollars)"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="290dp"
+        android:layout_height="54dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="367dp" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="454dp" />
+
+    <EditText
+        android:id="@+id/nameDonationBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Name of Item"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="65dp" />
 </android.support.constraint.ConstraintLayout>

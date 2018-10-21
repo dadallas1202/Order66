@@ -16,4 +16,6 @@
     </string>
     <string name="title_activity_registration">Register New User</string>
     <string name="title_activity_donation">DonationActivity</string>
+    <string name="title_activity_inventory">InventoryActivity</string>
+    <string name="title_activity_donation_detail">DonationDetailActivity</string>
 </resources>

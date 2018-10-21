@@ -30,7 +30,13 @@
         <activity android:name=".app.controllers.LocationDetailActivity" />
         <activity
             android:name=".app.controllers.DonationActivity"
-            android:label="@string/title_activity_donation"></activity>
+            android:label="@string/title_activity_donation" />
+        <activity
+            android:name=".app.controllers.InventoryActivity"
+            android:label="@string/title_activity_inventory" />
+        <activity
+            android:name=".app.controllers.DonationDetailActivity"
+            android:label="@string/title_activity_donation_detail"></activity>
     </application>
 
 </manifest>
