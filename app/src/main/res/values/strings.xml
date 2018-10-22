@@ -18,4 +18,9 @@
     <string name="title_activity_donation">DonationActivity</string>
     <string name="title_activity_inventory">InventoryActivity</string>
     <string name="title_activity_donation_detail">DonationDetailActivity</string>
+    <string name="add_donation_item">Add Donation Item</string>
+    <string name="short_description_of_item">Short Description of Item</string>
+    <string name="full_description_of_item">Full Description of Item</string>
+    <string name="value_in_dollars">Value (in dollars)</string>
+    <string name="add">Add</string>
 </resources>

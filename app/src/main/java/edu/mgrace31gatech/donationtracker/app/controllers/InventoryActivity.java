@@ -29,7 +29,7 @@ public class InventoryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventory);
 
-        View recyclerView = findViewById(R.id.dataitem_list);
+        View recyclerView = findViewById(R.id.inventory);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
 

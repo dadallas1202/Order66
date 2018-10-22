@@ -10,62 +10,84 @@
         android:id="@+id/donationTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Donation Item"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="25dp" />
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_donation_item"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/nameDonationBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/shortDescriptionBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="Short Description of Item"
+        android:hint="@string/short_description_of_item"
         android:inputType="textShortMessage"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintBottom_toTopOf="@+id/fullDescriptionBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/fullDescriptionBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:ems="10"
-        android:hint="Full Description of Item"
+        android:hint="@string/full_description_of_item"
         android:inputType="textLongMessage"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="195dp" />
+        app:layout_constraintBottom_toTopOf="@+id/valueBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/valueBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:ems="10"
-        android:hint="Value (in dollars)"
+        android:hint="@string/value_in_dollars"
         android:inputType="number"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="275dp" />
+        app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/categorySpinner"
         android:layout_width="290dp"
         android:layout_height="54dp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="367dp" />
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="454dp" />
+        android:layout_marginBottom="56dp"
+        android:text="@string/add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/nameDonationBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="Name of Item"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="65dp" />
+        app:layout_constraintBottom_toTopOf="@+id/shortDescriptionBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -12,7 +12,7 @@ import edu.mgrace31gatech.donationtracker.R;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
-    public Button Inventory;
+    public Button InventoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,12 @@ public class LocationDetailActivity extends AppCompatActivity {
                     .commit();
         }
 
-        Inventory = (Button)findViewById(R.id.inventoryButton);
-        Inventory.setOnClickListener(new View.OnClickListener() {
+//        View detailView = getLayoutInflater().inflate(R.layout.location_detail, null);
+        InventoryButton = (Button) findViewById(R.id.inventoryButton);
+        InventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                Log.d("MYAPP", "In Inventory Button");
                 Intent intent = new Intent(LocationDetailActivity.this, InventoryActivity.class);
                 startActivity(intent);
             }
