@@ -31,7 +31,7 @@ public class Location {
         state = s;
         zip = z;
         website = w;
-        inventory = new ArrayList<>();
+        //inventory = new ArrayList<>();
     }
 
     public String getName() {
@@ -62,11 +62,11 @@ public class Location {
         return address;
     }
 
-    public List<Donation> getInventory() { return inventory; }
+    //public List<Donation> getInventory() { return inventory; }
 
-    public void addDonation(Donation d) {
-        inventory.add(d);
-    }
+//    public void addDonation(Donation d) {
+//        inventory.add(d);
+//    }
 
     public int size() {
         return inventory.size();

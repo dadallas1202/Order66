@@ -28,7 +28,7 @@ public class DonationActivity extends Activity {
     private Button addButton;
 
     private Donation _donation;
-    private Location _location;
+    private InventoryModel _location = InventoryModel.INSTANCE;
 
     //private List<String> mDonationNames;
 
@@ -62,7 +62,7 @@ public class DonationActivity extends Activity {
                 double value = Double.parseDouble(Value.getText().toString());
                 _donation = new Donation(Name.getText().toString(), shortDescription.getText().toString(), fullDescription.getText().toString()
                         , value, Category.getSelectedItem().toString(), localtime, localdate);
-                _location = getIntent().getParcelableExtra(LocationDetailFragment.ARG_ITEM_ID);
+                //_location = getIntent().getParcelableExtra(LocationDetailFragment.ARG_ITEM_ID);
                 _location.addDonation(_donation);
                 Intent intent = new Intent(DonationActivity.this, InventoryActivity.class);
                 startActivity(intent);
