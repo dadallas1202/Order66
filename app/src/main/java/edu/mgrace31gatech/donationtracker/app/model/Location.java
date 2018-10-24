@@ -1,9 +1,12 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Location {
+public class Location{
     private int key;
     private String name;
     private String lattitude;
@@ -71,4 +74,5 @@ public class Location {
     public int size() {
         return inventory.size();
     }
+
 }

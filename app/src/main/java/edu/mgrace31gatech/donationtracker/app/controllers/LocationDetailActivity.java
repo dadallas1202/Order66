@@ -40,6 +40,7 @@ public class LocationDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d("MYAPP", "In Inventory Button");
                 Intent intent = new Intent(LocationDetailActivity.this, InventoryActivity.class);
+                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000));
                 startActivity(intent);
             }
         });

@@ -38,6 +38,7 @@ public class InventoryActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InventoryActivity.this, DonationActivity.class);
+                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000));
                 startActivity(intent);
             }
         });

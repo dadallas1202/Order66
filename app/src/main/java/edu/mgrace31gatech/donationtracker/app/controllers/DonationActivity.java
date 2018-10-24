@@ -3,6 +3,7 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
 import edu.mgrace31gatech.donationtracker.app.model.InventoryModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
+import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
 public class DonationActivity extends Activity {
 
@@ -59,12 +61,32 @@ public class DonationActivity extends Activity {
             public void onClick(View v) {
                 LocalTime localtime = LocalTime.now();
                 LocalDate localdate = LocalDate.now();
+                LocationsModel model = LocationsModel.INSTANCE;
+                List<Location> myLocations = model.getLocations();
                 double value = Double.parseDouble(Value.getText().toString());
                 _donation = new Donation(Name.getText().toString(), shortDescription.getText().toString(), fullDescription.getText().toString()
                         , value, Category.getSelectedItem().toString(), localtime, localdate);
-                _location = getIntent().getParcelableExtra(LocationDetailFragment.ARG_ITEM_ID);
+//                Intent myIntent = getIntent();
+//                if (myIntent == null) {
+//                    Log.d("MYAPP", "Intent is Null");
+//                } else {
+//                    Log.d("MYAPP", "Got intent ");
+//                }
+                int locationID = getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000);
+                for (Location l : myLocations) {
+                    if (l.getKey() == locationID) {
+                        _location = l;
+                        Log.d("MYAPP", l.getName());
+
+                    }
+                }
+//                _location = (Location) getIntent().getParcelableExtra(LocationDetailFragment.ARG_ITEM_ID);
+                if (_location == null) {
+                    Log.d("MYAPP", "Location is Null");
+                }
                 _location.addDonation(_donation);
                 Intent intent = new Intent(DonationActivity.this, InventoryActivity.class);
+                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000));
                 startActivity(intent);
             }
         });
