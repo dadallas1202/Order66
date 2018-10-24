@@ -66,7 +66,7 @@
         android:layout_marginBottom="40dp"
         android:ems="10"
         android:hint="@string/value_in_dollars"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toTopOf="@+id/categorySpinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
