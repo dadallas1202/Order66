@@ -16,9 +16,9 @@ public class LocationEmployee extends RegisteredUser {
     }
 
 
-    public void addDonation(Donation d) {
-        loc.addDonation(d);
-    }
+//    public void addDonation(Donation d) {
+//        loc.addDonation(d);
+//    }
 
     public Location getLocation() {
         return loc;

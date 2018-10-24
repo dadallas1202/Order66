@@ -30,7 +30,7 @@ public class DonationActivity extends Activity {
     private Button addButton;
 
     private Donation _donation;
-    private Location _location;
+    private InventoryModel _location = InventoryModel.INSTANCE;
 
     //private List<String> mDonationNames;
 
