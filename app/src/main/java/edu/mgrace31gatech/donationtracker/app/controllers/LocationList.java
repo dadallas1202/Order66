@@ -61,6 +61,8 @@ public class LocationList extends AppCompatActivity {
             holder.mKeyView.setText("" + mValues.get(position).getKey());
             holder.mContentView.setText(mValues.get(position).getName());
 
+            final LocationsModel model = LocationsModel.getInstance();
+
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -69,6 +71,7 @@ public class LocationList extends AppCompatActivity {
                     Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getName());
                     Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getKey());
                     intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, holder.mItem.getKey());
+                    model.setCurrentLocation(holder.mItem);
                     context.startActivity(intent);
                 }
             });

@@ -69,4 +69,7 @@ public class Location {
     public int size() {
         return inventory.size();
     }
+
+    @Override
+    public String toString() { return name; }
 }
