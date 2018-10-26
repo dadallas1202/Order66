@@ -10,6 +10,8 @@ public class DonationModel {
 
     /** holds the list of all donations */
     private List<Donation> _donations;
+
+    private Location _currentLocation;
     /** the currently selected donation, defaults to the first donation */
     private Donation _currentDonation;
 
@@ -20,5 +22,20 @@ public class DonationModel {
         _donations = new ArrayList<>();
     }
 
+    /**
+     * add a donation to the app.
+     * @param donation the donation to be added
+     */
+    public void addDonation(Donation donation) {
+        _donations.add(donation);
+    }
+
+    public void addInventoryToLocation(Location location, List<Donation> listDonation ) {
+        _currentLocation = location;
+        _currentLocation.setInventory(listDonation);
+    }
+
     public Donation getCurrentDonation() { return _currentDonation; }
+
+    public List<Donation> getInventory() { return _donations; }
 }

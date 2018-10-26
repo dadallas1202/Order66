@@ -18,6 +18,7 @@ import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
+import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
@@ -74,7 +75,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
      */
     public void onAddPressed(View view) {
         Log.d("Edit", "Add Donation");
-        LocationsModel model = LocationsModel.getInstance();
+        DonationModel model = DonationModel.getInstance();
+        LocationsModel model2 = LocationsModel.getInstance();
         double value = Double.parseDouble(Value.getText().toString());
         _donation.setName(Name.getText().toString());
         _donation.setShortDescription(shortDescription.getText().toString());
@@ -83,6 +85,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         _donation.setCategory(Category.getSelectedItem().toString());
         _donation.setTime(LocalTime.now());
         _donation.setDate(LocalDate.now());
+        _donation.setLocation(model2.getCurrentLocation());
 
         Log.d("Edit", "Got new donation data: " + _donation);
         model.addDonation(_donation);

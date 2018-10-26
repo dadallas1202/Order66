@@ -23,6 +23,7 @@ public class Donation implements Parcelable {
     private double value;
     private static int Next_Id = 1;
     private int id;
+    private Location location;
 
     public Donation(String name, String short_description, String long_description, double value, String category,
                     String comments, LocalTime time, LocalDate date) {
@@ -79,6 +80,7 @@ public class Donation implements Parcelable {
 
     public int getId() { return id; }
 
+    public void setLocation(Location location) { this.location = location; }
 
 
 

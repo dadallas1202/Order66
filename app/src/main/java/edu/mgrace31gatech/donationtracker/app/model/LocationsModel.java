@@ -14,6 +14,7 @@ public class LocationsModel {
 
     /** holds the list of all locations */
     private List<Location> locationsList;
+    private List<Donation> donationsList;
 
     /** the currently selected location, defaults to first location */
     private Location currentLocation;

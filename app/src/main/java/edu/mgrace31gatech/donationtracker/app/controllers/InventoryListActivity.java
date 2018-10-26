@@ -52,8 +52,7 @@ public class InventoryListActivity extends AppCompatActivity {
             // the fragment
             Bundle arguments = new Bundle();
             arguments.putInt(InventoryListFragment.ARG_LOCATION_ID,
-                    getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 0));
-
+                    getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1));
             InventoryListFragment fragment = new InventoryListFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()

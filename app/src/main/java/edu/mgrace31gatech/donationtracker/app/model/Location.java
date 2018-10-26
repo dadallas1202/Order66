@@ -62,6 +62,8 @@ public class Location {
 
     public List<Donation> getInventory() { return inventory; }
 
+    public void setInventory(List<Donation> donationList) { inventory = donationList; }
+
     public void addDonation(Donation d) {
         inventory.add(d);
     }

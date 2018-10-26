@@ -18,8 +18,11 @@ import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
+import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
+
+import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailFragment.ARG_DON_ID;
 
 /**
  * A fragment representing a single Location Inventory screen.
@@ -41,6 +44,8 @@ public class InventoryListFragment extends Fragment {
      */
     private Location mLocation;
 
+    private List<Donation> mDonations;
+
     /**
      * The adapter for the recycle view list of donations
      */
@@ -61,8 +66,13 @@ public class InventoryListFragment extends Fragment {
         if (getArguments().containsKey(ARG_LOCATION_ID)) {
             //Get the id from the intent arguments (bundle) and
             //ask the model to give us the location object
+            
             LocationsModel model = LocationsModel.getInstance();
             mLocation = model.getCurrentLocation();
+            DonationModel model2 = DonationModel.getInstance();
+            mDonations = model2.getInventory();
+            model2.addInventoryToLocation(mLocation, mDonations);
+
 
             Log.d("InventoryListFragment", "Passing over location: " + mLocation);
             Log.d("InventoryListFragment", "Got donations: " + mLocation.getInventory().size());
@@ -119,14 +129,15 @@ public class InventoryListFragment extends Fragment {
             /**
              * Collection of the items to be shown in this list.
              */
-            private final List<Donation> mValues;
+            //private final List<Donation> mValues;
+
 
             /**
              * set the items to be used by the adapter
              *
              * @param items the list of items to be displayed in the recycler view
              */
-            public SimpleDonationRecyclerViewAdapter(List<Donation> items) { mValues = items; }
+            public SimpleDonationRecyclerViewAdapter(List<Donation> items) { mDonations = items; }
 
             @Override
             public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -148,14 +159,14 @@ public class InventoryListFragment extends Fragment {
                 to an element in the view (which is one of our two TextView widgets
                   */
                 //start by getting the element at the correct position
-                holder.mDonation = mValues.get(position);
+                holder.mDonation = mDonations.get(position);
                 Log.d("Adapter", "donation: " + holder.mDonation);
                 /*
                   Now we bind the data to the widgets. In this case, pretty simple, put the id in one
                   textview and the string rep of a course in the other.
                  */
-                holder.mIdView.setText("" + mValues.get(position).getId());
-                holder.mContentView.setText(mValues.get(position).toString());
+                holder.mIdView.setText("" + mDonations.get(position).getId());
+                holder.mContentView.setText(mDonations.get(position).toString());
 
                 /*
                  * set up a listener to handle if the user clicks on this list item, what should happen?
@@ -171,7 +182,7 @@ public class InventoryListFragment extends Fragment {
                                 pass along the selected donation we can retrieve the correct data in
                                 the next window
                              */
-                        intent.putExtra(InventoryListFragment.ARG_DONATION_ID, holder.mDonation);
+                        intent.putExtra(ARG_DON_ID, holder.mDonation);
 
                         //now just display the new window
                         context.startActivity(intent);
@@ -181,7 +192,7 @@ public class InventoryListFragment extends Fragment {
             }
 
             @Override
-            public int getItemCount() { return mValues.size(); }
+            public int getItemCount() { return mDonations.size(); }
 
             /**
              * This inner class represents a ViewHolder which provides us a way to cache information
