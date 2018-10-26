@@ -182,7 +182,7 @@ public class InventoryListFragment extends Fragment {
                                 pass along the selected donation we can retrieve the correct data in
                                 the next window
                              */
-                        intent.putExtra(ARG_DON_ID, holder.mDonation);
+                        intent.putExtra(ARG_DON_ID, holder.mDonation.getId());
 
                         //now just display the new window
                         context.startActivity(intent);

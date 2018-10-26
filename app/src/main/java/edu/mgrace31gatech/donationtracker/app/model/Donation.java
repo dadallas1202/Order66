@@ -35,7 +35,7 @@ public class Donation implements Parcelable {
         this.comments = comments;
         this.time = time;
         this.date = date;
-        this.id = Donation.Next_Id++;
+        //this.id = Donation.Next_Id++;
     }
 
     public Donation(String name, String short_description, String long_description,
@@ -47,7 +47,10 @@ public class Donation implements Parcelable {
      * No param constructor -- DO NOT CALL NORMALLY
      * This constructor only for GUI use in edit/new student dialog
      */
-    public Donation() { this("enter new name", "NA", "NA", 1000, "NA", "NA", null, null); }
+    public Donation() {
+        this("enter new name", "NA", "NA", 1000, "NA", "NA", null, null);
+        this.id = Donation.Next_Id++;
+    }
 
     public String getCategory() { return category; }
     public void setCategory(String _category) { category = _category; }
