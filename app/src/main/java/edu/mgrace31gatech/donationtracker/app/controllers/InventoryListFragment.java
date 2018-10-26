@@ -66,7 +66,7 @@ public class InventoryListFragment extends Fragment {
         if (getArguments().containsKey(ARG_LOCATION_ID)) {
             //Get the id from the intent arguments (bundle) and
             //ask the model to give us the location object
-            
+
             LocationsModel model = LocationsModel.getInstance();
             mLocation = model.getCurrentLocation();
             DonationModel model2 = DonationModel.getInstance();

@@ -1,5 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,4 +40,12 @@ public class DonationModel {
     public Donation getCurrentDonation() { return _currentDonation; }
 
     public List<Donation> getInventory() { return _donations; }
+
+    public Donation findDonationById(int id) {
+        for (Donation d : _donations) {
+            if (d.getId() == id) return d;
+        }
+        Log.d("MYAPP", "Warning - Failed to find id: " + id);
+        return null;
+    }
 }

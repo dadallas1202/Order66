@@ -1,11 +1,15 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -19,6 +23,7 @@ import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
  * on handsets.
  */
 public class DonationDetailFragment extends Fragment {
+
      /**
       * The fragment argument representing the item ID that this
       * fragment represents.
@@ -45,14 +50,13 @@ public class DonationDetailFragment extends Fragment {
              //arguments. In a read-world scenario, use a Loader
              //to load content from a content provider.
 
-             int donation_key = getArguments().getInt(ARG_DON_ID);
-             Log.d("MYAPP", "Start details for: " + donation_key);
-             mDonation = DonationModel.getInstance().getCurrentDonation();
-                     //.findDonationById(donation_key);
+             int donation_id = getArguments().getInt(ARG_DON_ID);
+             Log.d("MYAPP", "Start details for: " + donation_id);
+             mDonation = DonationModel.getInstance().findDonationById(donation_id);
              if(mDonation == null) {
-                 Log.d("MYAPP", "Null Donation: " + donation_key);
+                 Log.d("MYAPP", "Null Donation: " + donation_id);
              } else {
-                 Log.d("MYAPP", "Not Null Donation: " + donation_key);
+                 Log.d("MYAPP", "Not Null Donation: " + donation_id);
              }
          }
      }
@@ -60,7 +64,7 @@ public class DonationDetailFragment extends Fragment {
      @Override
      public View onCreateView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
-         View rootView = inflater.inflate(R.layout.inventory_list, container, false);
+         View rootView = inflater.inflate(R.layout.donation_detail, container, false);
          Log.d("MYAPP", "Getting ready to set data");
          if(mDonation != null) {
              ((TextView) rootView.findViewById(R.id.nameDonation)).setText(mDonation.getName());

@@ -55,8 +55,9 @@ public class Donation implements Parcelable {
     public String getComments() { return comments; }
 
     public String getDate() {
-        DateFormat dateFormat = new SimpleDateFormat("mm-dd-yyyy");
-        return dateFormat.format(date);
+        //DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        //return dateFormat.format(date);
+        return date.toString();
     }
     public void setDate(LocalDate _date) { date = _date; }
 
@@ -70,8 +71,9 @@ public class Donation implements Parcelable {
     public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
 
     public String getTime() {
-        DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
-        return dateFormat.format(time);
+        //DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+        //return dateFormat.format(time);
+        return time.toString();
     }
     public void setTime(LocalTime _time) { time = _time; }
 
