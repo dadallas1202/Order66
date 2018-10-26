@@ -21,7 +21,7 @@ public class Donation implements Parcelable {
     private String short_description;
     private LocalTime time;
     private double value;
-    private static int Next_Id = 0;
+    private static int Next_Id = 1;
     private int id;
 
     public Donation(String name, String short_description, String long_description, double value, String category,

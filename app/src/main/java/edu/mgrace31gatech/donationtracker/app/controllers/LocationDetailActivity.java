@@ -3,6 +3,7 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -30,10 +31,6 @@ public class LocationDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(LocationDetailActivity.this, InventoryListActivity.class);
                 intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1));
                 startActivity(intent);
-//                Log.d("MYAPP", "In Inventory Button");
-//                Intent intent = new Intent(LocationDetailActivity.this, InventoryListActivity.class);
-//                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1000));
-//                startActivity(intent);
             }
         });
 

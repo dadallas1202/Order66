@@ -31,7 +31,6 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
     private EditText fullDescription;
     private EditText Value;
     private Spinner Category;
-    private Button addButton;
 
     /*
         Keeping track of spinner changes. Not really used right now, probably don't need this.
@@ -56,7 +55,6 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         fullDescription = (EditText)findViewById(R.id.fullDescriptionBox);
         Value = (EditText)findViewById(R.id.valueBox);
         Category = (Spinner)findViewById(R.id.categorySpinner);
-        addButton = (Button)findViewById(R.id.addButton);
 
         /*
           Set up the adapter to display the allowable categories in the spinner
@@ -67,7 +65,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
 
         _donation = new Donation();
 
-        Name.setText(_donation.getName());
+        //Name.setText(_donation.getName());
     }
 
     /**

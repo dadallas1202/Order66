@@ -7,7 +7,7 @@
     tools:context=".app.controllers.DonationDetailActivity">
 
     <ScrollView
-        android:id="@+id/inventory_detail_container"
+        android:id="@+id/donation_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

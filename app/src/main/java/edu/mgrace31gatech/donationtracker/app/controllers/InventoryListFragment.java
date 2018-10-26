@@ -142,7 +142,7 @@ public class InventoryListFragment extends Fragment {
             @Override
             public void onBindViewHolder(final SimpleDonationRecyclerViewAdapter.ViewHolder holder, int position) {
 
-                final LocationsModel model = LocationsModel.getInstance();
+                //final LocationsModel model = LocationsModel.getInstance();
                 /*
                 This is where we have to bind each data element in the list (given by position parameter)
                 to an element in the view (which is one of our two TextView widgets
