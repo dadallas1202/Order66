@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class RegisteredUser {
+public class RegisteredUser {
 
     public static List<String> userTypes = Arrays.asList("User", "Admin");
     private static Map<String, String> users = new HashMap<>();
@@ -28,5 +28,13 @@ public abstract class RegisteredUser {
 
     public static Map<String, String> usersList() {
         return users;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }
