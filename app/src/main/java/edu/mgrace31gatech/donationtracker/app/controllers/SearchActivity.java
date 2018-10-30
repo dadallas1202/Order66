@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,11 @@ import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
+import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
+
+import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailFragment.ARG_DON_ID;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -70,21 +72,32 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        
+
         View recyclerView = findViewById(R.id.dataitem_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
     }
+
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(LocationsModel.INSTANCE.getItems()));
+        List<Location> locations1 = LocationsModel.INSTANCE.getItems();
+        List<Donation> allDonations = new ArrayList<>();
+
+        // make a list of donations
+        for (Location l : locations1) {
+            for (Donation d : l.getInventory()) {
+                allDonations.add(d);
+            }
+        }
+
+        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(allDonations));
     }
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<Location> mValues;
+        private final List<Donation> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<Location> locations) {
-            mValues = locations;
+        public SimpleItemRecyclerViewAdapter(List<Donation> donations) {
+            mValues = donations;
         }
 
         @Override
@@ -103,20 +116,23 @@ public class SearchActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mKeyView.setText("" + mValues.get(position).getKey());
+            holder.mKeyView.setText("" + mValues.get(position).getId());
             holder.mContentView.setText(mValues.get(position).getName());
 
-            final LocationsModel model = LocationsModel.getInstance();
+            final DonationModel model = DonationModel.getInstance();
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, LocationDetailActivity.class);
-                    Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getName());
-                    Log.d("MYAPP", "Switch to detailed view for item: " + holder.mItem.getKey());
-                    intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, holder.mItem.getKey());
-                    model.setCurrentLocation(holder.mItem);
+                    Intent intent = new Intent(context, DonationDetailActivity.class);
+                            /*
+                                pass along the selected donation we can retrieve the correct data in
+                                the next window
+                             */
+                    intent.putExtra(ARG_DON_ID, holder.mItem.getId());
+
+                    //now just display the new window
                     context.startActivity(intent);
                 }
             });
@@ -126,7 +142,7 @@ public class SearchActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mKeyView;
             public final TextView mContentView;
-            public Location mItem;
+            public Donation mItem;
 
             public ViewHolder(View view) {
                 super(view);
