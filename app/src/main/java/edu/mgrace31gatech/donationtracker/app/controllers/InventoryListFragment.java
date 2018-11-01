@@ -3,7 +3,9 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -112,10 +118,18 @@ public class InventoryListFragment extends Fragment {
          * @param recyclerView the view that needs this adapter
          */
         private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-            adapter = new SimpleDonationRecyclerViewAdapter(mLocation.getInventory());
+            adapter = new SimpleDonationRecyclerViewAdapter(getList("donations"));
             Log.d("Adapter", adapter.toString());
             recyclerView.setAdapter(adapter);
         }
+
+    public List<Donation> getList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<List<Donation>>() {}.getType();
+        return gson.fromJson(json, type);
+    }
 
         /**
          * This inner class is our custom adapter. It takes our basic model information and
@@ -137,7 +151,13 @@ public class InventoryListFragment extends Fragment {
              *
              * @param items the list of items to be displayed in the recycler view
              */
-            public SimpleDonationRecyclerViewAdapter(List<Donation> items) { mDonations = items; }
+            public SimpleDonationRecyclerViewAdapter(List<Donation> items) {
+                if (items != null) {
+                    mDonations = items;
+                } else {
+                    mLocation.getInventory();
+                }
+            }
 
             @Override
             public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

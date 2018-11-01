@@ -19,7 +19,7 @@ public class DonationDetailActivity extends AppCompatActivity {
             //using a fragment transaction.
             Bundle arguments = new Bundle();
             arguments.putInt(DonationDetailFragment.ARG_DON_ID,
-                    getIntent().getIntExtra(DonationDetailFragment.ARG_DON_ID, 1));
+                    getIntent().getIntExtra(DonationDetailFragment.ARG_DON_ID, 100));
             DonationDetailFragment fragment = new DonationDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction().add(R.id.donation_detail_container, fragment).commit();

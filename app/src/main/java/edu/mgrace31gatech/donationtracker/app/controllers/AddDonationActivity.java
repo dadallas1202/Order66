@@ -1,6 +1,8 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.gson.Gson;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -21,6 +25,7 @@ import edu.mgrace31gatech.donationtracker.app.model.Donation;
 import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
+import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -89,8 +94,18 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
 
         Log.d("Edit", "Got new donation data: " + _donation);
         model.addDonation(_donation);
+        saveList(model.getInventory(), "donations");
 
         finish();
+    }
+
+    public void saveList(List<Donation> list, String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
     }
 
     @Override
