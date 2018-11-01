@@ -48,4 +48,8 @@ public class DonationModel {
         Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
+
+    public void setCurrentDonation(Donation currentDonation) {
+        this._currentDonation = currentDonation;
+    }
 }

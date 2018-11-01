@@ -3,8 +3,6 @@ package edu.mgrace31gatech.donationtracker.app.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -35,7 +33,7 @@ public class Donation implements Parcelable {
         this.comments = comments;
         this.time = time;
         this.date = date;
-        //this.id = Donation.Next_Id++;
+        this.id = Donation.Next_Id++;
     }
 
     public Donation(String name, String short_description, String long_description,
@@ -50,6 +48,22 @@ public class Donation implements Parcelable {
     public Donation() {
         this("enter new name", "NA", "NA", 1000, "NA", "NA", null, null);
         this.id = Donation.Next_Id++;
+    }
+
+    public Donation(Donation donation) {
+        this.name = donation.name;
+        this.short_description = donation.short_description;
+        this.long_description = donation.long_description;
+        this.value = donation.value;
+        this.category = donation.category;
+        this.comments = donation.comments;
+        this.time = donation.time;
+        this.date = donation.date;
+        this.id = donation.id;
+    }
+
+    public Donation(String s) {
+        this.name = s;
     }
 
     public String getCategory() { return category; }
@@ -94,7 +108,7 @@ public class Donation implements Parcelable {
         return name;
     }
 
-    private Donation(Parcel in) {
+    public Donation(Parcel in) {
         name = in.readString();
         short_description = in.readString();
         long_description = in.readString();
