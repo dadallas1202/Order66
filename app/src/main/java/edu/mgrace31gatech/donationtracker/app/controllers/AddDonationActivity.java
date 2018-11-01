@@ -94,13 +94,13 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
 
         Log.d("Edit", "Got new donation data: " + _donation);
         model.addDonation(_donation);
-        saveList(model.getInventory(), "donations");
+//        saveList(model.getInventory(), "donations");
 
         finish();
     }
 
     public void saveList(List<Donation> list, String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(list);

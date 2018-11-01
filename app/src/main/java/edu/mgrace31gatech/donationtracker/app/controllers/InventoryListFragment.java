@@ -118,7 +118,7 @@ public class InventoryListFragment extends Fragment {
          * @param recyclerView the view that needs this adapter
          */
         private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-            adapter = new SimpleDonationRecyclerViewAdapter(getList("donations"));
+            adapter = new SimpleDonationRecyclerViewAdapter(mLocation.getInventory());
             Log.d("Adapter", adapter.toString());
             recyclerView.setAdapter(adapter);
         }
@@ -152,11 +152,11 @@ public class InventoryListFragment extends Fragment {
              * @param items the list of items to be displayed in the recycler view
              */
             public SimpleDonationRecyclerViewAdapter(List<Donation> items) {
-                if (items != null) {
+//                if (items != null) {
                     mDonations = items;
-                } else {
-                    mLocation.getInventory();
-                }
+//                } else {
+//                    mLocation.getInventory();
+//                }
             }
 
             @Override

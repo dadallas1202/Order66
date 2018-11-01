@@ -47,7 +47,7 @@ public class Donation implements Parcelable {
      */
     public Donation() {
         this("enter new name", "NA", "NA", 1000, "NA", "NA", null, null);
-        this.id = Donation.Next_Id++;
+//        this.id = Donation.Next_Id++;
     }
 
     public Donation(Donation donation) {
