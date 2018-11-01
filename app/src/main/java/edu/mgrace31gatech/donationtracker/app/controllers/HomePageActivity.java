@@ -21,6 +21,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
     private Button Locations;
+    private Button Search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,15 @@ public class HomePageActivity extends AppCompatActivity {
             public void onClick(View view) {
                 readSDFile();
                 Intent intent = new Intent(HomePageActivity.this, LocationList.class);
+                startActivity(intent);
+            }
+        });
+        Search = (Button)findViewById(R.id.search);
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                readSDFile();
+                Intent intent = new Intent(HomePageActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
