@@ -55,13 +55,13 @@ public class RegisteredUser {
         return myUsers;
     }
 
-    public static boolean addUser(String name, String userName, String password, String userType) {
+    public static boolean addUser(String name, String username, String password, String userType) {
         RegisteredUser newUser = userType.equals("User")
-                ? new User(name, userName, password)
-                : new Admin(name, userName, password);
-        if (!users.containsKey(userName)) {
+                ? new User(name, username, password)
+                : new Admin(name, username, password);
+        if (!users.containsKey(username)) {
             myUsers.add(newUser);
-            users.put(userName, password);
+            users.put(username, password);
             return true;
         }
         return false;

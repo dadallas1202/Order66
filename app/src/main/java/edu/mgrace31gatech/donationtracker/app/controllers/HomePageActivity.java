@@ -22,6 +22,7 @@ public class HomePageActivity extends AppCompatActivity {
     private Button Logout;
     private Button Locations;
     private Button Search;
+    private boolean locationsFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,10 @@ public class HomePageActivity extends AppCompatActivity {
         Locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readSDFile();
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
                 Intent intent = new Intent(HomePageActivity.this, LocationList.class);
                 startActivity(intent);
             }
@@ -50,7 +54,10 @@ public class HomePageActivity extends AppCompatActivity {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readSDFile();
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
                 Intent intent = new Intent(HomePageActivity.this, SearchActivity.class);
                 startActivity(intent);
             }

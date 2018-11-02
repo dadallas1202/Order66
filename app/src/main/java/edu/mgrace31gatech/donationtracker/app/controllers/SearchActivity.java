@@ -45,6 +45,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         // make a list of locations as well as list of all donations
         for (Location l : locations1) {
             locationName.add(l.getName());
+
             for (Donation d : l.getInventory()) {
                 allDonations.add(d);
             }
