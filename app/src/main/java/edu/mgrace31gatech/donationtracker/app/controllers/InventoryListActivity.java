@@ -34,6 +34,8 @@ public class InventoryListActivity extends AppCompatActivity {
                 Snackbar.make(v, "Creating a new Donation", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(getBaseContext(), AddDonationActivity.class);
+                intent.putExtra(InventoryListFragment.ARG_LOCATION_ID,
+                        getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1));
                 startActivity(intent);
             }
         });

@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -76,7 +77,8 @@ public class InventoryListFragment extends Fragment {
             LocationsModel model = LocationsModel.getInstance();
             mLocation = model.getCurrentLocation();
             DonationModel model2 = DonationModel.getInstance();
-            mDonations = model2.getInventory();
+            mDonations = mLocation.getInventory();
+                    //getList(mLocation.getName()) == null ? new ArrayList<Donation>() : getList(mLocation.getName());
             model2.addInventoryToLocation(mLocation, mDonations);
 
 
@@ -124,7 +126,7 @@ public class InventoryListFragment extends Fragment {
         }
 
     public List<Donation> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
         Type type = new TypeToken<List<Donation>>() {}.getType();
@@ -152,11 +154,7 @@ public class InventoryListFragment extends Fragment {
              * @param items the list of items to be displayed in the recycler view
              */
             public SimpleDonationRecyclerViewAdapter(List<Donation> items) {
-//                if (items != null) {
-                    mDonations = items;
-//                } else {
-//                    mLocation.getInventory();
-//                }
+                mDonations = items;
             }
 
             @Override

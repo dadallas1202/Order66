@@ -15,9 +15,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -82,6 +85,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         Log.d("Edit", "Add Donation");
         DonationModel model = DonationModel.getInstance();
         LocationsModel model2 = LocationsModel.getInstance();
+        Location location = model2.getCurrentLocation();
+//        location.setInventory(getList(location.getName()) == null ? new ArrayList<Donation>() : getList(location.getName()));
         double value = Double.parseDouble(Value.getText().toString());
         _donation.setName(Name.getText().toString());
         _donation.setShortDescription(shortDescription.getText().toString());
@@ -90,11 +95,12 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         _donation.setCategory(Category.getSelectedItem().toString());
         _donation.setTime(LocalTime.now());
         _donation.setDate(LocalDate.now());
-        _donation.setLocation(model2.getCurrentLocation());
+        _donation.setLocation(location);
+        _donation.setId(location.size() + 1);
 
         Log.d("Edit", "Got new donation data: " + _donation);
-        model.addDonation(_donation);
-//        saveList(model.getInventory(), "donations");
+        location.addDonation(_donation);
+//        saveList(location.getInventory(), location.getName());
 
         finish();
     }
@@ -106,6 +112,14 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         String json = gson.toJson(list);
         editor.putString(key, json);
         editor.apply();     // This line is IMPORTANT !!!
+    }
+
+    public List<Donation> getList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<List<Donation>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 
     @Override
