@@ -110,14 +110,14 @@ public class ListViewAdapter extends BaseAdapter {
                     allDonations.addAll(arraylist);
                 } else {
                     for (Donation wp : arraylist) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
                 }
             } else {
                 for (Donation d : arraylist) {
-                    if (d.getCategory().equals(catergory)) {
+                    if (d.getCategory().equals(catergory) && !cHelper.contains(d)) {
                         cHelper.add(d);
                     }
                 }
@@ -125,7 +125,7 @@ public class ListViewAdapter extends BaseAdapter {
                     allDonations.addAll(cHelper);
                 } else {
                     for (Donation wp : cHelper) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
@@ -134,21 +134,25 @@ public class ListViewAdapter extends BaseAdapter {
         } else {
             for(Location l: locations) {
                 if(l.getName().equals(location)) {
-                    lHelper.addAll(l.getInventory());
+                    for (Donation d : l.getInventory()) {
+                        if (lHelper.contains(d)) {
+                            lHelper.add(d);
+                        }
+                    }
                 }
                 if (catergory.equals("All Categories")) {
                     if (charText.length() == 0) {
                         allDonations.addAll(lHelper);
                     } else {
                         for (Donation wp : lHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }
                     }
                 } else {
                     for (Donation d : lHelper) {
-                        if (d.getCategory().equals(catergory)) {
+                        if (d.getCategory().equals(catergory) && !cHelper.contains(d)) {
                             cHelper.add(d);
                         }
                     }
@@ -156,7 +160,7 @@ public class ListViewAdapter extends BaseAdapter {
                         allDonations.addAll(cHelper);
                     } else {
                         for (Donation wp : cHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }
@@ -165,6 +169,10 @@ public class ListViewAdapter extends BaseAdapter {
 
             }
 
+        }
+
+        if (allDonations.isEmpty()) {
+            allDonations.add(new Donation("No Donations found"));
         }
 
         notifyDataSetChanged();
