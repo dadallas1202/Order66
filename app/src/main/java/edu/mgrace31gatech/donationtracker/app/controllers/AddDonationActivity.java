@@ -30,6 +30,12 @@ import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 
+/**
+ * Activity to control the process of adding a new donation to the app.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ *
+ */
 public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     /* ************************
@@ -106,6 +112,12 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         finish();
     }
 
+    /**
+     * Saves the list of donations.
+     *
+     * @param list the list of donations
+     * @param key a key for the JSON object
+     */
     public void saveList(List<Donation> list, String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
@@ -115,6 +127,12 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         editor.apply();     // This line is IMPORTANT !!!
     }
 
+    /**
+     * Returns the list of donations.
+     *
+     * @param key the key for the JSON object
+     * @return the list of donations
+     */
     public List<Donation> getList(String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
