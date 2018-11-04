@@ -96,9 +96,9 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         _donation.setTime(LocalTime.now());
         _donation.setDate(LocalDate.now());
         _donation.setLocation(location);
-        _donation.setId(location.size() + 1);
+        _donation.setViewId(location.getInventory().size() + 1);
 
-        Log.d("Edit", "Got new donation data: " + _donation);
+        Log.d("Edit", "Got new donation data: " + _donation + " #" + _donation.getViewId());
         location.addDonation(_donation);
         model.addDonation(_donation);
 //        saveList(location.getInventory(), location.getName());

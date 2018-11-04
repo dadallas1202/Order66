@@ -183,7 +183,7 @@ public class InventoryListFragment extends Fragment {
                   Now we bind the data to the widgets. In this case, pretty simple, put the id in one
                   textview and the string rep of a course in the other.
                  */
-                holder.mIdView.setText("" + mDonations.get(position).getId());
+                holder.mIdView.setText("" + mDonations.get(position).getViewId());
                 holder.mContentView.setText(mDonations.get(position).toString());
 
                 /*

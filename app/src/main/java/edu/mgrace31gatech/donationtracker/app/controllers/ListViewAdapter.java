@@ -122,7 +122,11 @@ public class ListViewAdapter extends BaseAdapter {
                     }
                 }
                 if (charText.length() == 0) {
-                    allDonations.addAll(cHelper);
+                    for (Donation d : cHelper) {
+                        if (!allDonations.contains(d)) {
+                            allDonations.add(d);
+                        }
+                    }
                 } else {
                     for (Donation wp : cHelper) {
                         if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
@@ -131,18 +135,25 @@ public class ListViewAdapter extends BaseAdapter {
                     }
                 }
             }
+            if (allDonations.isEmpty()) {
+                allDonations.add(new Donation("No Donations found"));
+            }
         } else {
             for(Location l: locations) {
                 if(l.getName().equals(location)) {
                     for (Donation d : l.getInventory()) {
-                        if (lHelper.contains(d)) {
+                        if (!lHelper.contains(d)) {
                             lHelper.add(d);
                         }
                     }
                 }
                 if (catergory.equals("All Categories")) {
                     if (charText.length() == 0) {
-                        allDonations.addAll(lHelper);
+                        for (Donation d : lHelper) {
+                            if (!allDonations.contains(d)) {
+                                allDonations.add(d);
+                            }
+                        }
                     } else {
                         for (Donation wp : lHelper) {
                             if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
@@ -157,7 +168,11 @@ public class ListViewAdapter extends BaseAdapter {
                         }
                     }
                     if (charText.length() == 0) {
-                        allDonations.addAll(cHelper);
+                        for (Donation d : cHelper) {
+                            if (!allDonations.contains(d)) {
+                                allDonations.add(d);
+                            }
+                        }
                     } else {
                         for (Donation wp : cHelper) {
                             if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
@@ -168,11 +183,9 @@ public class ListViewAdapter extends BaseAdapter {
                 }
 
             }
-
-        }
-
-        if (allDonations.isEmpty()) {
-            allDonations.add(new Donation("No Donations found"));
+            if (allDonations.isEmpty()) {
+                allDonations.add(new Donation("No Donations found"));
+            }
         }
 
         notifyDataSetChanged();
