@@ -36,6 +36,8 @@ import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailF
  *
  * Basically this displays a list of donations that are in a particular
  * location that was selected from the location list screen.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListFragment extends Fragment {
@@ -125,6 +127,12 @@ public class InventoryListFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }
 
+    /**
+     * Returns the list of donations for the location.
+     *
+     * @param key the key for the JSON object
+     * @return a list of donations for that location
+     */
     public List<Donation> getList(String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
         Gson gson = new Gson();

@@ -21,6 +21,8 @@ import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
  * This fragment is either contained in a {@link InventoryListActivity}
  * in two-pane mode (on tablets) or a {@link DonationDetailActivity}
  * on handsets.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 public class DonationDetailFragment extends Fragment {
 

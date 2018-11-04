@@ -16,6 +16,8 @@ import edu.mgrace31gatech.donationtracker.R;
  * An activity representing a single Location Inventory screen.
  *
  * Here we need to display a list of donations.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListActivity extends AppCompatActivity {

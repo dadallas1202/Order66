@@ -8,6 +8,11 @@ import android.view.MenuItem;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity to control the detail screen for a donation.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ */
 public class DonationDetailActivity extends AppCompatActivity {
 
     @Override
