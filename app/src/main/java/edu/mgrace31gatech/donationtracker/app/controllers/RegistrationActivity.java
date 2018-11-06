@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,14 +53,17 @@ public class RegistrationActivity extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RegisteredUser.usersList().put(Username.getText().toString(), Password.getText().toString());
-                RegisteredUser newUser = UserType.getSelectedItem().equals("User")
-                        ? new User(Name.getText().toString(), Username.getText().toString(), Password.getText().toString())
-                        : new Admin(Name.getText().toString(), Username.getText().toString(), Password.getText().toString());
-                if (!RegisteredUser.myUsers.contains(newUser)) {
-                    RegisteredUser.myUsers.add(newUser);
-                }
-                saveList(RegisteredUser.myUsers, "users");
+                RegisteredUser.setMyUsers(getList("users"));
+                RegisteredUser.addUser(Name.getText().toString(), Username.getText().toString(),
+                        Password.getText().toString(), UserType.getSelectedItem().toString());
+//                RegisteredUser newUser = UserType.getSelectedItem().equals("User")
+//                        ? new User(Name.getText().toString(), Username.getText().toString(), Password.getText().toString())
+//                        : new Admin(Name.getText().toString(), Username.getText().toString(), Password.getText().toString());
+//                if (!RegisteredUser.myUsers.contains(newUser)) {
+//                    RegisteredUser.myUsers.add(newUser);
+//                    RegisteredUser.getUsers().put(Username.getText().toString(), Password.getText().toString());
+//                }
+                saveList(RegisteredUser.getMyUsers(), "users");
                 Intent intent = new Intent(RegistrationActivity.this, HomePageActivity.class);
                 startActivity(intent);
             }
@@ -73,11 +78,19 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
     public void saveList(List<RegisteredUser> list, String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(list);
         editor.putString(key, json);
         editor.apply();     // This line is IMPORTANT !!!
+    }
+
+    public List<RegisteredUser> getList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<List<RegisteredUser>>() {}.getType();
+        return gson.fromJson(json, type);
     }
 }

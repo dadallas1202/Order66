@@ -16,6 +16,8 @@ import edu.mgrace31gatech.donationtracker.R;
  * An activity representing a single Location Inventory screen.
  *
  * Here we need to display a list of donations.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListActivity extends AppCompatActivity {
@@ -34,6 +36,8 @@ public class InventoryListActivity extends AppCompatActivity {
                 Snackbar.make(v, "Creating a new Donation", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(getBaseContext(), AddDonationActivity.class);
+                intent.putExtra(InventoryListFragment.ARG_LOCATION_ID,
+                        getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1));
                 startActivity(intent);
             }
         });

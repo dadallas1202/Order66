@@ -1,5 +1,10 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,11 +30,6 @@ public class RegisteredUser {
         this.isAdmin = isAdmin;
     }
 
-
-    public static Map<String, String> usersList() {
-        return users;
-    }
-
     public String getUserName() {
         return userName;
     }
@@ -37,4 +37,34 @@ public class RegisteredUser {
     public String getPassword() {
         return password;
     }
+
+    public static Map<String, String> getUsers() {
+        return users;
+    }
+
+    public static void setMyUsers(List<RegisteredUser> list) {
+        if (list == null) {
+            myUsers = new ArrayList<>();
+        }
+         else {
+            myUsers = list;
+        }
+    }
+
+    public static List<RegisteredUser> getMyUsers() {
+        return myUsers;
+    }
+
+    public static boolean addUser(String name, String username, String password, String userType) {
+        RegisteredUser newUser = userType.equals("User")
+                ? new User(name, username, password)
+                : new Admin(name, username, password);
+        if (!users.containsKey(username)) {
+            myUsers.add(newUser);
+            users.put(username, password);
+            return true;
+        }
+        return false;
+    }
+
 }

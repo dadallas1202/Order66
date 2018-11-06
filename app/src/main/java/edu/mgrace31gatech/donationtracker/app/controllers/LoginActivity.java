@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public List<RegisteredUser> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
         Type type = new TypeToken<List<RegisteredUser>>() {}.getType();

@@ -32,6 +32,7 @@
         <activity android:name=".app.controllers.DonationDetailActivity" />
         <activity android:name=".app.controllers.AddDonationActivity"></activity>
         <activity android:name=".app.controllers.SearchActivity" />
+        <activity android:name=".app.controllers.MapsActivity" />
     </application>
 
 </manifest>

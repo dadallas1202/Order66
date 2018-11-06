@@ -17,11 +17,17 @@ import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
+/**
+ * Activity that controls the display of the Home Page.
+ *
+ * @authors Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ */
 public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
     private Button Locations;
     private Button Search;
+    private boolean locationsFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,10 @@ public class HomePageActivity extends AppCompatActivity {
         Locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readSDFile();
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
                 Intent intent = new Intent(HomePageActivity.this, LocationList.class);
                 startActivity(intent);
             }
@@ -50,12 +59,19 @@ public class HomePageActivity extends AppCompatActivity {
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                readSDFile();
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
                 Intent intent = new Intent(HomePageActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
     }
+
+    /**
+     * 
+     */
     private void readSDFile () {
         LocationsModel model = LocationsModel.INSTANCE;
 

@@ -3,7 +3,9 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -29,6 +36,8 @@ import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailF
  *
  * Basically this displays a list of donations that are in a particular
  * location that was selected from the location list screen.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListFragment extends Fragment {
@@ -70,7 +79,8 @@ public class InventoryListFragment extends Fragment {
             LocationsModel model = LocationsModel.getInstance();
             mLocation = model.getCurrentLocation();
             DonationModel model2 = DonationModel.getInstance();
-            mDonations = model2.getInventory();
+            mDonations = mLocation.getInventory();
+                    //getList(mLocation.getName()) == null ? new ArrayList<Donation>() : getList(mLocation.getName());
             model2.addInventoryToLocation(mLocation, mDonations);
 
 
@@ -117,6 +127,20 @@ public class InventoryListFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }
 
+    /**
+     * Returns the list of donations for the location.
+     *
+     * @param key the key for the JSON object
+     * @return a list of donations for that location
+     */
+    public List<Donation> getList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<List<Donation>>() {}.getType();
+        return gson.fromJson(json, type);
+    }
+
         /**
          * This inner class is our custom adapter. It takes our basic model information and
          * converts it to the correct layout for this view.
@@ -137,7 +161,9 @@ public class InventoryListFragment extends Fragment {
              *
              * @param items the list of items to be displayed in the recycler view
              */
-            public SimpleDonationRecyclerViewAdapter(List<Donation> items) { mDonations = items; }
+            public SimpleDonationRecyclerViewAdapter(List<Donation> items) {
+                mDonations = items;
+            }
 
             @Override
             public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -165,7 +191,7 @@ public class InventoryListFragment extends Fragment {
                   Now we bind the data to the widgets. In this case, pretty simple, put the id in one
                   textview and the string rep of a course in the other.
                  */
-                holder.mIdView.setText("" + mDonations.get(position).getId());
+                holder.mIdView.setText("" + mDonations.get(position).getViewId());
                 holder.mContentView.setText(mDonations.get(position).toString());
 
                 /*
