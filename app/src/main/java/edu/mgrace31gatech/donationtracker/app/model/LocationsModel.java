@@ -12,6 +12,8 @@ public class LocationsModel {
     public static final LocationsModel INSTANCE = new LocationsModel();
     public static LocationsModel getInstance() { return INSTANCE; }
 
+    private Location theLastAddedElement;
+
     /** holds the list of all locations */
     private List<Location> locationsList;
     private List<Donation> donationsList;
@@ -40,7 +42,14 @@ public class LocationsModel {
      */
     public void addLocation(Location location) {
         locationsList.add(location);
+        theLastAddedElement = location;
     }
+
+    /**
+     * get the last added location
+     * @return theLastAddedElement
+     */
+    public Location getTheLastAddedElement() { return theLastAddedElement; }
 
     /**
      *

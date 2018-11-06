@@ -76,7 +76,7 @@ public class LocationDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.name)).setText("" + mItem.getName());
             Log.d("MYAPP", "Getting ready to set name :");
             ((TextView) rootView.findViewById(R.id.type)).setText(mItem.getType());
-            ((TextView) rootView.findViewById(R.id.lat)).setText(mItem.getLattitude());
+            ((TextView) rootView.findViewById(R.id.lat)).setText(mItem.getLatitude());
             ((TextView) rootView.findViewById(R.id.lon)).setText(mItem.getLongitude());
             ((TextView) rootView.findViewById(R.id.address)).setText(mItem.getAddress());
             ((TextView) rootView.findViewById(R.id.phone)).setText(mItem.getPhone());

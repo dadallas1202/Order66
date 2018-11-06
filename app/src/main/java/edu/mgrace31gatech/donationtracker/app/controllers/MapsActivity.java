@@ -2,6 +2,8 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
@@ -12,6 +14,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -49,6 +52,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Reference to controller interface in the model
         final LocationsModel locationService = LocationsModel.getInstance();
 
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+            @Override
+            public void onMapClick(LatLng latLng) {
+                //Creating a new marker
+                MarkerOptions markerOptions = new MarkerOptions();
+
+                //Setting the position for the marker
+                markerOptions.position(latLng);
+            }
+        });
+
         //Get data for display
         List<Location> locationList = locationService.getItems();
 
@@ -56,7 +71,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for (Location l: locationList) {
             LatLng loc = new LatLng(Double.parseDouble(l.getLatitude()),
                     Double.parseDouble(l.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(l.getAddress()));
+            mMap.addMarker(
+                    new MarkerOptions().position(loc).title(l.getName()).snippet(l.getPhone()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
     }
