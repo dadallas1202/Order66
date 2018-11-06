@@ -13,7 +13,7 @@ import java.util.List;
 public class Location {
     private int key;
     private String name;
-    private String lattitude;
+    private String latitude;
     private String longitude;
     private String address;
     private String city;
@@ -29,7 +29,7 @@ public class Location {
         name = n;
         type = t;
         longitude = lon;
-        lattitude = lat;
+        latitude = lat;
         address = a;
         phone = p;
         city = c;
@@ -51,8 +51,8 @@ public class Location {
         return type;
     }
 
-    public String getLattitude() {
-        return lattitude;
+    public String getLatitude() {
+        return latitude;
     }
 
     public String getLongitude() {
