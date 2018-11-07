@@ -20,7 +20,8 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 /**
  * Activity that controls the display of the Home Page.
  *
- * @authors Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @authors Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
  */
 public class HomePageActivity extends AppCompatActivity {
 
@@ -38,7 +39,8 @@ public class HomePageActivity extends AppCompatActivity {
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomePageActivity.this, WelcomePageActivity.class);
+                Intent intent = new Intent(HomePageActivity.this,
+                        WelcomePageActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,7 +65,8 @@ public class HomePageActivity extends AppCompatActivity {
                     readSDFile();
                     locationsFlag = false;
                 }
-                Intent intent = new Intent(HomePageActivity.this, SearchActivity.class);
+                Intent intent = new Intent(HomePageActivity.this,
+                        SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -80,7 +83,8 @@ public class HomePageActivity extends AppCompatActivity {
             InputStream is = getResources().openRawResource(R.raw.locationdata1);
             //From here we probably should call a model method and pass the InputStream
             //Wrap it in a BufferedReader so that we get the readLine() method
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+            BufferedReader br = new BufferedReader(new InputStreamReader(is,
+                    StandardCharsets.UTF_8));
 
             String line;
             br.readLine(); //get rid of header line
@@ -98,7 +102,10 @@ public class HomePageActivity extends AppCompatActivity {
                 String phone = tokens[9];
                 String web = tokens[10];
 
-                model.addLocation(new Location(key,name, lat, lon, add, city, state, zip, type, phone, web));
+
+                model.addLocation(new Location(key,name, lat, lon, add, city, state, zip, type,
+                        phone, web));
+
             }
             br.close();
         } catch (IOException e) {

@@ -42,6 +42,14 @@ public class RegisteredUser {
         return users;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
     public static void setMyUsers(List<RegisteredUser> list) {
         if (list == null) {
             myUsers = new ArrayList<>();
@@ -65,6 +73,16 @@ public class RegisteredUser {
             return true;
         }
         return false;
+    }
+
+    public static boolean addUser(RegisteredUser user, boolean isAdmin) {
+        String userType;
+        if (isAdmin) {
+            userType = "Admin";
+        } else {
+            userType = "User";
+        }
+        return addUser(user.getName(), user.getUserName(), user.getPassword(), userType);
     }
 
 }
