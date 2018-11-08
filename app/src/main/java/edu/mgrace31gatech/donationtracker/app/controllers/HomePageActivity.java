@@ -27,7 +27,7 @@ public class HomePageActivity extends AppCompatActivity {
 
     private Button Logout;
     private Button Locations;
-//    private Button Map;
+    private Button Map;
     private Button Search;
     private boolean locationsFlag = true;
 
@@ -58,14 +58,18 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        Map = (Button)findViewById(R.id.map);
-//        Map.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(HomePageActivity.this, MapsActivity.class);
-//                startActivity(intent);
-//            }
-//        });
+        Map = (Button)findViewById(R.id.map);
+        Map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
+                Intent intent = new Intent(HomePageActivity.this, MapsActivity.class);
+                startActivity(intent);
+            }
+        });
         Search = (Button)findViewById(R.id.search);
         Search.setOnClickListener(new View.OnClickListener() {
             @Override

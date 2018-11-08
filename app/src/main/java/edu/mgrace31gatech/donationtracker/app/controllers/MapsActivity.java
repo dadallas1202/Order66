@@ -2,6 +2,7 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -66,11 +67,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Get data for display
         List<Location> locationList = locationService.getItems();
-
+        Log.d("MYAPP", "Going to add pins");
         //Add a pin for each location in locationList
         for (Location l: locationList) {
-            LatLng loc = new LatLng(Double.parseDouble(l.getLatitude()),
-                    Double.parseDouble(l.getLongitude()));
+            LatLng loc = new LatLng(Double.parseDouble(l.getLongitude()),
+                    Double.parseDouble(l.getLatitude()));
             mMap.addMarker(
                     new MarkerOptions().position(loc).title(l.getName()).snippet(l.getPhone()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
