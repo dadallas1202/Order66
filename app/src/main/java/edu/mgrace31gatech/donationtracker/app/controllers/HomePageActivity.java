@@ -60,6 +60,10 @@ public class HomePageActivity extends AppCompatActivity {
         Map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationsFlag) {
+                    readSDFile();
+                    locationsFlag = false;
+                }
                 Intent intent = new Intent(HomePageActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
