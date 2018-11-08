@@ -70,8 +70,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Log.d("MYAPP", "Going to add pins");
         //Add a pin for each location in locationList
         for (Location l: locationList) {
-            LatLng loc = new LatLng(Double.parseDouble(l.getLongitude()),
-                    Double.parseDouble(l.getLatitude()));
+            LatLng loc = new LatLng(Double.parseDouble(l.getLatitude()),
+                    Double.parseDouble(l.getLongitude()));
             mMap.addMarker(
                     new MarkerOptions().position(loc).title(l.getName()).snippet(l.getPhone()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
