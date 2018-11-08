@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, WelcomePageActivity.class);
                 startActivity(intent);
-            }
-    });
+                }
+        });
     }
 
     private void validate(String userName, String userPassword) {
