@@ -3,16 +3,21 @@ package edu.mgrace31gatech.donationtracker;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.app.model.Admin;
+import edu.mgrace31gatech.donationtracker.app.model.Donation;
+import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 import edu.mgrace31gatech.donationtracker.app.model.User;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -20,6 +25,7 @@ public class DonationTrackerTest {
 
     private List<RegisteredUser> myUsers;
     private List<Location> myLocations;
+    private DonationModel testDonationModel;
     @Before
     public void setUp() {
         myUsers = new ArrayList<>();
@@ -35,6 +41,14 @@ public class DonationTrackerTest {
                 "2426 COLUMBIA DRIVE","DECATUR","GA","30034","Drop Off","(404) 555 - 9876","www.ddconv.com"));
         myLocations.add(new Location(3,"KEEP NORTH FULTON BEAUTIFUL","33.96921","-84.3688",
                 "470 MORGAN FALLS RD","Sandy Springs","GA","30302","Store","(770) 555 - 7321","www.knfb.org"));
+
+        testDonationModel = new DonationModel();
+        testDonationModel.addDonation(new Donation("Shirt", "Blue Shirt",
+                "Blue Striped Shirt", 20, "Clothes", "",
+                null, null, 1));
+        testDonationModel.addDonation(new Donation("Rug", "furry rug",
+                "square furry rug", 35, "Household", "",
+                LocalTime.now(), LocalDate.now(), 2));
     }
 
     @Test
@@ -62,5 +76,14 @@ public class DonationTrackerTest {
                 .findLocationByKey(myLocations.get(2).getKey()));
         assertNull("Location cannot be found in the list.", locations.findLocationByKey(76));
         assertNull("Location cannot be found in the list.", locations.findLocationByKey(19));
+    }
+
+    @Test
+    public void testFindDonationById() {
+        assertEquals("Incorrect donation found", testDonationModel.findDonationById(1),
+                testDonationModel.getDonation(0));
+        assertEquals("Incorrect donation found", testDonationModel.findDonationById(2),
+                testDonationModel.getDonation(1));
+        assertNotNull("No donation with this id", testDonationModel.findDonationById(2));
     }
 }
