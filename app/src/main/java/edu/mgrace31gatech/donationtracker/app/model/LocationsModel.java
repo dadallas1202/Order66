@@ -36,6 +36,8 @@ public class LocationsModel {
             return locationsList;
     }
 
+    public void setItems(List<Location> list) { locationsList = list; }
+
     /**
      * add a location to the app.
      * @param location the location to be added
@@ -68,7 +70,7 @@ public class LocationsModel {
         for (Location l : locationsList) {
             if (l.getKey() == key) return l;
         }
-        Log.d("MYAPP", "Warning - Failed to find id: " + key);
+//        Log.d("MYAPP", "Warning - Failed to find id: " + key);
         return null;
     }
 
