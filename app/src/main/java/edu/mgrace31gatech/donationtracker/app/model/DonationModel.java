@@ -20,7 +20,7 @@ public class DonationModel {
     /**
      * make a new model
      */
-    private DonationModel() {
+    public DonationModel() {
         _donations = new ArrayList<>();
     }
 
@@ -39,13 +39,17 @@ public class DonationModel {
 
     public Donation getCurrentDonation() { return _currentDonation; }
 
+    public Donation getDonation(int index) { return _donations.get(index); }
+
     public List<Donation> getInventory() { return _donations; }
 
     public Donation findDonationById(int id) {
         for (Donation d : _donations) {
-            if (d.getId() == id) return d;
+            if (d.getId() == id) {
+                return d;
+            }
         }
-        Log.d("MYAPP", "Warning - Failed to find id: " + id);
+        //Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
 

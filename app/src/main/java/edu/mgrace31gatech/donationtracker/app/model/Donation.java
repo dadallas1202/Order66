@@ -42,6 +42,19 @@ public class Donation implements Parcelable {
         this(name, short_description, long_description, value, category,"", time, date);
     }
 
+    public Donation(String name, String short_description, String long_description,
+                    double value, String category, String comments, LocalTime time, LocalDate date, int donId) {
+        this.name = name;
+        this.short_description = short_description;
+        this.long_description = long_description;
+        this.value = value;
+        this.category = category;
+        this.comments = comments;
+        this.time = time;
+        this.date = date;
+        id = donId;
+    }
+
     /**
      * No param constructor -- DO NOT CALL NORMALLY
      * This constructor only for GUI use in edit/new student dialog
