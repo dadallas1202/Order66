@@ -87,5 +87,8 @@ public class DonationTrackerTest {
         assertNotNull("No donation with this id", testDonationModel.findDonationById(2));
     }
 
-
+    @Test
+    public void addDonation() {
+        
+    }
 }
