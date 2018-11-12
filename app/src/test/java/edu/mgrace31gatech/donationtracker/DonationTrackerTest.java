@@ -41,6 +41,9 @@ public class DonationTrackerTest {
                 "2426 COLUMBIA DRIVE","DECATUR","GA","30034","Drop Off","(404) 555 - 9876","www.ddconv.com"));
         myLocations.add(new Location(3,"KEEP NORTH FULTON BEAUTIFUL","33.96921","-84.3688",
                 "470 MORGAN FALLS RD","Sandy Springs","GA","30302","Store","(770) 555 - 7321","www.knfb.org"));
+        myLocations.add(new Location(1, "Boys and Girls Club", "33.73182", "-84.43971",
+                "1642 RICHLAND RD", "ATLANTA", "GEORGIA", "30332", "Store", "(404) 555 - 1234", "www.bgc.wool.ga"));
+
 
         testDonationModel = new DonationModel();
         testDonationModel.addDonation(new Donation("Shirt", "Blue Shirt",
@@ -49,6 +52,9 @@ public class DonationTrackerTest {
         testDonationModel.addDonation(new Donation("Rug", "furry rug",
                 "square furry rug", 35, "Household", "",
                 LocalTime.now(), LocalDate.now(), 2));
+
+//
+//
     }
 
     @Test
@@ -88,7 +94,14 @@ public class DonationTrackerTest {
     }
 
     @Test
-    public void addDonation() {
-        
+    public void addDonation() {}
+    @Test
+    public void testAddLocation() {
+        assertTrue("Location was not added to the location list",
+                LocationsModel.addLocation(myLocations.get(0)));
+        assertTrue("Location was not added to the location list",
+                LocationsModel.addLocation(myLocations.get(1)));
+        assertTrue("Location was added when not supposed to be added: " + myLocations.get(3),
+                !LocationsModel.addLocation(myLocations.get(3)));
     }
 }
