@@ -94,8 +94,6 @@ public class DonationTrackerTest {
     }
 
     @Test
-    public void addDonation() {}
-    @Test
     public void testAddLocation() {
         assertTrue("Location was not added to the location list",
                 LocationsModel.addLocation(myLocations.get(0)));
