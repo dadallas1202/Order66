@@ -61,6 +61,10 @@ public class LocationsModel {
      */
     public Location getCurrentLocation() { return currentLocation; }
 
+    /**
+     * sets currentLocation to the passed in location
+     * @param location
+     */
     public void setCurrentLocation(Location location) { currentLocation = location; }
 
     /**
