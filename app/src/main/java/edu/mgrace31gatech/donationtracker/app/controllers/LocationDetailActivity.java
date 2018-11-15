@@ -31,8 +31,10 @@ public class LocationDetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Snackbar.make(v, "Opening inventory", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Intent intent = new Intent(LocationDetailActivity.this, InventoryListActivity.class);
-                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1));
+                Intent intent = new Intent(
+                        LocationDetailActivity.this, InventoryListActivity.class);
+                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(
+                        LocationDetailFragment.ARG_ITEM_ID, 1));
                 startActivity(intent);
             }
         });
