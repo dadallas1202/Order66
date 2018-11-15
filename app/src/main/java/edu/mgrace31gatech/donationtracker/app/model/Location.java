@@ -1,20 +1,21 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Location {
-    private int key;
-    private String name;
-    private String latitude;
-    private String longitude;
-    private String address;
-    private String city;
-    private String state;
-    private String zip;
-    private String type;
-    private String phone;
-    private String website;
+    private final int key;
+    private final String name;
+    private final String latitude;
+    private final String longitude;
+    private final String address;
+    private final String city;
+    private final String state;
+    private final String zip;
+    private final String type;
+    private final String phone;
+    private final String website;
     private List<Donation> inventory;
 
     public Location(int k, String n, String lat, String lon, String a,String c, String s, String z, String t, String p, String w) {
@@ -60,7 +61,7 @@ public class Location {
         return address;
     }
 
-    public List<Donation> getInventory() { return inventory; }
+    public List<Donation> getInventory() { return Collections.unmodifiableList(inventory); }
 
     public void setInventory(List<Donation> donationList) { inventory = donationList; }
 

@@ -36,13 +36,7 @@ public class DonationDetailFragment extends Fragment {
       */
      private Donation mDonation;
 
-     /**
-      * Mandatory empty constructor for the fragment manager to instantiate
-      * the fragment (e.g. upon screen orientation changes).
-      */
-     public DonationDetailFragment() {}
-
-     @Override
+    @Override
      public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
 

@@ -60,13 +60,6 @@ public class InventoryListFragment extends Fragment {
      */
     private SimpleDonationRecyclerViewAdapter adapter;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment
-     */
-    public InventoryListFragment() {
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +130,7 @@ public class InventoryListFragment extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()).getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<Donation>>() {}.getType();
+        Type type = new TypeToken<List<Donation>>(){}.getType();
         return gson.fromJson(json, type);
     }
 
@@ -155,7 +148,7 @@ public class InventoryListFragment extends Fragment {
              *
              * @param items the list of items to be displayed in the recycler view
              */
-            public SimpleDonationRecyclerViewAdapter(List<Donation> items) {
+            SimpleDonationRecyclerViewAdapter(List<Donation> items) {
                 mDonations = items;
             }
 
@@ -221,12 +214,12 @@ public class InventoryListFragment extends Fragment {
              * the list view (in this case the two TextView)
              */
             public class ViewHolder extends RecyclerView.ViewHolder {
-                public final View mView;
-                public final TextView mIdView;
-                public final TextView mContentView;
-                public Donation mDonation;
+                final View mView;
+                final TextView mIdView;
+                final TextView mContentView;
+                Donation mDonation;
 
-                public ViewHolder(View view) {
+                ViewHolder(View view) {
                     super(view);
                     mView = view;
                     mIdView = view.findViewById(R.id.id2);

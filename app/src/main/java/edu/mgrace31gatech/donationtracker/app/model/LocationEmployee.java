@@ -1,7 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
-public class LocationEmployee extends RegisteredUser {
-    private Location loc;
+class LocationEmployee extends RegisteredUser {
+    private final Location loc;
 
     public LocationEmployee(String name, String userName, String password, Location loc) {
         super(name, userName, password, false);

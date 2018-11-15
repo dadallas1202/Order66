@@ -72,7 +72,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-    public void saveList(List<RegisteredUser> list, String key){
+    private void saveList(List<RegisteredUser> list, String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
@@ -81,11 +81,11 @@ public class RegistrationActivity extends AppCompatActivity {
         editor.apply();     // This line is IMPORTANT !!!
     }
 
-    public List<RegisteredUser> getList(String key){
+    private List<RegisteredUser> getList(String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<RegisteredUser>>() {}.getType();
+        Type type = new TypeToken<List<RegisteredUser>>(){}.getType();
         return gson.fromJson(json, type);
     }
 }

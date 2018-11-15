@@ -116,7 +116,7 @@ public class HomePageActivity extends AppCompatActivity {
                 String web = tokens[10];
 
 
-                model.addLocation(new Location(key,name, lat, lon, add, city, state, zip, type,
+                LocationsModel.addLocation(new Location(key,name, lat, lon, add, city, state, zip, type,
                         phone, web));
 
             }

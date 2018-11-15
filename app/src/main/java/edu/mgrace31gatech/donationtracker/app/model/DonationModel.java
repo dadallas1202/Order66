@@ -1,6 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DonationModel {
@@ -9,7 +10,7 @@ public class DonationModel {
     public static DonationModel getInstance() { return _instance; }
 
     /** holds the list of all donations */
-    private List<Donation> _donations;
+    private final List<Donation> _donations;
 
     private Location _currentLocation;
     /** the currently selected donation, defaults to the first donation */
@@ -39,7 +40,7 @@ public class DonationModel {
 
     public Donation getDonation(int index) { return _donations.get(index); }
 
-    public List<Donation> getInventory() { return _donations; }
+    public List<Donation> getInventory() { return Collections.unmodifiableList(_donations); }
 
     public Donation findDonationById(int id) {
         for (Donation d : _donations) {
