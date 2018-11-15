@@ -19,6 +19,12 @@ import java.util.List;
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 
+/**
+ * Activity that allows for a user to login.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private EditText Username;

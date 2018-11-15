@@ -8,6 +8,9 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity that
+ */
 public class WelcomePageActivity extends AppCompatActivity {
 
     @Override

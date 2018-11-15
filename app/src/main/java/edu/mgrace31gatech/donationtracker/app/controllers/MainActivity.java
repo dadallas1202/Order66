@@ -8,6 +8,12 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity that opens when the app is started.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
