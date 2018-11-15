@@ -111,10 +111,9 @@ public final class LocationsModel {
     /**
      * add a donation to the current location inventory
      *
-     * @param donation the donation to add
      * @return true if donation added, false if not added
      */
-    public boolean addDonation(Donation donation) {
+    public boolean addDonation() {
         return currentLocation != null;
     }
 }

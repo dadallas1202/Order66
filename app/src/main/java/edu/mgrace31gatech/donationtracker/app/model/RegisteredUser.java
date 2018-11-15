@@ -122,7 +122,7 @@ public class RegisteredUser {
      * Adds the specific user.
      * @param user The user to be added.
      * @param isAdmin Whether the user is an admin or not.
-     * @return
+     * @return Whether the user was added or not.
      */
     public static boolean addUser(RegisteredUser user, boolean isAdmin) {
         String userType;
