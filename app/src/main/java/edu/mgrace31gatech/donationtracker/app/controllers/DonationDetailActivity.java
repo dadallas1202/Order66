@@ -10,7 +10,8 @@ import edu.mgrace31gatech.donationtracker.R;
 /**
  * Activity to control the detail screen for a donation.
  *
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class DonationDetailActivity extends AppCompatActivity {
 
@@ -26,7 +27,8 @@ public class DonationDetailActivity extends AppCompatActivity {
                     getIntent().getIntExtra(DonationDetailFragment.ARG_DON_ID, 100));
             DonationDetailFragment fragment = new DonationDetailFragment();
             fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction().add(R.id.donation_detail_container, fragment).commit();
+            getSupportFragmentManager().beginTransaction().add(
+                    R.id.donation_detail_container, fragment).commit();
         }
     }
 

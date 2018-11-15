@@ -10,7 +10,8 @@ import java.util.List;
 
 public class Donation implements Parcelable {
 
-    public static final List<String> categories = Arrays.asList("Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
+    public static final List<String> categories = Arrays.asList(
+            "Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
     private String category;
     private String comments;
     private LocalDate date;
@@ -23,8 +24,8 @@ public class Donation implements Parcelable {
     private int id;
     private int viewId;
 
-    private Donation(String name, String short_description, String long_description, double value, String category,
-                     String comments, LocalTime time, LocalDate date) {
+    private Donation(String name, String short_description, String long_description, double value,
+                     String category, String comments, LocalTime time, LocalDate date) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -43,7 +44,8 @@ public class Donation implements Parcelable {
     }
 
     public Donation(String name, String short_description, String long_description,
-                    double value, String category, String comments, LocalTime time, LocalDate date, int donId) {
+                    double value, String category, String comments, LocalTime time,
+                    LocalDate date, int donId) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -99,7 +101,9 @@ public class Donation implements Parcelable {
     public void setName(String _name) { name = _name; }
 
     public String getShortDescription() { return short_description; }
-    public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
+    public void setShortDescription(String _shortDescription) {
+        short_description = _shortDescription;
+    }
 
     public String getTime() {
         //DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");

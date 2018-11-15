@@ -21,7 +21,8 @@ import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
  * in two-pane mode (on tablets) or a {@link DonationDetailActivity}
  * on handsets.
  *
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class DonationDetailFragment extends Fragment {
 
@@ -63,9 +64,12 @@ public class DonationDetailFragment extends Fragment {
          Log.d("MYAPP", "Getting ready to set data");
          if(mDonation != null) {
              ((TextView) rootView.findViewById(R.id.nameDonation)).setText(mDonation.getName());
-             ((TextView) rootView.findViewById(R.id.shortDescription)).setText(mDonation.getShortDescription());
-             ((TextView) rootView.findViewById(R.id.fullDescription)).setText(mDonation.getLongDescription());
-             ((TextView) rootView.findViewById(R.id.value)).setText(String.valueOf(mDonation.getValue()));
+             ((TextView) rootView.findViewById(R.id.shortDescription)).setText(
+                     mDonation.getShortDescription());
+             ((TextView) rootView.findViewById(R.id.fullDescription)).setText(
+                     mDonation.getLongDescription());
+             ((TextView) rootView.findViewById(R.id.value)).setText(String.valueOf(
+                     mDonation.getValue()));
              ((TextView) rootView.findViewById(R.id.category)).setText(mDonation.getCategory());
              ((TextView) rootView.findViewById(R.id.date)).setText(mDonation.getDate());
              ((TextView) rootView.findViewById(R.id.time)).setText(mDonation.getTime());
