@@ -16,7 +16,8 @@ import edu.mgrace31gatech.donationtracker.R;
  *
  * Here we need to display a list of donations.
  *
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListActivity extends AppCompatActivity {

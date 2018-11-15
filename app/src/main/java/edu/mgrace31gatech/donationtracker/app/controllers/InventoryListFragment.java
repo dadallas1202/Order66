@@ -37,7 +37,8 @@ import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailF
  * Basically this displays a list of donations that are in a particular
  * location that was selected from the location list screen.
  *
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 
 public class InventoryListFragment extends Fragment {
@@ -73,7 +74,6 @@ public class InventoryListFragment extends Fragment {
             mLocation = model.getCurrentLocation();
             DonationModel model2 = DonationModel.getInstance();
             mDonations = mLocation.getInventory();
-                    //getList(mLocation.getName()) == null ? new ArrayList<Donation>() : getList(mLocation.getName());
             model2.addInventoryToLocation(mLocation, mDonations);
 
 
@@ -82,7 +82,8 @@ public class InventoryListFragment extends Fragment {
 
             Activity activity = this.getActivity();
 
-            CollapsingToolbarLayout appBarLayout = Objects.requireNonNull(activity).findViewById(R.id.toolbar_layout);
+            CollapsingToolbarLayout appBarLayout = Objects.requireNonNull(activity).findViewById(
+                    R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mLocation.toString());
             }
@@ -127,7 +128,8 @@ public class InventoryListFragment extends Fragment {
      * @return a list of donations for that location
      */
     public List<Donation> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()).getBaseContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                Objects.requireNonNull(getActivity()).getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
         Type type = new TypeToken<List<Donation>>(){}.getType();
@@ -154,36 +156,42 @@ public class InventoryListFragment extends Fragment {
 
             @NonNull
             @Override
-            public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(
+                    @NonNull ViewGroup parent, int viewType) {
                 /*
                   This sets up the view for each individual item in the recycler display
                   To edit the actual layout, we would look at: res/layout/inventory_list_content.xml
-                  If you look at the example file, you will see it currently just 2 TextView elements
+                  If you look at the example file, you will see it currently just
+                  2 TextView elements
                 */
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.inventory_list_content, parent, false);
                 return new SimpleDonationRecyclerViewAdapter.ViewHolder(view);
             }
             @Override
-            public void onBindViewHolder(@NonNull final SimpleDonationRecyclerViewAdapter.ViewHolder holder, int position) {
+            public void onBindViewHolder(
+                    @NonNull final SimpleDonationRecyclerViewAdapter.ViewHolder holder,
+                    int position) {
 
                 //final LocationsModel model = LocationsModel.getInstance();
                 /*
-                This is where we have to bind each data element in the list (given by position parameter)
-                to an element in the view (which is one of our two TextView widgets
+                This is where we have to bind each data element in the list
+                (given by position parameter) to an element in the view
+                (which is one of our two TextView widgets)
                   */
                 //start by getting the element at the correct position
                 holder.mDonation = mDonations.get(position);
                 Log.d("Adapter", "donation: " + holder.mDonation);
                 /*
-                  Now we bind the data to the widgets. In this case, pretty simple, put the id in one
-                  textview and the string rep of a course in the other.
+                  Now we bind the data to the widgets. In this case, pretty simple,
+                  put the id in one textview and the string rep of a course in the other.
                  */
                 holder.mIdView.setText(mDonations.get(position).getViewId());
                 holder.mContentView.setText(mDonations.get(position).toString());
 
                 /*
-                 * set up a listener to handle if the user clicks on this list item, what should happen?
+                 * set up a listener to handle if the user clicks on this list item,
+                 * what should happen?
                  */
                 holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -210,8 +218,8 @@ public class InventoryListFragment extends Fragment {
 
             /**
              * This inner class represents a ViewHolder which provides us a way to cache information
-             * about the binding between the model element (in this case a Location) and the widgets in
-             * the list view (in this case the two TextView)
+             * about the binding between the model element (in this case a Location)
+             * and the widgets in the list view (in this case the two TextView)
              */
             public class ViewHolder extends RecyclerView.ViewHolder {
                 final View mView;

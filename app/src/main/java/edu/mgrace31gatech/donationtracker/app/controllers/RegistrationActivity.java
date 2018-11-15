@@ -45,7 +45,8 @@ public class RegistrationActivity extends AppCompatActivity {
         Button cancel = findViewById(R.id.cancelbutton);
         UserType = findViewById(R.id.user_type_spinner);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, RegisteredUser.userTypes);
+        ArrayAdapter<String> adapter = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, RegisteredUser.userTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         UserType.setAdapter(adapter);
 
@@ -55,13 +56,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 RegisteredUser.setMyUsers(getList("users"));
                 RegisteredUser.addUser(Name.getText().toString(), Username.getText().toString(),
                         Password.getText().toString(), UserType.getSelectedItem().toString());
-//                RegisteredUser newUser = UserType.getSelectedItem().equals("User")
-//                        ? new User(Name.getText().toString(), Username.getText().toString(), Password.getText().toString())
-//                        : new Admin(Name.getText().toString(), Username.getText().toString(), Password.getText().toString());
-//                if (!RegisteredUser.myUsers.contains(newUser)) {
-//                    RegisteredUser.myUsers.add(newUser);
-//                    RegisteredUser.getUsers().put(Username.getText().toString(), Password.getText().toString());
-//                }
                 saveList(RegisteredUser.getMyUsers(), "users");
                 Intent intent = new Intent(RegistrationActivity.this, HomePageActivity.class);
                 startActivity(intent);
