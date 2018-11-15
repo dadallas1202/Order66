@@ -38,7 +38,7 @@ public class Location {
         return key;
     }
 
-    public String getType() {
+    public CharSequence getType() {
         return type;
     }
 
@@ -54,7 +54,7 @@ public class Location {
         return phone;
     }
 
-    public String getAddress() {
+    public CharSequence getAddress() {
         return address;
     }
 
