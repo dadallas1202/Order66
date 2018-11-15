@@ -47,7 +47,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
             allDonations.addAll(l.getInventory());
         }
 
-        // make a list of catergories
+        // make a list of categories
         List<String> catergories = Donation.categories;
         List<String> catergories2 = new ArrayList<>();
         catergories2.add("All Categories");
