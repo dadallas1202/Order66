@@ -32,7 +32,7 @@ public class LocationList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_list);
 
-        View recyclerView = findViewById(R.id.dataitem_list);
+        View recyclerView = findViewById(R.id.dataItem_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
     }

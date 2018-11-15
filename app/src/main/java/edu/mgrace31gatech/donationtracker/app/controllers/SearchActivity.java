@@ -53,7 +53,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         catergories2.add("All Categories");
         catergories2.addAll(catergories);
 
-        ListView list = findViewById(R.id.listview);
+        ListView list = findViewById(R.id.listView);
 
         for (int i = 0; i < allDonations.size(); i++) {
             Donation d = new Donation(allDonations.get(i));

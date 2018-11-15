@@ -39,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         Username = findViewById(R.id.userNameBox);
         Password = findViewById(R.id.passWordBox);
         BadAttempt = findViewById(R.id.badLoginAttempt);
-        Button login = findViewById(R.id.logInbutton);
-        Button cancel = findViewById(R.id.cancelbutton);
+        Button login = findViewById(R.id.logInButton);
+        Button cancel = findViewById(R.id.cancelButton);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
