@@ -27,14 +27,14 @@ public class ListViewAdapter extends BaseAdapter {
 
     Context mContext;
     LayoutInflater inflater;
-    private List<Donation> allDonations = null;
+    private List<Donation> allDonations;
     private List<Donation> arraylist;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
         mContext = context;
         this.allDonations = allDonations;
         inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<Donation>();
+        this.arraylist = new ArrayList<>();
         this.arraylist.addAll(allDonations);
     }
 
@@ -59,6 +59,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
 
+    @Override
     public View getView(final int position, View view, ViewGroup parent) {
         final ViewHolder holder;
         if (view == null) {

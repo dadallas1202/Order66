@@ -153,7 +153,9 @@ public class Donation implements Parcelable {
 
     public static final Parcelable.Creator<Donation> CREATOR
             = new Parcelable.Creator<Donation>() {
+        @Override
         public Donation createFromParcel(Parcel in) {return new Donation(in); }
+        @Override
         public Donation[] newArray(int size) { return new Donation[size]; }
     };
 }

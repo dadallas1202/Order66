@@ -1,7 +1,5 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
-import java.util.Collection;
-
 public class LocationEmployee extends RegisteredUser {
     private Location loc;
 

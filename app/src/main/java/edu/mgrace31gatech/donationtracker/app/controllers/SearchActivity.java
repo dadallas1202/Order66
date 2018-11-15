@@ -29,7 +29,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     List<Location> locations1;
     List<String> locationName;
     List<Donation> allDonations;
-    ArrayList<Donation> arraylist = new ArrayList<Donation>();
+    ArrayList<Donation> arraylist = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
