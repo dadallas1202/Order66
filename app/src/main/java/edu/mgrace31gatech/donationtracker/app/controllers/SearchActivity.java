@@ -78,11 +78,13 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         locationSpinner = findViewById(R.id.locSpinner);
         catergorySpinner = findViewById(R.id.catSpinner);
 
-        ArrayAdapter<String> adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationName);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, locationName);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter1);
 
-        ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, catergories2);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(
+                this, android.R.layout.simple_spinner_item, catergories2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         catergorySpinner.setAdapter(adapter2);
         super.onCreate(savedInstanceState);
