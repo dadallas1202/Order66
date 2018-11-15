@@ -70,6 +70,7 @@ public class Location {
      * @return The type of the location.
      */
     public String getType() {
+    public CharSequence getType() {
         return type;
     }
 
@@ -97,6 +98,7 @@ public class Location {
         return phone;
     }
 
+    public CharSequence getAddress() {
     /**
      * Gets the address of the location.
      * @return The address of the location.
