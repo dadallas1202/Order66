@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,7 +28,7 @@ public class ListViewAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater inflater;
     private List<Donation> allDonations = null;
-    private ArrayList<Donation> arraylist;
+    private List<Donation> arraylist;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
         mContext = context;
@@ -96,7 +97,7 @@ public class ListViewAdapter extends BaseAdapter {
     // Filter Class
     public void filter(String charText, String location, String catergory) {
         List<Location> locations = LocationsModel.INSTANCE.getItems();
-        List<Donation> lHelper = new ArrayList<>();
+        Collection<Donation> lHelper = new ArrayList<>();
         List<Donation> cHelper = new ArrayList<>();
 
         charText = charText.toLowerCase(Locale.getDefault());
