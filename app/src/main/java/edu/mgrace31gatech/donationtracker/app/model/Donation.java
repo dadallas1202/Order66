@@ -8,8 +8,11 @@ import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Represents a Donation.
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ */
 public class Donation implements Parcelable {
-
     public static final List<String> categories = Arrays.asList("Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
     private String category;
     private String comments;
@@ -21,8 +24,20 @@ public class Donation implements Parcelable {
     private double value;
     private static int Next_Id = 1;
     private int id;
+    private Location location;
     private int viewId;
 
+    /**
+     * Creates a donation.
+     * @param name The name of the donation.
+     * @param short_description The short description of the donation.
+     * @param long_description The long description of the donation.
+     * @param value The value of the donation.
+     * @param category The category of the donation.
+     * @param comments The comments of the donation.
+     * @param time The time the donation was added.
+     * @param date The date the donation was added.
+     */
     private Donation(String name, String short_description, String long_description, double value, String category,
                      String comments, LocalTime time, LocalDate date) {
         this.name = name;
@@ -37,11 +52,33 @@ public class Donation implements Parcelable {
         Donation.Next_Id++;
     }
 
+    /**
+     * Creates a donation.
+     * @param name The name of the donation.
+     * @param short_description The short description of the donation.
+     * @param long_description The long description of the donation.
+     * @param value The value of the donation.
+     * @param category The category of the donation.
+     * @param time The time the donation was added.
+     * @param date The date the donation was added.
+     */
     public Donation(String name, String short_description, String long_description,
                     double value, String category, LocalTime time, LocalDate date) {
         this(name, short_description, long_description, value, category,"", time, date);
     }
 
+    /**
+     * Creates a donation.
+     * @param name The name of the donation.
+     * @param short_description The short description of the donation.
+     * @param long_description The long description of the donation.
+     * @param value The value of the donation.
+     * @param category The category of the donation.
+     * @param comments The comments of the donation.
+     * @param time The time the donation was added.
+     * @param date The date the donation was added.
+     * @param donId The id of the donation.
+     */
     public Donation(String name, String short_description, String long_description,
                     double value, String category, String comments, LocalTime time, LocalDate date, int donId) {
         this.name = name;
@@ -64,6 +101,10 @@ public class Donation implements Parcelable {
 //        this.id = Donation.Next_Id++;
     }
 
+    /**
+     * Creates a donation.
+     * @param donation The donation created.
+     */
     public Donation(Donation donation) {
         this.name = donation.name;
         this.short_description = donation.short_description;
@@ -76,11 +117,24 @@ public class Donation implements Parcelable {
         this.id = donation.id;
     }
 
+    /**
+     * Creates a donation.
+     * @param s The name of the donation.
+     */
     public Donation(String s) {
         this.name = s;
     }
 
+    /**
+     * Gets the category of the donation.
+     * @return The category of the donation.
+     */
     public String getCategory() { return category; }
+
+    /**
+     * Sets the category of the donation.
+     * @param _category The category of the donation.
+     */
     public void setCategory(String _category) { category = _category; }
 
     public String getComments() { return comments; }
@@ -102,8 +156,6 @@ public class Donation implements Parcelable {
     public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
 
     public String getTime() {
-        //DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
-        //return dateFormat.format(time);
         return time.toString();
     }
     public void setTime(LocalTime _time) { time = _time; }
@@ -121,9 +173,7 @@ public class Donation implements Parcelable {
         this.viewId = viewId;
     }
 
-    public void setLocation(Location location) {
-        Location location1 = location;
-    }
+    public void setLocation(Location location) { this.location = location; }
 
 
 
@@ -132,7 +182,7 @@ public class Donation implements Parcelable {
         return name;
     }
 
-    private Donation(Parcel in) {
+    public Donation(Parcel in) {
         name = in.readString();
         short_description = in.readString();
         long_description = in.readString();
