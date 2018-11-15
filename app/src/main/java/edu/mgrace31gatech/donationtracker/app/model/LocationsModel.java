@@ -41,7 +41,8 @@ public final class LocationsModel {
      */
     public static boolean addLocation(Location location) {
         for (Location l :locationsList ) {
-            if (l.getName().equals(location.getName()) && l.getLatitude().equals(location.getLatitude())) {
+            if (l.getName().equals(location.getName())
+                    && l.getLatitude().equals(location.getLatitude())) {
                 return false;
             }
         }
