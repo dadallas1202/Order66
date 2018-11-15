@@ -16,19 +16,17 @@ import edu.mgrace31gatech.donationtracker.app.model.Donation;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
+/**
+ * Activity that allows for a user to search for donations within the app.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    // Declare Variables
-    private ListView list;
     private ListViewAdapter adapter;
-    private ArrayAdapter<String> adapter1;
-    private ArrayAdapter<String> adapter2;
-    private SearchView editsearch;
     private Spinner locationSpinner;
     private Spinner catergorySpinner;
-    private List<Location> locations1;
-    private List<String> locationName;
-    private List<Donation> allDonations;
     private final ArrayList<Donation> arraylist = new ArrayList<>();
 
     @Override
@@ -37,9 +35,9 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         setContentView(R.layout.activity_search);
 
         // Generate sample data
-        locations1 = LocationsModel.INSTANCE.getItems();
-        locationName = new ArrayList<>();
-        allDonations = new ArrayList<>();
+        List<Location> locations1 = LocationsModel.INSTANCE.getItems();
+        List<String> locationName = new ArrayList<>();
+        List<Donation> allDonations = new ArrayList<>();
         locationName.add("All Locations");
 
         // make a list of locations as well as list of all donations
@@ -56,7 +54,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         catergories2.addAll(catergories);
 
         // Locate the ListView in listview_main.xml
-        list = findViewById(R.id.listview);
+        ListView list = findViewById(R.id.listview);
 
         for (int i = 0; i < allDonations.size(); i++) {
             Donation d = new Donation(allDonations.get(i));
@@ -74,17 +72,17 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         list.setAdapter(adapter);
 
         // Locate the EditText in listview_main.xml
-        editsearch = findViewById(R.id.search);
+        SearchView editsearch = findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
 
         locationSpinner = findViewById(R.id.locSpinner);
         catergorySpinner = findViewById(R.id.catSpinner);
 
-        adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, locationName);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationName);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter1);
 
-        adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, catergories2);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, catergories2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         catergorySpinner.setAdapter(adapter2);
         super.onCreate(savedInstanceState);

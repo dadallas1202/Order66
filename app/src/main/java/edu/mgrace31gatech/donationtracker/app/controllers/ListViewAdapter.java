@@ -25,13 +25,12 @@ class ListViewAdapter extends BaseAdapter {
 
     // Declare Variables
 
-    private final Context mContext;
     private final LayoutInflater inflater;
     private List<Donation> allDonations;
     private final List<Donation> arraylist;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
-        mContext = context;
+        Context mContext = context;
         this.allDonations = allDonations;
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<>();

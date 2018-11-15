@@ -12,7 +12,6 @@ public class DonationModel {
     /** holds the list of all donations */
     private final List<Donation> _donations;
 
-    private Location _currentLocation;
     /** the currently selected donation, defaults to the first donation */
     private Donation _currentDonation;
 
@@ -32,7 +31,7 @@ public class DonationModel {
     }
 
     public void addInventoryToLocation(Location location, List<Donation> listDonation ) {
-        _currentLocation = location;
+        Location _currentLocation = location;
         _currentLocation.setInventory(listDonation);
     }
 

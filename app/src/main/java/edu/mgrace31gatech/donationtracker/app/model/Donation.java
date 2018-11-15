@@ -22,7 +22,6 @@ public class Donation implements Parcelable {
     private double value;
     private static int Next_Id = 1;
     private int id;
-    private Location location;
     private int viewId;
 
     private Donation(String name, String short_description, String long_description, double value,
@@ -126,7 +125,9 @@ public class Donation implements Parcelable {
         this.viewId = viewId;
     }
 
-    public void setLocation(Location location) { this.location = location; }
+    public void setLocation(Location location) {
+        Location location1 = location;
+    }
 
 
 

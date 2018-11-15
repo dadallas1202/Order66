@@ -11,17 +11,22 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity that allows for a user to view the details of a location, and leads to the visibility of
+ * the location's inventory list.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class LocationDetailActivity extends AppCompatActivity {
-
-    private Button InventoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_detail);
 
-        InventoryButton = findViewById(R.id.inventoryButton);
-        InventoryButton.setOnClickListener(new View.OnClickListener() {
+        Button inventoryButton = findViewById(R.id.inventoryButton);
+        inventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Opening inventory", Snackbar.LENGTH_LONG)

@@ -10,12 +10,8 @@ public class Location {
     private final String latitude;
     private final String longitude;
     private final String address;
-    private final String city;
-    private final String state;
-    private final String zip;
     private final String type;
     private final String phone;
-    private final String website;
     private List<Donation> inventory;
 
     public Location(int k, String n, String lat, String lon, String a,String c, String s, String z, String t, String p, String w) {
@@ -26,10 +22,10 @@ public class Location {
         latitude = lat;
         address = a;
         phone = p;
-        city = c;
-        state = s;
-        zip = z;
-        website = w;
+        String city = c;
+        String state = s;
+        String zip = z;
+        String website = w;
         inventory = new ArrayList<>();
     }
 
