@@ -97,8 +97,8 @@ public class InventoryListFragment extends Fragment {
     }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                Bundle savedInstanceState) {
+        public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.inventory_list, container, false);
 
             //Step 1. Setup the recycler view by getting it from our layout in the main window
@@ -165,8 +165,9 @@ public class InventoryListFragment extends Fragment {
                 mDonations = items;
             }
 
+            @NonNull
             @Override
-            public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public SimpleDonationRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 /*
                   This sets up the view for each individual item in the recycler display
                   To edit the actual layout, we would look at: res/layout/inventory_list_content.xml
@@ -177,7 +178,7 @@ public class InventoryListFragment extends Fragment {
                 return new SimpleDonationRecyclerViewAdapter.ViewHolder(view);
             }
             @Override
-            public void onBindViewHolder(final SimpleDonationRecyclerViewAdapter.ViewHolder holder, int position) {
+            public void onBindViewHolder(@NonNull final SimpleDonationRecyclerViewAdapter.ViewHolder holder, int position) {
 
                 //final LocationsModel model = LocationsModel.getInstance();
                 /*

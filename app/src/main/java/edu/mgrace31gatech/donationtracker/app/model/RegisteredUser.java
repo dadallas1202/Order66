@@ -1,10 +1,5 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
