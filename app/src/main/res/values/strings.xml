@@ -33,7 +33,6 @@
     <string name="view_the_locations">View the Locations</string>
     <string name="map">Map</string>
     <string name="username_or_email">Username or Email</string>
-    <string name="password">Password</string>
     <string name="cancel">Cancel</string>
     <string name="register">Register</string>
     <string name="add_donation_item">Add Donation Item</string>
@@ -41,5 +40,13 @@
     <string name="full_description_of_item">Full Description of Item</string>
     <string name="value_in_dollars">Value (in dollars)</string>
     <string name="add">Add</string>
+    <string name="find_an_item">Find an Item</string>
+    <string name="name_of_item">Name of Item</string>
+    <string name="inventory">Inventory</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="number_of_incorrect_attempts">Number of incorrect attempts:</string>
+    <string name="welcome_to_the_donation_tracker">Welcome to the Donation Tracker</string>
 
 </resources>
