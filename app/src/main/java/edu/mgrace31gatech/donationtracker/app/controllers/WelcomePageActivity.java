@@ -9,7 +9,10 @@ import android.widget.Button;
 import edu.mgrace31gatech.donationtracker.R;
 
 /**
- * Activity that
+ * Activity that allows for a user to login and register.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
  */
 public class WelcomePageActivity extends AppCompatActivity {
 
