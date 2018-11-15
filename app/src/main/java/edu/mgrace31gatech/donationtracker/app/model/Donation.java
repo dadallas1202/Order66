@@ -34,7 +34,8 @@ public class Donation implements Parcelable {
         this.comments = comments;
         this.time = time;
         this.date = date;
-        this.id = Donation.Next_Id++;
+        this.id = Donation.Next_Id;
+        Donation.Next_Id++;
     }
 
     public Donation(String name, String short_description, String long_description,
