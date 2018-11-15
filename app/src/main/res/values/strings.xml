@@ -16,5 +16,30 @@
     </string>
     <string name="title_activity_registration">Register New User</string>
     <string name="title_activity_maps">Map</string>
+    <string name="short_description">Short Description</string>
+    <string name="full_description">Full Description</string>
+    <string name="value">Value</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="type">type</string>
+    <string name="latitude">latitude</string>
+    <string name="longitude">longitude</string>
+    <string name="address">address</string>
+    <string name="phone">phone</string>
+    <string name="name">Name</string>
+    <string name="here_is_the_app">Here is the App!</string>
+    <string name="logout">LogOut</string>
+    <string name="view_the_locations">View the Locations</string>
+    <string name="map">Map</string>
+    <string name="username_or_email">Username or Email</string>
+    <string name="password">Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="register">Register</string>
+    <string name="add_donation_item">Add Donation Item</string>
+    <string name="short_description_of_item">Short Description of Item</string>
+    <string name="full_description_of_item">Full Description of Item</string>
+    <string name="value_in_dollars">Value (in dollars)</string>
+    <string name="add">Add</string>
 
 </resources>
