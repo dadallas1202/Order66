@@ -31,8 +31,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText Name;
     private EditText Username;
     private EditText Password;
-    private Button Register;
-    private Button Cancel;
     private Spinner UserType;
 
 
@@ -43,15 +41,15 @@ public class RegistrationActivity extends AppCompatActivity {
         Name = findViewById(R.id.nameBox);
         Username = findViewById(R.id.userNameBox);
         Password = findViewById(R.id.passWordBox);
-        Register = findViewById(R.id.registerButton);
-        Cancel = findViewById(R.id.cancelbutton);
+        Button register = findViewById(R.id.registerButton);
+        Button cancel = findViewById(R.id.cancelbutton);
         UserType = findViewById(R.id.user_type_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, RegisteredUser.userTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         UserType.setAdapter(adapter);
 
-        Register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RegisteredUser.setMyUsers(getList("users"));
@@ -70,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        Cancel.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegistrationActivity.this, WelcomePageActivity.class);

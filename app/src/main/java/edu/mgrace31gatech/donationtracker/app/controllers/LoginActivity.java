@@ -30,8 +30,6 @@ public class LoginActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private TextView BadAttempt;
-    private Button Login;
-    private Button Cancel;
     private int counter;
 
     @Override
@@ -41,17 +39,17 @@ public class LoginActivity extends AppCompatActivity {
         Username = findViewById(R.id.userNameBox);
         Password = findViewById(R.id.passWordBox);
         BadAttempt = findViewById(R.id.badLoginAttempt);
-        Login = findViewById(R.id.logInbutton);
-        Cancel = findViewById(R.id.cancelbutton);
+        Button login = findViewById(R.id.logInbutton);
+        Button cancel = findViewById(R.id.cancelbutton);
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 validate(Username.getText().toString(), Password.getText().toString());
             }
         });
 
-        Cancel.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, WelcomePageActivity.class);

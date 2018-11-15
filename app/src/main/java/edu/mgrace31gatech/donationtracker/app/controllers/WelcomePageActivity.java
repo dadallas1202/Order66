@@ -13,17 +13,14 @@ import edu.mgrace31gatech.donationtracker.R;
  */
 public class WelcomePageActivity extends AppCompatActivity {
 
-    private Button Login;
-    private Button Register;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
-        Login= findViewById(R.id.welcomeloginButton);
-        Register = findViewById(R.id.registerButton);
+        Button login = findViewById(R.id.welcomeloginButton);
+        Button register = findViewById(R.id.registerButton);
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WelcomePageActivity.this, LoginActivity.class);
@@ -31,7 +28,7 @@ public class WelcomePageActivity extends AppCompatActivity {
             }
         });
 
-        Register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WelcomePageActivity.this, RegistrationActivity.class);

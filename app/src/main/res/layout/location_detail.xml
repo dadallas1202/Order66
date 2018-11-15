@@ -10,48 +10,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="name"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="name" />
 
     <TextView
         android:id="@+id/lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="type"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="type" />
 
     <TextView
         android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="latitude"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="latitude" />
 
     <TextView
         android:id="@+id/lon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="longitude"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="longitude" />
 
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="address"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="address" />
 
     <TextView
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="phone"
-        android:textAppearance="?attr/textAppearanceListItem" />
+        android:text="phone" />
 
 
 </LinearLayout>
