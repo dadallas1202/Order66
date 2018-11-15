@@ -1,20 +1,20 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
 /**
- * Activity that allows for a user to login and register.
+ * Activity that opens when the app is started.
  *
  * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
  *                                   Alayna Panlilio, Julia Tang
  */
-public class WelcomePageActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,17 +26,11 @@ public class WelcomePageActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(WelcomePageActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(WelcomePageActivity.this, RegistrationActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
     }
+
+
 }
