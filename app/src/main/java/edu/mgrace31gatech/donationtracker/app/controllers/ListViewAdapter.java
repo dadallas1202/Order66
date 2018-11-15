@@ -111,7 +111,8 @@ class ListViewAdapter extends BaseAdapter {
                     allDonations.addAll(arrayList);
                 } else {
                     for (Donation wp : arrayList) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1)
+                                && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
@@ -130,7 +131,8 @@ class ListViewAdapter extends BaseAdapter {
                     }
                 } else {
                     for (Donation wp : cHelper) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1)
+                                && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
@@ -157,7 +159,8 @@ class ListViewAdapter extends BaseAdapter {
                         }
                     } else {
                         for (Donation wp : lHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1)
+                                    && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }
@@ -176,7 +179,8 @@ class ListViewAdapter extends BaseAdapter {
                         }
                     } else {
                         for (Donation wp : cHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1)
+                                    && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }
