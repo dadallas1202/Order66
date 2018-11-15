@@ -35,7 +35,7 @@ public class HomePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Logout= (Button)findViewById(R.id.logOutButton);
+        Logout= findViewById(R.id.logOutButton);
 
         Logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        Locations = (Button)findViewById(R.id.locationButton);
+        Locations = findViewById(R.id.locationButton);
         Locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +58,7 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Map = (Button)findViewById(R.id.map);
+        Map = findViewById(R.id.map);
         Map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +70,7 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Search = (Button)findViewById(R.id.search);
+        Search = findViewById(R.id.search);
         Search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

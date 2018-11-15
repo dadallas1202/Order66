@@ -27,7 +27,7 @@ public class ListViewAdapter extends BaseAdapter {
     Context mContext;
     LayoutInflater inflater;
     private List<Donation> allDonations = null;
-    private ArrayList<Donation> arraylist;
+    private List<Donation> arraylist;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
         mContext = context;
@@ -64,7 +64,7 @@ public class ListViewAdapter extends BaseAdapter {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.listview_item, null);
             // Locate the TextViews in listview_item.xml
-            holder.name = (TextView) view.findViewById(R.id.name);
+            holder.name = view.findViewById(R.id.name);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();

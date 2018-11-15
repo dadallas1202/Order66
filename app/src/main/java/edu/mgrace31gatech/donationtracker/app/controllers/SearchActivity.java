@@ -46,21 +46,17 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         for (Location l : locations1) {
             locationName.add(l.getName());
 
-            for (Donation d : l.getInventory()) {
-                allDonations.add(d);
-            }
+            allDonations.addAll(l.getInventory());
         }
 
         // make a list of catergories
         List<String> catergories = Donation.categories;
         List<String> catergories2 = new ArrayList<>();
         catergories2.add("All Categories");
-        for (String c : catergories) {
-            catergories2.add(c);
-        }
+        catergories2.addAll(catergories);
 
         // Locate the ListView in listview_main.xml
-        list = (ListView) findViewById(R.id.listview);
+        list = findViewById(R.id.listview);
 
         for (int i = 0; i < allDonations.size(); i++) {
             Donation d = new Donation(allDonations.get(i));
@@ -78,11 +74,11 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         list.setAdapter(adapter);
 
         // Locate the EditText in listview_main.xml
-        editsearch = (SearchView) findViewById(R.id.search);
+        editsearch = findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
 
-        locationSpinner = (Spinner) findViewById(R.id.locSpinner);
-        catergorySpinner = (Spinner) findViewById(R.id.catSpinner);
+        locationSpinner = findViewById(R.id.locSpinner);
+        catergorySpinner = findViewById(R.id.catSpinner);
 
         adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, locationName);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

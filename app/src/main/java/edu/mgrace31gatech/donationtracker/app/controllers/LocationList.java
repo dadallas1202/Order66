@@ -86,8 +86,8 @@ public class LocationList extends AppCompatActivity {
             public ViewHolder(View view) {
                 super(view);
                 mView = view;
-                mKeyView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.content);
+                mKeyView = view.findViewById(R.id.id);
+                mContentView = view.findViewById(R.id.content);
             }
 
             @Override

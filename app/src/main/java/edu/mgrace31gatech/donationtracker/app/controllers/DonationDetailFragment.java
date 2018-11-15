@@ -1,16 +1,14 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
@@ -47,7 +45,7 @@ public class DonationDetailFragment extends Fragment {
      public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
 
-         if (getArguments().containsKey(ARG_DON_ID)) {
+         if (Objects.requireNonNull(getArguments()).containsKey(ARG_DON_ID)) {
              //Load the dummy content specified by the fragment
              //arguments. In a read-world scenario, use a Loader
              //to load content from a content provider.

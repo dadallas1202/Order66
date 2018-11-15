@@ -1,16 +1,13 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -20,7 +17,6 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.mgrace31gatech.donationtracker.R;
@@ -28,7 +24,6 @@ import edu.mgrace31gatech.donationtracker.app.model.Donation;
 import edu.mgrace31gatech.donationtracker.app.model.DonationModel;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
-import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
 
 /**
  * Activity to control the process of adding a new donation to the app.
@@ -65,11 +60,11 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         /*
           Grab the dialog widgets so we can get info for later
          */
-        Name = (EditText)findViewById(R.id.nameDonationBox);
-        shortDescription = (EditText)findViewById(R.id.shortDescriptionBox);
-        fullDescription = (EditText)findViewById(R.id.fullDescriptionBox);
-        Value = (EditText)findViewById(R.id.valueBox);
-        Category = (Spinner)findViewById(R.id.categorySpinner);
+        Name = findViewById(R.id.nameDonationBox);
+        shortDescription = findViewById(R.id.shortDescriptionBox);
+        fullDescription = findViewById(R.id.fullDescriptionBox);
+        Value = findViewById(R.id.valueBox);
+        Category = findViewById(R.id.categorySpinner);
 
         /*
           Set up the adapter to display the allowable categories in the spinner

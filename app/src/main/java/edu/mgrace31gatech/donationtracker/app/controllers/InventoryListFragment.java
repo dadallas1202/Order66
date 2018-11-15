@@ -20,8 +20,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Donation;
@@ -72,7 +72,7 @@ public class InventoryListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         //Check if we got a valid location passed to us
-        if (getArguments().containsKey(ARG_LOCATION_ID)) {
+        if (Objects.requireNonNull(getArguments()).containsKey(ARG_LOCATION_ID)) {
             //Get the id from the intent arguments (bundle) and
             //ask the model to give us the location object
 
@@ -89,7 +89,7 @@ public class InventoryListFragment extends Fragment {
 
             Activity activity = this.getActivity();
 
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            CollapsingToolbarLayout appBarLayout = Objects.requireNonNull(activity).findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mLocation.toString());
             }
@@ -134,7 +134,7 @@ public class InventoryListFragment extends Fragment {
      * @return a list of donations for that location
      */
     public List<Donation> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()).getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
         Type type = new TypeToken<List<Donation>>() {}.getType();
@@ -191,7 +191,7 @@ public class InventoryListFragment extends Fragment {
                   Now we bind the data to the widgets. In this case, pretty simple, put the id in one
                   textview and the string rep of a course in the other.
                  */
-                holder.mIdView.setText("" + mDonations.get(position).getViewId());
+                holder.mIdView.setText(mDonations.get(position).getViewId());
                 holder.mContentView.setText(mDonations.get(position).toString());
 
                 /*
@@ -234,9 +234,9 @@ public class InventoryListFragment extends Fragment {
                 public ViewHolder(View view) {
                     super(view);
                     mView = view;
-                    mIdView = (TextView) view.findViewById(R.id.id2);
+                    mIdView = view.findViewById(R.id.id2);
                     Log.d("Holder", mIdView.toString());
-                    mContentView = (TextView) view.findViewById(R.id.content2);
+                    mContentView = view.findViewById(R.id.content2);
                 }
 
                 @Override

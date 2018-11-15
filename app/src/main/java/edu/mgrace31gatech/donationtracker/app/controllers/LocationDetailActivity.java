@@ -22,7 +22,7 @@ public class LocationDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_detail);
 
-        InventoryButton = (Button) findViewById(R.id.inventoryButton);
+        InventoryButton = findViewById(R.id.inventoryButton);
         InventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

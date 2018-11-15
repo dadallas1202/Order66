@@ -35,11 +35,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Username = (EditText)findViewById(R.id.userNameBox);
-        Password = (EditText)findViewById(R.id.passWordBox);
-        BadAttempt = (TextView)findViewById(R.id.badLoginAttempt);
-        Login = (Button)findViewById(R.id.logInbutton);
-        Cancel = (Button)findViewById(R.id.cancelbutton);
+        Username = findViewById(R.id.userNameBox);
+        Password = findViewById(R.id.passWordBox);
+        BadAttempt = findViewById(R.id.badLoginAttempt);
+        Login = findViewById(R.id.logInbutton);
+        Cancel = findViewById(R.id.cancelbutton);
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
