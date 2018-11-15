@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,42 +23,42 @@
             android:id="@+id/nameDonation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name" />
+            android:text="Name" />
 
         <TextView
             android:id="@+id/shortDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/short_description" />
+            android:text="Short Description" />
 
         <TextView
             android:id="@+id/fullDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/full_description" />
+            android:text="Full Description" />
 
         <TextView
             android:id="@+id/value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/value" />
+            android:text="Value" />
 
         <TextView
             android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/category" />
+            android:text="Category" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/date" />
+            android:text="Date" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/time" />
+            android:text="Time" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

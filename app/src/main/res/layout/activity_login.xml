@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="edu.mgrace31gatech.donationtracker.app.controllers.WelcomePageActivity">
+    tools:context="edu.mgrace31gatech.donationtracker.app.controllers.MainActivity">
 
     <EditText
         android:id="@+id/userNameBox"
@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="174dp"
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/passWordBox"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,30 +37,30 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/logInButton"
+        android:id="@+id/logInbutton"
         style="@android:style/Widget.Holo.Button"
         android:layout_width="199dp"
         android:layout_height="47dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="131dp"
-        android:text="@string/sign_in"
+        android:text="Sign In"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passWordBox"
         app:layout_constraintVertical_bias="0.493" />
 
     <Button
-        android:id="@+id/cancelButton"
+        android:id="@+id/cancelbutton"
         style="@android:style/Widget.Holo.Button"
         android:layout_width="199dp"
         android:layout_height="47dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="76dp"
-        android:text="@string/cancel"
+        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/logInButton"
+        app:layout_constraintEnd_toStartOf="@+id/logInbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passWordBox" />
 
@@ -71,7 +71,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:text="@string/sign_in"
+        android:text="SIGN IN"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
@@ -81,6 +81,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="203dp"
-        android:text="@string/number_of_incorrect_attempts" />
+        android:text="Number of incorrect attempts:" />
 
 </RelativeLayout>

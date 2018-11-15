@@ -26,7 +26,7 @@ class ListViewAdapter extends BaseAdapter {
     // Declare Variables
 
     private final LayoutInflater inflater;
-    private List<Donation> allDonations;
+    private final List<Donation> allDonations;
     private final List<Donation> arrayList;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {

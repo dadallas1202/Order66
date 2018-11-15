@@ -42,7 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         Username = findViewById(R.id.userNameBox);
         Password = findViewById(R.id.passWordBox);
         Button register = findViewById(R.id.registerButton);
-        Button cancel = findViewById(R.id.cancelButton);
+        Button cancel = findViewById(R.id.cancelbutton);
         UserType = findViewById(R.id.user_type_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(
