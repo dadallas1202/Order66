@@ -2,7 +2,8 @@ package edu.mgrace31gatech.donationtracker.app.model;
 
 /**
  * Represents an Admin.
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class Admin extends RegisteredUser {
     /**

@@ -26,7 +26,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     private ListViewAdapter adapter;
     private Spinner locationSpinner;
-    private Spinner catergorySpinner;
+    private Spinner categorySpinner;
     private final ArrayList<Donation> arraylist = new ArrayList<>();
 
     @Override
@@ -53,7 +53,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         catergories2.add("All Categories");
         catergories2.addAll(catergories);
 
-        // Locate the ListView in listview_main.xml
         ListView list = findViewById(R.id.listview);
 
         for (int i = 0; i < allDonations.size(); i++) {
@@ -71,12 +70,11 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
 
-        // Locate the EditText in listview_main.xml
-        SearchView editsearch = findViewById(R.id.search);
-        editsearch.setOnQueryTextListener(this);
+        SearchView editSearch = findViewById(R.id.search);
+        editSearch.setOnQueryTextListener(this);
 
         locationSpinner = findViewById(R.id.locSpinner);
-        catergorySpinner = findViewById(R.id.catSpinner);
+        categorySpinner = findViewById(R.id.catSpinner);
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter(
                 this, android.R.layout.simple_spinner_item, locationName);
@@ -86,7 +84,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         ArrayAdapter<String> adapter2 = new ArrayAdapter(
                 this, android.R.layout.simple_spinner_item, catergories2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        catergorySpinner.setAdapter(adapter2);
+        categorySpinner.setAdapter(adapter2);
         super.onCreate(savedInstanceState);
     }
 
@@ -99,8 +97,8 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     @Override
     public boolean onQueryTextChange(String newText) {
         String location = locationSpinner.getSelectedItem().toString();
-        String catergory = catergorySpinner.getSelectedItem().toString();
-        adapter.filter(newText, location, catergory);
+        String category = categorySpinner.getSelectedItem().toString();
+        adapter.filter(newText, location, category);
         return false;
     }
 }

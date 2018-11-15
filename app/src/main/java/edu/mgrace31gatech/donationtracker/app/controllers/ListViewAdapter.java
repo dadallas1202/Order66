@@ -27,14 +27,14 @@ class ListViewAdapter extends BaseAdapter {
 
     private final LayoutInflater inflater;
     private List<Donation> allDonations;
-    private final List<Donation> arraylist;
+    private final List<Donation> arrayList;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
         Context mContext = context;
         this.allDonations = allDonations;
         inflater = LayoutInflater.from(mContext);
-        this.arraylist = new ArrayList<>();
-        this.arraylist.addAll(allDonations);
+        this.arrayList = new ArrayList<>();
+        this.arrayList.addAll(allDonations);
     }
 
     class ViewHolder {
@@ -65,7 +65,6 @@ class ListViewAdapter extends BaseAdapter {
         if (view1 == null) {
             holder = new ViewHolder();
             view1 = inflater.inflate(R.layout.listview_item, null);
-            // Locate the TextViews in listview_item.xml
             holder.name = view1.findViewById(R.id.name);
             view1.setTag(holder);
         } else {
@@ -96,7 +95,7 @@ class ListViewAdapter extends BaseAdapter {
     }
 
     // Filter Class
-    public void filter(String charText, String location, String catergory) {
+    public void filter(String charText, String location, String category) {
         List<Location> locations = LocationsModel.INSTANCE.getItems();
         Collection<Donation> lHelper = new ArrayList<>();
         List<Donation> cHelper = new ArrayList<>();
@@ -107,11 +106,11 @@ class ListViewAdapter extends BaseAdapter {
         lHelper.clear();
         cHelper.clear();
         if ("All Locations".equals(location)) {
-            if ("All Categories".equals(catergory)) {
+            if ("All Categories".equals(category)) {
                 if (charText1.isEmpty()) {
-                    allDonations.addAll(arraylist);
+                    allDonations.addAll(arrayList);
                 } else {
-                    for (Donation wp : arraylist) {
+                    for (Donation wp : arrayList) {
                         if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1)
                                 && !allDonations.contains(wp)) {
                             allDonations.add(wp);
@@ -119,8 +118,8 @@ class ListViewAdapter extends BaseAdapter {
                     }
                 }
             } else {
-                for (Donation d : arraylist) {
-                    if (d.getCategory().equals(catergory) && !cHelper.contains(d)) {
+                for (Donation d : arrayList) {
+                    if (d.getCategory().equals(category) && !cHelper.contains(d)) {
                         cHelper.add(d);
                     }
                 }
@@ -151,7 +150,7 @@ class ListViewAdapter extends BaseAdapter {
                         }
                     }
                 }
-                if ("All Categories".equals(catergory)) {
+                if ("All Categories".equals(category)) {
                     if (charText1.isEmpty()) {
                         for (Donation d : lHelper) {
                             if (!allDonations.contains(d)) {
@@ -168,7 +167,7 @@ class ListViewAdapter extends BaseAdapter {
                     }
                 } else {
                     for (Donation d : lHelper) {
-                        if (d.getCategory().equals(catergory) && !cHelper.contains(d)) {
+                        if (d.getCategory().equals(category) && !cHelper.contains(d)) {
                             cHelper.add(d);
                         }
                     }
