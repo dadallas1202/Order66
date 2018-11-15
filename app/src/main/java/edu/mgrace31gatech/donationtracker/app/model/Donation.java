@@ -10,7 +10,8 @@ import java.util.List;
 
 /**
  * Represents a Donation.
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class Donation implements Parcelable {
     public static final List<String> categories = Arrays.asList(
@@ -80,7 +81,8 @@ public class Donation implements Parcelable {
      * @param donId The id of the donation.
      */
     public Donation(String name, String short_description, String long_description,
-                    double value, String category, String comments, LocalTime time, LocalDate date, int donId) {
+                    double value, String category, String comments, LocalTime time,
+                    LocalDate date, int donId) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -191,7 +193,9 @@ public class Donation implements Parcelable {
      * Sets the short description of the donation.
      * @param _shortDescription The short description of the donation.
      */
-    public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
+    public void setShortDescription(String _shortDescription) {
+        short_description = _shortDescription;
+    }
 
     /**
      * Get the time the donation was added.
