@@ -3,7 +3,7 @@ package edu.mgrace31gatech.donationtracker.app.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationsModel {
+public final class LocationsModel {
     /** Singleton instance */
     public static final LocationsModel INSTANCE = new LocationsModel();
     public static LocationsModel getInstance() { return INSTANCE; }
