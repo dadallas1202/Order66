@@ -1,9 +1,5 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
-import android.util.Log;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +8,10 @@ public class LocationsModel {
     public static final LocationsModel INSTANCE = new LocationsModel();
     public static LocationsModel getInstance() { return INSTANCE; }
 
-    private Location theLastAddedElement;
+    private static Location theLastAddedElement;
 
     /** holds the list of all locations */
-    private List<Location> locationsList;
+    private static List<Location> locationsList;
     private List<Donation> donationsList;
 
     /** the currently selected location, defaults to first location */
@@ -42,9 +38,15 @@ public class LocationsModel {
      * add a location to the app.
      * @param location the location to be added
      */
-    public void addLocation(Location location) {
+    public static boolean addLocation(Location location) {
+        for (Location l :locationsList ) {
+            if (l.getName().equals(location.getName()) && l.getLatitude().equals(location.getLatitude())) {
+                return false;
+            }
+        }
         locationsList.add(location);
         theLastAddedElement = location;
+        return true;
     }
 
     /**
