@@ -20,7 +20,7 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 /**
  * Activity that controls the display of the Home Page.
  *
- * @authors Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
  *                                   Alayna Panlilio, Julia Tang
  */
 public class HomePageActivity extends AppCompatActivity {

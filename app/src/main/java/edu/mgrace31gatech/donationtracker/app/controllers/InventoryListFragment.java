@@ -151,12 +151,6 @@ public class InventoryListFragment extends Fragment {
                 extends RecyclerView.Adapter<SimpleDonationRecyclerViewAdapter.ViewHolder> {
 
             /**
-             * Collection of the items to be shown in this list.
-             */
-            //private final List<Donation> mValues;
-
-
-            /**
              * set the items to be used by the adapter
              *
              * @param items the list of items to be displayed in the recycler view
