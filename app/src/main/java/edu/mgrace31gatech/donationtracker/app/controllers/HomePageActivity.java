@@ -25,19 +25,15 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
  */
 public class HomePageActivity extends AppCompatActivity {
 
-    private Button Logout;
-    private Button Locations;
-    private Button Map;
-    private Button Search;
     private boolean locationsFlag = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        Logout= findViewById(R.id.logOutButton);
+        Button logout = findViewById(R.id.logOutButton);
 
-        Logout.setOnClickListener(new View.OnClickListener() {
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomePageActivity.this,
@@ -46,8 +42,8 @@ public class HomePageActivity extends AppCompatActivity {
             }
         });
 
-        Locations = findViewById(R.id.locationButton);
-        Locations.setOnClickListener(new View.OnClickListener() {
+        Button locations = findViewById(R.id.locationButton);
+        locations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (locationsFlag) {
@@ -58,8 +54,8 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Map = findViewById(R.id.map);
-        Map.setOnClickListener(new View.OnClickListener() {
+        Button map = findViewById(R.id.map);
+        map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (locationsFlag) {
@@ -70,8 +66,8 @@ public class HomePageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Search = findViewById(R.id.search);
-        Search.setOnClickListener(new View.OnClickListener() {
+        Button search = findViewById(R.id.search);
+        search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (locationsFlag) {
