@@ -2,7 +2,8 @@ package edu.mgrace31gatech.donationtracker.app.model;
 
 /**
  * Represents a User.
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class User extends RegisteredUser {
     /**
@@ -14,5 +15,4 @@ public class User extends RegisteredUser {
     public User(String name, String userName, String password) {
         super(name, userName, password, false);
     }
-
 }

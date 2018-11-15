@@ -10,7 +10,8 @@ import java.util.List;
 
 /**
  * Represents a Donation.
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  */
 public class Donation implements Parcelable {
     public static final List<String> categories = Arrays.asList(
@@ -80,7 +81,8 @@ public class Donation implements Parcelable {
      * @param donId The id of the donation.
      */
     public Donation(String name, String short_description, String long_description,
-                    double value, String category, String comments, LocalTime time, LocalDate date, int donId) {
+                    double value, String category, String comments, LocalTime time,
+                    LocalDate date, int donId) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -129,7 +131,7 @@ public class Donation implements Parcelable {
      * Gets the category of the donation.
      * @return The category of the donation.
      */
-    public String getCategory() { return category; }
+    public CharSequence getCategory() { return category; }
 
     /**
      * Sets the category of the donation.
@@ -147,7 +149,7 @@ public class Donation implements Parcelable {
      * Gets the date the donation was added.
      * @return The date the donation was added.
      */
-    public String getDate() {
+    public CharSequence getDate() {
         return date.toString();
     }
 
@@ -161,7 +163,7 @@ public class Donation implements Parcelable {
      * Gets the long description of the donation.
      * @return The long description of the donation.
      */
-    public String getLongDescription() { return long_description; }
+    public CharSequence getLongDescription() { return long_description; }
 
     /**
      * Sets the long description of the donation.
@@ -185,19 +187,21 @@ public class Donation implements Parcelable {
      * Gets the short description of the donation.
      * @return The short description of the donation.
      */
-    public String getShortDescription() { return short_description; }
+    public CharSequence getShortDescription() { return short_description; }
 
     /**
      * Sets the short description of the donation.
      * @param _shortDescription The short description of the donation.
      */
-    public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
+    public void setShortDescription(String _shortDescription) {
+        short_description = _shortDescription;
+    }
 
     /**
      * Get the time the donation was added.
      * @return The time the donation was added.
      */
-    public String getTime() {
+    public CharSequence getTime() {
         return time.toString();
     }
 

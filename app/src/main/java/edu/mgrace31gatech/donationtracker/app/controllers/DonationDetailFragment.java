@@ -40,15 +40,17 @@ public class DonationDetailFragment extends Fragment {
     @Override
      public void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
-
-         if (Objects.requireNonNull(getArguments()).containsKey(ARG_DON_ID)) {
+         Bundle arguments = Objects.requireNonNull(getArguments());
+         if (arguments.containsKey(ARG_DON_ID)) {
              //Load the dummy content specified by the fragment
              //arguments. In a read-world scenario, use a Loader
              //to load content from a content provider.
 
-             int donation_id = getArguments().getInt(ARG_DON_ID);
+             Bundle arguments1 = (getArguments());
+             int donation_id = arguments1.getInt(ARG_DON_ID);
              Log.d("MYAPP", "Start details for: " + donation_id);
-             mDonation = DonationModel.getInstance().findDonationById(donation_id);
+             DonationModel model = DonationModel.getInstance();
+             mDonation = model.findDonationById(donation_id);
              if(mDonation == null) {
                  Log.d("MYAPP", "Null Donation: " + donation_id);
              } else {

@@ -98,7 +98,7 @@ class ListViewAdapter extends BaseAdapter {
     public void filter(String charText, String location, String category) {
         List<Location> locations = LocationsModel.INSTANCE.getItems();
         Collection<Donation> lHelper = new ArrayList<>();
-        List<Donation> cHelper = new ArrayList<>();
+        Collection<Donation> cHelper = new ArrayList<>();
 
         String charText1 = charText.toLowerCase(Locale.getDefault());
 
