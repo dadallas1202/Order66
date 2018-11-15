@@ -4,9 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Model class for the Location class, which handles everything that involves the Locations
+ * within the app.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public final class LocationsModel {
     /** Singleton instance */
     public static final LocationsModel INSTANCE = new LocationsModel();
+
+    /**
+     * Returns the current instance of the LocationModel.
+     *
+     * @return the current LocationModel instance
+     */
     public static LocationsModel getInstance() { return INSTANCE; }
 
     private static Location theLastAddedElement;
@@ -33,11 +46,18 @@ public final class LocationsModel {
             return Collections.unmodifiableList(locationsList);
     }
 
+    /**
+     * Sets and fills in the list of locations.
+     *
+     * @param list a list of locations
+     */
     public void setItems(List<Location> list) { locationsList = list; }
 
     /**
-     * add a location to the app.
+     * Add a location to the app.
      * @param location the location to be added
+     *
+     * @return whether or not the location was added or not
      */
     public static boolean addLocation(Location location) {
         for (Location l :locationsList ) {
@@ -64,8 +84,9 @@ public final class LocationsModel {
     public Location getCurrentLocation() { return currentLocation; }
 
     /**
-     * sets currentLocation to the passed in location
-     * @param location
+     * Sets currentLocation to the passed in location
+     *
+     * @param location the desired current location
      */
     public void setCurrentLocation(Location location) { currentLocation = location; }
 
