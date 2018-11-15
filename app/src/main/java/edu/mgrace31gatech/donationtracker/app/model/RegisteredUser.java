@@ -2,23 +2,24 @@ package edu.mgrace31gatech.donationtracker.app.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class RegisteredUser {
 
-    public static List<String> userTypes = Arrays.asList("User", "Admin");
-    private static Map<String, String> users = new HashMap<>();
-    public static List<RegisteredUser> myUsers = new ArrayList<>();
+    public static final List<String> userTypes = Arrays.asList("User", "Admin");
+    private static final Map<String, String> users = new HashMap<>();
+    private static List<RegisteredUser> myUsers = new ArrayList<>();
 
-    private String name;
-    private String userName;
-    private String password;
-    private boolean isAdmin;
+    private final String name;
+    private final String userName;
+    private final String password;
+    private final boolean isAdmin;
 
 
-    protected RegisteredUser(String name, String userName, String password, boolean isAdmin) {
+    RegisteredUser(String name, String userName, String password, boolean isAdmin) {
         this.name = name;
         this.userName = userName;
         this.password = password;
@@ -34,10 +35,10 @@ public class RegisteredUser {
     }
 
     public static Map<String, String> getUsers() {
-        return users;
+        return Collections.unmodifiableMap(users);
     }
 
-    public String getName() {
+    private String getName() {
         return name;
     }
 
@@ -55,11 +56,11 @@ public class RegisteredUser {
     }
 
     public static List<RegisteredUser> getMyUsers() {
-        return myUsers;
+        return Collections.unmodifiableList(myUsers);
     }
 
     public static boolean addUser(String name, String username, String password, String userType) {
-        RegisteredUser newUser = userType.equals("User")
+        RegisteredUser newUser = "User".equals(userType)
                 ? new User(name, username, password)
                 : new Admin(name, username, password);
         if (!users.containsKey(username)) {

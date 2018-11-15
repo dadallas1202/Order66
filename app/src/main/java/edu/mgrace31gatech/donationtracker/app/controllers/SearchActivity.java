@@ -19,17 +19,17 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     // Declare Variables
-    ListView list;
-    ListViewAdapter adapter;
-    ArrayAdapter<String> adapter1;
-    ArrayAdapter<String> adapter2;
-    SearchView editsearch;
-    Spinner locationSpinner;
-    Spinner catergorySpinner;
-    List<Location> locations1;
-    List<String> locationName;
-    List<Donation> allDonations;
-    ArrayList<Donation> arraylist = new ArrayList<>();
+    private ListView list;
+    private ListViewAdapter adapter;
+    private ArrayAdapter<String> adapter1;
+    private ArrayAdapter<String> adapter2;
+    private SearchView editsearch;
+    private Spinner locationSpinner;
+    private Spinner catergorySpinner;
+    private List<Location> locations1;
+    private List<String> locationName;
+    private List<Donation> allDonations;
+    private final ArrayList<Donation> arraylist = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,8 +100,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     public boolean onQueryTextChange(String newText) {
         String location = locationSpinner.getSelectedItem().toString();
         String catergory = catergorySpinner.getSelectedItem().toString();
-        String text = newText;
-        adapter.filter(text, location, catergory);
+        adapter.filter(newText, location, catergory);
         return false;
     }
 }

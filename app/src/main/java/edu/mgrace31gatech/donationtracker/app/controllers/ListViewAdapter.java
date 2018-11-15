@@ -21,14 +21,14 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
 import static edu.mgrace31gatech.donationtracker.app.controllers.DonationDetailFragment.ARG_DON_ID;
 
-public class ListViewAdapter extends BaseAdapter {
+class ListViewAdapter extends BaseAdapter {
 
     // Declare Variables
 
-    Context mContext;
-    LayoutInflater inflater;
+    private final Context mContext;
+    private final LayoutInflater inflater;
     private List<Donation> allDonations;
-    private List<Donation> arraylist;
+    private final List<Donation> arraylist;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
         mContext = context;
@@ -38,9 +38,9 @@ public class ListViewAdapter extends BaseAdapter {
         this.arraylist.addAll(allDonations);
     }
 
-    public class ViewHolder {
+    class ViewHolder {
         TextView name;
-        public Donation mDonation;
+        Donation mDonation;
     }
 
     @Override
@@ -61,15 +61,16 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View view, ViewGroup parent) {
+        View view1 = view;
         final ViewHolder holder;
-        if (view == null) {
+        if (view1 == null) {
             holder = new ViewHolder();
-            view = inflater.inflate(R.layout.listview_item, null);
+            view1 = inflater.inflate(R.layout.listview_item, null);
             // Locate the TextViews in listview_item.xml
-            holder.name = view.findViewById(R.id.name);
-            view.setTag(holder);
+            holder.name = view1.findViewById(R.id.name);
+            view1.setTag(holder);
         } else {
-            holder = (ViewHolder) view.getTag();
+            holder = (ViewHolder) view1.getTag();
         }
         // Set the results into TextViews
         holder.name.setText(allDonations.get(position).getName());
@@ -79,7 +80,7 @@ public class ListViewAdapter extends BaseAdapter {
         /*
          * set up a listener to handle if the user clicks on this list item, what should happen?
          */
-        view.setOnClickListener(new View.OnClickListener() {
+        view1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
@@ -92,7 +93,7 @@ public class ListViewAdapter extends BaseAdapter {
             }
         });
 
-        return view;
+        return view1;
     }
 
     // Filter Class
@@ -101,18 +102,18 @@ public class ListViewAdapter extends BaseAdapter {
         Collection<Donation> lHelper = new ArrayList<>();
         List<Donation> cHelper = new ArrayList<>();
 
-        charText = charText.toLowerCase(Locale.getDefault());
+        String charText1 = charText.toLowerCase(Locale.getDefault());
 
         allDonations.clear();
         lHelper.clear();
         cHelper.clear();
-        if (location.equals("All Locations")) {
-            if (catergory.equals("All Categories")) {
-                if (charText.length() == 0) {
+        if ("All Locations".equals(location)) {
+            if ("All Categories".equals(catergory)) {
+                if (charText1.isEmpty()) {
                     allDonations.addAll(arraylist);
                 } else {
                     for (Donation wp : arraylist) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
@@ -123,7 +124,7 @@ public class ListViewAdapter extends BaseAdapter {
                         cHelper.add(d);
                     }
                 }
-                if (charText.length() == 0) {
+                if (charText1.isEmpty()) {
                     for (Donation d : cHelper) {
                         if (!allDonations.contains(d)) {
                             allDonations.add(d);
@@ -131,7 +132,7 @@ public class ListViewAdapter extends BaseAdapter {
                     }
                 } else {
                     for (Donation wp : cHelper) {
-                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
+                        if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
                             allDonations.add(wp);
                         }
                     }
@@ -149,8 +150,8 @@ public class ListViewAdapter extends BaseAdapter {
                         }
                     }
                 }
-                if (catergory.equals("All Categories")) {
-                    if (charText.length() == 0) {
+                if ("All Categories".equals(catergory)) {
+                    if (charText1.isEmpty()) {
                         for (Donation d : lHelper) {
                             if (!allDonations.contains(d)) {
                                 allDonations.add(d);
@@ -158,7 +159,7 @@ public class ListViewAdapter extends BaseAdapter {
                         }
                     } else {
                         for (Donation wp : lHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }
@@ -169,7 +170,7 @@ public class ListViewAdapter extends BaseAdapter {
                             cHelper.add(d);
                         }
                     }
-                    if (charText.length() == 0) {
+                    if (charText1.isEmpty()) {
                         for (Donation d : cHelper) {
                             if (!allDonations.contains(d)) {
                                 allDonations.add(d);
@@ -177,7 +178,7 @@ public class ListViewAdapter extends BaseAdapter {
                         }
                     } else {
                         for (Donation wp : cHelper) {
-                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText) && !allDonations.contains(wp)) {
+                            if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText1) && !allDonations.contains(wp)) {
                                 allDonations.add(wp);
                             }
                         }

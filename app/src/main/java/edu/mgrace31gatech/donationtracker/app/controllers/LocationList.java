@@ -38,7 +38,7 @@ public class LocationList extends AppCompatActivity {
 
         private final List<Location> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<Location> locations) {
+        SimpleItemRecyclerViewAdapter(List<Location> locations) {
             mValues = locations;
         }
 
@@ -79,12 +79,12 @@ public class LocationList extends AppCompatActivity {
         }
 
         public static class ViewHolder extends RecyclerView.ViewHolder {
-            public final View mView;
-            public final TextView mKeyView;
-            public final TextView mContentView;
-            public Location mItem;
+            final View mView;
+            final TextView mKeyView;
+            final TextView mContentView;
+            Location mItem;
 
-            public ViewHolder(View view) {
+            ViewHolder(View view) {
                 super(view);
                 mView = view;
                 mKeyView = view.findViewById(R.id.id);

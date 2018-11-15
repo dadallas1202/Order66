@@ -13,7 +13,7 @@ import edu.mgrace31gatech.donationtracker.R;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
-    public Button InventoryButton;
+    private Button InventoryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

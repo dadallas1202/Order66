@@ -1,6 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public final class LocationsModel {
@@ -29,7 +30,7 @@ public final class LocationsModel {
      * @return a list of the locations in the app
      */
     public List<Location> getItems() {
-            return locationsList;
+            return Collections.unmodifiableList(locationsList);
     }
 
     public void setItems(List<Location> list) { locationsList = list; }
@@ -74,7 +75,9 @@ public final class LocationsModel {
      */
     public Location findLocationByKey(int key) {
         for (Location l : locationsList) {
-            if (l.getKey() == key) return l;
+            if (l.getKey() == key) {
+                return l;
+            }
         }
 //        Log.d("MYAPP", "Warning - Failed to find id: " + key);
         return null;

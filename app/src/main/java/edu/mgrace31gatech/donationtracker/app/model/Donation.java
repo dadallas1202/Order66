@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Donation implements Parcelable {
 
-    public static List<String> categories = Arrays.asList("Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
+    public static final List<String> categories = Arrays.asList("Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
     private String category;
     private String comments;
     private LocalDate date;
@@ -24,8 +24,8 @@ public class Donation implements Parcelable {
     private Location location;
     private int viewId;
 
-    public Donation(String name, String short_description, String long_description, double value, String category,
-                    String comments, LocalTime time, LocalDate date) {
+    private Donation(String name, String short_description, String long_description, double value, String category,
+                     String comments, LocalTime time, LocalDate date) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -131,7 +131,7 @@ public class Donation implements Parcelable {
         return name;
     }
 
-    public Donation(Parcel in) {
+    private Donation(Parcel in) {
         name = in.readString();
         short_description = in.readString();
         long_description = in.readString();
