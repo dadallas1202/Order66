@@ -18,6 +18,12 @@ import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
+/**
+ * Activity that displays a list of the Locations available for donations.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class LocationList extends AppCompatActivity {
 
 

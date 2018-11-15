@@ -17,6 +17,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
+/**
+ * Activity that displays a Google Map of all locations, with pins at each location, displaying name
+ * and phone number for the location.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;

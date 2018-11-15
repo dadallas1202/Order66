@@ -11,6 +11,13 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity that allows for a user to view the details of a location, and leads to the visibility of
+ * the location's inventory list.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class LocationDetailActivity extends AppCompatActivity {
 
     private Button InventoryButton;
