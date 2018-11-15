@@ -132,7 +132,7 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<Donation>>() {}.getType();
+        Type type = new TypeToken<List<Donation>>().getType();
         return gson.fromJson(json, type);
     }
 

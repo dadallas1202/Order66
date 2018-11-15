@@ -137,7 +137,7 @@ public class InventoryListFragment extends Fragment {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(getActivity()).getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<Donation>>() {}.getType();
+        Type type = new TypeToken<List<Donation>>().getType();
         return gson.fromJson(json, type);
     }
 
