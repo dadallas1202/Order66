@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,9 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -90,16 +89,21 @@ public class AddDonationActivity extends AppCompatActivity
         DonationModel model = DonationModel.getInstance();
         LocationsModel model2 = LocationsModel.getInstance();
         Location location = model2.getCurrentLocation();
-        double value = Double.parseDouble(Value.getText().toString());
-        _donation.setName(Name.getText().toString());
-        _donation.setShortDescription(shortDescription.getText().toString());
-        _donation.setLongDescription(fullDescription.getText().toString());
+        Editable text0 = Value.getText();
+        double value = Double.parseDouble(text0.toString());
+        Editable text1 = Name.getText();
+        _donation.setName(text1.toString());
+        Editable text2 = shortDescription.getText();
+        _donation.setShortDescription(text2.toString());
+        Editable text3 = fullDescription.getText();
+        _donation.setLongDescription(text3.toString());
         _donation.setValue(value);
-        _donation.setCategory(Category.getSelectedItem().toString());
+        Object text4 = Category.getSelectedItem();
+        _donation.setCategory(text4.toString());
         _donation.setTime(LocalTime.now());
         _donation.setDate(LocalDate.now());
-        _donation.setLocation(location);
-        _donation.setViewId(location.getInventory().size() + 1);
+        List<Donation> inv = location.getInventory();
+        _donation.setViewId(inv.size() + 1);
 
         Log.d("Edit", "Got new donation data: " + _donation + " #" + _donation.getViewId());
         location.addDonation(_donation);
@@ -125,24 +129,25 @@ public class AddDonationActivity extends AppCompatActivity
         editor.apply();     // This line is IMPORTANT !!!
     }
 
-    /**
-     * Returns the list of donations.
-     *
-     * @param key the key for the JSON object
-     * @return the list of donations
-     */
-    public List<Donation> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
-                getApplicationContext());
-        Gson gson = new Gson();
-        String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<Donation>>(){}.getType();
-        return gson.fromJson(json, type);
-    }
+//    /**
+//     * Returns the list of donations.
+//     *
+//     * @param key the key for the JSON object
+//     * @return the list of donations
+//     */
+//    public List<Donation> getList(String key){
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+//                getApplicationContext());
+//        Gson gson = new Gson();
+//        String json = prefs.getString(key, null);
+//        Type type = new TypeToken<List<Donation>>(){}.getType();
+//        return gson.fromJson(json, type);
+//    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        _category = parent.getItemAtPosition(position).toString();
+        Object parent1 = parent.getItemAtPosition(position);
+        _category = parent1.toString();
     }
 
     @Override

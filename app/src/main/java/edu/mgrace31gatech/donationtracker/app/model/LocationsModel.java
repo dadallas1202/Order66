@@ -26,7 +26,7 @@ public final class LocationsModel {
 
     /** holds the list of all locations */
     private static List<Location> locationsList;
-    private List<Donation> donationsList;
+//    private List<Donation> donationsList;
 
     /** the currently selected location, defaults to first location */
     private Location currentLocation;
@@ -77,7 +77,7 @@ public final class LocationsModel {
      * get the last added location
      * @return theLastAddedElement
      */
-    public Location getTheLastAddedElement() { return theLastAddedElement; }
+//    public Location getTheLastAddedElement() { return theLastAddedElement; }
 
     /**
      *
@@ -108,12 +108,12 @@ public final class LocationsModel {
     }
 
 
-    /**
-     * add a donation to the current location inventory
-     *
-     * @return true if donation added, false if not added
-     */
-    public boolean addDonation() {
-        return currentLocation != null;
-    }
+//    /**
+//     * add a donation to the current location inventory
+//     *
+//     * @return true if donation added, false if not added
+//     */
+//    public boolean addDonation() {
+//        return currentLocation != null;
+//    }
 }

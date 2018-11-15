@@ -96,8 +96,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        String location = locationSpinner.getSelectedItem().toString();
-        String category = categorySpinner.getSelectedItem().toString();
+        Object location1 = locationSpinner.getSelectedItem();
+        String location = location1.toString();
+        Object category1 = categorySpinner.getSelectedItem();
+        String category = category1.toString();
         adapter.filter(newText, location, category);
         return false;
     }

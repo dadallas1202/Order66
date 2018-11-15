@@ -23,8 +23,6 @@ public class DonationModel {
     /** holds the list of all donations */
     private final List<Donation> _donations;
 
-    /** the currently selected donation, defaults to the first donation */
-    private Donation _currentDonation;
 
     /**
      * make a new model
@@ -48,8 +46,7 @@ public class DonationModel {
      * @param listDonation a list of donations
      */
     public void addInventoryToLocation(Location location, List<Donation> listDonation) {
-        Location _currentLocation = location;
-        _currentLocation.setInventory(listDonation);
+        location.setInventory(listDonation);
     }
 
     //public Donation getCurrentDonation() { return _currentDonation; }

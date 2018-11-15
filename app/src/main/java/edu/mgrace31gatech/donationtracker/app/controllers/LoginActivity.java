@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,7 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate(Username.getText().toString(), Password.getText().toString());
+                Editable user = Username.getText();
+                Editable pass = Password.getText();
+
+                validate(user.toString(), pass.toString());
             }
         });
 

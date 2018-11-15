@@ -53,13 +53,13 @@ public class RegisteredUser {
         return password;
     }
 
-    /**
-     * Gets the users of the app.
-     * @return Map of the users.
-     */
-    public static Map<String, String> getUsers() {
-        return Collections.unmodifiableMap(users);
-    }
+//    /**
+//     * Gets the users of the app.
+//     * @return Map of the users.
+//     */
+//    public static Map<String, String> getUsers() {
+//        return Collections.unmodifiableMap(users);
+//    }
 
     /**
      * Gets the name of the registered user.

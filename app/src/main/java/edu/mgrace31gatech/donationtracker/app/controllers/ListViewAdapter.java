@@ -30,9 +30,8 @@ class ListViewAdapter extends BaseAdapter {
     private final List<Donation> arrayList;
 
     public ListViewAdapter(Context context, List<Donation> allDonations) {
-        Context mContext = context;
         this.allDonations = allDonations;
-        inflater = LayoutInflater.from(mContext);
+        inflater = LayoutInflater.from(context);
         this.arrayList = new ArrayList<>();
         this.arrayList.addAll(allDonations);
     }

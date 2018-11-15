@@ -1,6 +1,8 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -27,8 +29,10 @@ public class DonationDetailActivity extends AppCompatActivity {
                     getIntent().getIntExtra(DonationDetailFragment.ARG_DON_ID, 100));
             DonationDetailFragment fragment = new DonationDetailFragment();
             fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction().add(
-                    R.id.donation_detail_container, fragment).commit();
+            FragmentManager getS = getSupportFragmentManager();
+            FragmentTransaction begin = getS.beginTransaction();
+            FragmentTransaction adder = begin.add(R.id.donation_detail_container, fragment);
+            adder.commit();
         }
     }
 

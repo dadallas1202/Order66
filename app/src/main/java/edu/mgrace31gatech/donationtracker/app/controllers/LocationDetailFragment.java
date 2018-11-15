@@ -38,12 +38,14 @@ public class LocationDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (Objects.requireNonNull(getArguments()).containsKey(ARG_ITEM_ID)) {
+        Bundle arg = Objects.requireNonNull(getArguments());
+        if (arg.containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
 
-            int location_key = getArguments().getInt(ARG_ITEM_ID);
+            Bundle var = getArguments();
+            int location_key = var.getInt(ARG_ITEM_ID);
             Log.d("MYAPP", "Start details for: " + location_key);
             mItem = LocationsModel.INSTANCE.findLocationByKey(location_key);
             if (mItem == null) {

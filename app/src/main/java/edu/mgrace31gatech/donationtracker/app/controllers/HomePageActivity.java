@@ -1,6 +1,7 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -85,11 +86,11 @@ public class HomePageActivity extends AppCompatActivity {
      * 
      */
     private void readSDFile () {
-        LocationsModel model = LocationsModel.INSTANCE;
 
         try {
             //Open a stream on the raw file
-            InputStream is = getResources().openRawResource(R.raw.locationdata1);
+            Resources input = getResources();
+            InputStream is = input.openRawResource(R.raw.locationdata1);
             //From here we probably should call a model method and pass the InputStream
             //Wrap it in a BufferedReader so that we get the readLine() method
             BufferedReader br = new BufferedReader(new InputStreamReader(is,

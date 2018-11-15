@@ -139,11 +139,11 @@ public class Donation implements Parcelable {
      */
     public void setCategory(String _category) { category = _category; }
 
-    /**
-     * Gets the comments of the donation.
-     * @return The comments of the donation.
-     */
-    public String getComments() { return comments; }
+//    /**
+//     * Gets the comments of the donation.
+//     * @return The comments of the donation.
+//     */
+//    public String getComments() { return comments; }
 
     /**
      * Gets the date the donation was added.
@@ -243,14 +243,6 @@ public class Donation implements Parcelable {
      */
     public void setViewId(int viewId) {
         this.viewId = viewId;
-    }
-
-    /**
-     * Sets the location of the donation.
-     * @param location The location of the donation.
-     */
-    public void setLocation(Location location) {
-        Location location1 = location;
     }
 
 

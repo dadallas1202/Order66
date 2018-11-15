@@ -1,12 +1,8 @@
 package edu.mgrace31gatech.donationtracker.app.controllers;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-
-import edu.mgrace31gatech.donationtracker.R;
-import edu.mgrace31gatech.donationtracker.app.model.Location;
-import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -16,6 +12,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
+
+import edu.mgrace31gatech.donationtracker.R;
+import edu.mgrace31gatech.donationtracker.app.model.Location;
+import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
 /**
  * Activity that displays a Google Map of all locations, with pins at each location, displaying name
@@ -49,14 +49,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
-
-        mMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
 
         //Reference to controller interface in the model
         final LocationsModel locationService = LocationsModel.getInstance();
 
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
             public void onMapClick(LatLng latLng) {
@@ -75,9 +73,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         for (Location l: locationList) {
             LatLng loc = new LatLng(Double.parseDouble(l.getLatitude()),
                     Double.parseDouble(l.getLongitude()));
-            mMap.addMarker(
+            googleMap.addMarker(
                     new MarkerOptions().position(loc).title(l.getName()).snippet(l.getPhone()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
     }
 }
