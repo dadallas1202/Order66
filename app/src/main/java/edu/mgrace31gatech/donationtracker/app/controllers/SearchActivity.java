@@ -16,6 +16,12 @@ import edu.mgrace31gatech.donationtracker.app.model.Donation;
 import edu.mgrace31gatech.donationtracker.app.model.Location;
 import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
+/**
+ * Activity that allows for a user to search for donations within the app.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     private ListViewAdapter adapter;

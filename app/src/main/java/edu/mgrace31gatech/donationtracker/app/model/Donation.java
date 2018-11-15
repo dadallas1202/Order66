@@ -13,7 +13,8 @@ import java.util.List;
  * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
  */
 public class Donation implements Parcelable {
-    public static final List<String> categories = Arrays.asList("Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
+    public static final List<String> categories = Arrays.asList(
+            "Clothes", "Hat", "Kitchen", "Electronics", "Household", "Other");
     private String category;
     private String comments;
     private LocalDate date;
@@ -24,7 +25,6 @@ public class Donation implements Parcelable {
     private double value;
     private static int Next_Id = 1;
     private int id;
-    private Location location;
     private int viewId;
 
     /**
@@ -38,8 +38,8 @@ public class Donation implements Parcelable {
      * @param time The time the donation was added.
      * @param date The date the donation was added.
      */
-    private Donation(String name, String short_description, String long_description, double value, String category,
-                     String comments, LocalTime time, LocalDate date) {
+    private Donation(String name, String short_description, String long_description, double value,
+                     String category, String comments, LocalTime time, LocalDate date) {
         this.name = name;
         this.short_description = short_description;
         this.long_description = long_description;
@@ -156,6 +156,8 @@ public class Donation implements Parcelable {
     public void setShortDescription(String _shortDescription) { short_description = _shortDescription; }
 
     public String getTime() {
+        //DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+        //return dateFormat.format(time);
         return time.toString();
     }
     public void setTime(LocalTime _time) { time = _time; }
@@ -173,7 +175,9 @@ public class Donation implements Parcelable {
         this.viewId = viewId;
     }
 
-    public void setLocation(Location location) { this.location = location; }
+    public void setLocation(Location location) {
+        Location location1 = location;
+    }
 
 
 
@@ -182,7 +186,7 @@ public class Donation implements Parcelable {
         return name;
     }
 
-    public Donation(Parcel in) {
+    private Donation(Parcel in) {
         name = in.readString();
         short_description = in.readString();
         long_description = in.readString();
