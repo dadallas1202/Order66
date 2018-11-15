@@ -25,8 +25,6 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText Name;
     private EditText Username;
     private EditText Password;
-    private Button Register;
-    private Button Cancel;
     private Spinner UserType;
 
 
@@ -37,15 +35,15 @@ public class RegistrationActivity extends AppCompatActivity {
         Name = findViewById(R.id.nameBox);
         Username = findViewById(R.id.userNameBox);
         Password = findViewById(R.id.passWordBox);
-        Register = findViewById(R.id.registerButton);
-        Cancel = findViewById(R.id.cancelbutton);
+        Button register = findViewById(R.id.registerButton);
+        Button cancel = findViewById(R.id.cancelbutton);
         UserType = findViewById(R.id.user_type_spinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, RegisteredUser.userTypes);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         UserType.setAdapter(adapter);
 
-        Register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 RegisteredUser.setMyUsers(getList("users"));
@@ -64,7 +62,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        Cancel.setOnClickListener(new View.OnClickListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegistrationActivity.this, WelcomePageActivity.class);
@@ -72,7 +70,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-    public void saveList(List<RegisteredUser> list, String key){
+    private void saveList(List<RegisteredUser> list, String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
@@ -81,11 +79,11 @@ public class RegistrationActivity extends AppCompatActivity {
         editor.apply();     // This line is IMPORTANT !!!
     }
 
-    public List<RegisteredUser> getList(String key){
+    private List<RegisteredUser> getList(String key){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<RegisteredUser>>() {}.getType();
+        Type type = new TypeToken<List<RegisteredUser>>(){}.getType();
         return gson.fromJson(json, type);
     }
 }

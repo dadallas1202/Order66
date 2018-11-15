@@ -8,19 +8,22 @@ import android.widget.Button;
 
 import edu.mgrace31gatech.donationtracker.R;
 
+/**
+ * Activity that opens when the app is started.
+ *
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ *                                   Alayna Panlilio, Julia Tang
+ */
 public class MainActivity extends AppCompatActivity {
-
-    private Button Login;
-    private Button Register;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
-        Login = findViewById(R.id.welcomeloginButton);
-        Register = findViewById(R.id.registerButton);
+        Button login = findViewById(R.id.welcomeloginButton);
+        Button register = findViewById(R.id.registerButton);
 
-        Login.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);

@@ -18,18 +18,10 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 
 public class SearchActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
-    // Declare Variables
-    ListView list;
-    ListViewAdapter adapter;
-    ArrayAdapter<String> adapter1;
-    ArrayAdapter<String> adapter2;
-    SearchView editsearch;
-    Spinner locationSpinner;
-    Spinner catergorySpinner;
-    List<Location> locations1;
-    List<String> locationName;
-    List<Donation> allDonations;
-    ArrayList<Donation> arraylist = new ArrayList<>();
+    private ListViewAdapter adapter;
+    private Spinner locationSpinner;
+    private Spinner catergorySpinner;
+    private final ArrayList<Donation> arraylist = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,9 +29,9 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         setContentView(R.layout.activity_search);
 
         // Generate sample data
-        locations1 = LocationsModel.INSTANCE.getItems();
-        locationName = new ArrayList<>();
-        allDonations = new ArrayList<>();
+        List<Location> locations1 = LocationsModel.INSTANCE.getItems();
+        List<String> locationName = new ArrayList<>();
+        List<Donation> allDonations = new ArrayList<>();
         locationName.add("All Locations");
 
         // make a list of locations as well as list of all donations
@@ -56,7 +48,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         catergories2.addAll(catergories);
 
         // Locate the ListView in listview_main.xml
-        list = findViewById(R.id.listview);
+        ListView list = findViewById(R.id.listview);
 
         for (int i = 0; i < allDonations.size(); i++) {
             Donation d = new Donation(allDonations.get(i));
@@ -74,17 +66,17 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         list.setAdapter(adapter);
 
         // Locate the EditText in listview_main.xml
-        editsearch = findViewById(R.id.search);
+        SearchView editsearch = findViewById(R.id.search);
         editsearch.setOnQueryTextListener(this);
 
         locationSpinner = findViewById(R.id.locSpinner);
         catergorySpinner = findViewById(R.id.catSpinner);
 
-        adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, locationName);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, locationName);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         locationSpinner.setAdapter(adapter1);
 
-        adapter2 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, catergories2);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item, catergories2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         catergorySpinner.setAdapter(adapter2);
         super.onCreate(savedInstanceState);
@@ -100,8 +92,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     public boolean onQueryTextChange(String newText) {
         String location = locationSpinner.getSelectedItem().toString();
         String catergory = catergorySpinner.getSelectedItem().toString();
-        String text = newText;
-        adapter.filter(text, location, catergory);
+        adapter.filter(newText, location, catergory);
         return false;
     }
 }

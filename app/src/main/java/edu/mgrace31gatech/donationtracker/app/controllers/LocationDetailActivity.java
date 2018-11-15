@@ -13,15 +13,13 @@ import edu.mgrace31gatech.donationtracker.R;
 
 public class LocationDetailActivity extends AppCompatActivity {
 
-    public Button InventoryButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_detail);
 
-        InventoryButton = findViewById(R.id.inventoryButton);
-        InventoryButton.setOnClickListener(new View.OnClickListener() {
+        Button inventoryButton = findViewById(R.id.inventoryButton);
+        inventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Snackbar.make(v, "Opening inventory", Snackbar.LENGTH_LONG)
