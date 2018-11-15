@@ -28,10 +28,12 @@ import edu.mgrace31gatech.donationtracker.app.model.LocationsModel;
 /**
  * Activity to control the process of adding a new donation to the app.
  *
- * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace, Alayna Panlilio, Julia Tang
+ * @author Team: Order 66; Members: Kierra Brigman, Andrew Dallas, Marie Grace,
+ * Alayna Panlilio, Julia Tang
  *
  */
-public class AddDonationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddDonationActivity extends AppCompatActivity
+        implements AdapterView.OnItemSelectedListener {
 
     /* ************************
     Widgets we will need for binding and getting information
@@ -69,7 +71,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         /*
           Set up the adapter to display the allowable categories in the spinner
          */
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Donation.categories);
+        ArrayAdapter<String> adapter = new ArrayAdapter(
+                this,android.R.layout.simple_spinner_item, Donation.categories);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Category.setAdapter(adapter);
 
@@ -87,7 +90,6 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
         DonationModel model = DonationModel.getInstance();
         LocationsModel model2 = LocationsModel.getInstance();
         Location location = model2.getCurrentLocation();
-//        location.setInventory(getList(location.getName()) == null ? new ArrayList<Donation>() : getList(location.getName()));
         double value = Double.parseDouble(Value.getText().toString());
         _donation.setName(Name.getText().toString());
         _donation.setShortDescription(shortDescription.getText().toString());
@@ -114,7 +116,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
      * @param key a key for the JSON object
      */
     public void saveList(List<Donation> list, String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(list);
@@ -129,7 +132,8 @@ public class AddDonationActivity extends AppCompatActivity implements AdapterVie
      * @return the list of donations
      */
     public List<Donation> getList(String key){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
+                getApplicationContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
         Type type = new TypeToken<List<Donation>>(){}.getType();
