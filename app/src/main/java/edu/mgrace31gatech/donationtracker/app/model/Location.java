@@ -17,6 +17,10 @@ public class Location {
     private final String address;
     private final String type;
     private final String phone;
+    private final String city;
+    private final String state;
+    private final String zip;
+    private final String website;
     private List<Donation> inventory;
 
     /**
@@ -43,10 +47,10 @@ public class Location {
         latitude = lat;
         address = a;
         phone = p;
-        String city = c;
-        String state = s;
-        String zip = z;
-        String website = w;
+        city = c;
+        state = s;
+        zip = z;
+        website = w;
         inventory = new ArrayList<>();
     }
 
