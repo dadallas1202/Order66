@@ -75,7 +75,8 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         } else{
             counter++;
-            BadAttempt.setText("Number of incorrect attempts: " + String.valueOf(counter));
+            String correct = "Number of incorrect attempts: " + String.valueOf(counter);
+            BadAttempt.setText(correct);
         }
     }
 

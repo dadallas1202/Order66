@@ -10,8 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.dynamic.SupportFragmentWrapper;
-
 import edu.mgrace31gatech.donationtracker.R;
 
 /**

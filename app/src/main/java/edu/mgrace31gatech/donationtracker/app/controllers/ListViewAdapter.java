@@ -63,7 +63,7 @@ class ListViewAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view1 == null) {
             holder = new ViewHolder();
-            view1 = inflater.inflate(R.layout.listview_item, null);
+            view1 = inflater.inflate(R.layout.listview_item, parent);
             holder.name = view1.findViewById(R.id.name);
             view1.setTag(holder);
         } else {

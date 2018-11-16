@@ -64,7 +64,8 @@ public class LocationDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             Log.d("MYAPP", "Getting ready to set id");
-            ((TextView) rootView.findViewById(R.id.name)).setText("" + mItem.getName());
+            String name = mItem.getName();
+            ((TextView) rootView.findViewById(R.id.name)).setText(name);
             Log.d("MYAPP", "Getting ready to set name :");
             ((TextView) rootView.findViewById(R.id.type)).setText(mItem.getType());
             ((TextView) rootView.findViewById(R.id.lat)).setText(mItem.getLatitude());

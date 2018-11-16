@@ -34,6 +34,7 @@ public class DonationDetailActivity extends AppCompatActivity {
             FragmentTransaction begin = getS.beginTransaction();
             FragmentTransaction adder = begin.add(R.id.donation_detail_container, fragment);
             adder.commit();
+            begin.commit();
         }
     }
 
