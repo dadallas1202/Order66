@@ -52,8 +52,8 @@ public class LocationList extends AppCompatActivity {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.location_list_content, parent, false);
+            LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+            View view = inflater.inflate(R.layout.location_list_content, parent, false);
             return new ViewHolder(view);
         }
 
@@ -66,8 +66,11 @@ public class LocationList extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
-            holder.mKeyView.setText("" + mValues.get(position).getKey());
-            holder.mContentView.setText(mValues.get(position).getName());
+            Location myPosition = mValues.get(position);
+            String id = Integer.toString(myPosition.getKey());
+            holder.mKeyView.setText(id);
+            Location locationName = mValues.get(position);
+            holder.mContentView.setText(locationName.getName());
 
             final LocationsModel model = LocationsModel.getInstance();
 

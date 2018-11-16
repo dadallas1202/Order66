@@ -60,7 +60,8 @@ public class InventoryListFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         //Check if we got a valid location passed to us
-        if (Objects.requireNonNull(getArguments()).containsKey(ARG_LOCATION_ID)) {
+        Bundle bundle = Objects.requireNonNull(getArguments());
+        if (bundle.containsKey(ARG_LOCATION_ID)) {
             //Get the id from the intent arguments (bundle) and
             //ask the model to give us the location object
 
@@ -70,13 +71,14 @@ public class InventoryListFragment extends Fragment {
             mDonations = mLocation.getInventory();
             model2.addInventoryToLocation(mLocation, mDonations);
 
-
+            List<Donation> myInventory = mLocation.getInventory();
             Log.d("InventoryListFragment", "Passing over location: " + mLocation);
-            Log.d("InventoryListFragment", "Got donations: " + mLocation.getInventory().size());
+            Log.d("InventoryListFragment", "Got donations: " + myInventory.size());
 
             Activity activity = this.getActivity();
 
-            CollapsingToolbarLayout appBarLayout = Objects.requireNonNull(activity).findViewById(
+            Activity myActivity = Objects.requireNonNull(activity);
+            CollapsingToolbarLayout appBarLayout = myActivity.findViewById(
                     R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mLocation.toString());
@@ -143,8 +145,10 @@ public class InventoryListFragment extends Fragment {
                   If you look at the example file, you will see it currently just
                   2 TextView elements
                 */
-                View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.inventory_list_content, parent, false);
+
+                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+                View view = inflater.inflate(R.layout.inventory_list_content,
+                        parent, false);
                 return new SimpleDonationRecyclerViewAdapter.ViewHolder(view);
             }
             @Override
@@ -165,8 +169,10 @@ public class InventoryListFragment extends Fragment {
                   Now we bind the data to the widgets. In this case, pretty simple,
 
                  */
-                holder.mIdView.setText(mDonations.get(position).getViewId());
-                holder.mContentView.setText(mDonations.get(position).toString());
+
+                Donation myDonations = mDonations.get(position);
+                holder.mIdView.setText(myDonations.getViewId());
+                holder.mContentView.setText(myDonations.toString());
 
                 /*
                  * set up a listener to handle if the user clicks on this list item,

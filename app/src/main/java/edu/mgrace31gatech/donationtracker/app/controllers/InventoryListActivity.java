@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+
+import com.google.android.gms.dynamic.SupportFragmentWrapper;
 
 import edu.mgrace31gatech.donationtracker.R;
 
@@ -31,11 +35,14 @@ public class InventoryListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Creating a new Donation", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar snackbar = Snackbar.make(v, "Creating a new Donation",
+                        Snackbar.LENGTH_LONG);
+                snackbar.setAction("Action", null);
+                snackbar.show();
+                Intent myIntent = getIntent();
                 Intent intent = new Intent(getBaseContext(), AddDonationActivity.class);
                 intent.putExtra(InventoryListFragment.ARG_LOCATION_ID,
-                        getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1));
+                        myIntent.getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1));
                 startActivity(intent);
             }
         });
@@ -53,13 +60,15 @@ public class InventoryListActivity extends AppCompatActivity {
             // using a fragment transaction.  Pass the location info to
             // the fragment
             Bundle arguments = new Bundle();
+            Intent myIntent = getIntent();
             arguments.putInt(InventoryListFragment.ARG_LOCATION_ID,
-                    getIntent().getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1000));
+                    myIntent.getIntExtra(InventoryListFragment.ARG_LOCATION_ID, 1000));
             InventoryListFragment fragment = new InventoryListFragment();
             fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.inventory_detail_container, fragment)
-                    .commit();
+            FragmentManager manager =  getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.add(R.id.inventory_detail_container, fragment);
+            transaction.commit();
         }
     }
 

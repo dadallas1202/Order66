@@ -3,6 +3,8 @@ package edu.mgrace31gatech.donationtracker.app.controllers;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
@@ -29,12 +31,15 @@ public class LocationDetailActivity extends AppCompatActivity {
         inventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Opening inventory", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar snackBar = Snackbar.make(v, "Opening inventory", Snackbar.LENGTH_LONG);
+                snackBar.setAction("Action", null);
+                snackBar.show();
                 Intent intent = new Intent(
                         LocationDetailActivity.this, InventoryListActivity.class);
-                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, getIntent().getIntExtra(
-                        LocationDetailFragment.ARG_ITEM_ID, 1));
+                Intent parent = getIntent();
+                int myExtras = parent.getIntExtra(
+                        LocationDetailFragment.ARG_ITEM_ID, 1);
+                intent.putExtra(LocationDetailFragment.ARG_ITEM_ID, myExtras);
                 startActivity(intent);
             }
         });
@@ -44,13 +49,16 @@ public class LocationDetailActivity extends AppCompatActivity {
             // using a fragment transaction.
             Log.d("MYAPP", "Location Detail Activity ");
             Bundle arguments = new Bundle();
+            Intent myIntent = getIntent();
+            int myExtras = myIntent.getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1);
             arguments.putInt(LocationDetailFragment.ARG_ITEM_ID,
-                    getIntent().getIntExtra(LocationDetailFragment.ARG_ITEM_ID, 1));
+                    myExtras);
             LocationDetailFragment fragment = new LocationDetailFragment();
             fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.location_detail_container, fragment)
-                    .commit();
+            FragmentManager myManager = getSupportFragmentManager();
+            FragmentTransaction myTransaction = myManager.beginTransaction();
+            myTransaction.add(R.id.location_detail_container, fragment);
+            myTransaction.commit();
         }
 
 

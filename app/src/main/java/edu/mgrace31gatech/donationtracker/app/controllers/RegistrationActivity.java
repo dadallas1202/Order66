@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -54,8 +55,15 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 RegisteredUser.setMyUsers(getList("users"));
-                RegisteredUser.addUser(Name.getText().toString(), Username.getText().toString(),
-                        Password.getText().toString(), UserType.getSelectedItem().toString());
+                Editable nameText = Name.getText();
+                Editable usernameText = Username.getText();
+                Editable passwordText= Password.getText();
+                Object userTypeText = UserType.getSelectedItem();
+                String name = nameText.toString();
+                String username = usernameText.toString();
+                String password = passwordText.toString();
+                String usertype = userTypeText.toString();
+                RegisteredUser.addUser(name, username, password, usertype);
                 saveList(RegisteredUser.getMyUsers(), "users");
                 Intent intent = new Intent(RegistrationActivity.this, HomePageActivity.class);
                 startActivity(intent);
@@ -83,7 +91,8 @@ public class RegistrationActivity extends AppCompatActivity {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         Gson gson = new Gson();
         String json = prefs.getString(key, null);
-        Type type = new TypeToken<List<RegisteredUser>>(){}.getType();
+        TypeToken<List<RegisteredUser>> typeToken = new TypeToken<List<RegisteredUser>>(){};
+        Type type = typeToken.getType();
         return gson.fromJson(json, type);
     }
 }
