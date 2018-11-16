@@ -31,7 +31,6 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
         // Generate sample data
