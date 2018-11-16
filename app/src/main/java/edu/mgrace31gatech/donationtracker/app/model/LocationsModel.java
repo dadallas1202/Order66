@@ -97,17 +97,6 @@ public final class LocationsModel {
                 return l;
             }
         }
-//        Log.d("MYAPP", "Warning - Failed to find id: " + key);
         return null;
     }
-
-
-//    /**
-//     * add a donation to the current location inventory
-//     *
-//     * @return true if donation added, false if not added
-//     */
-//    public boolean addDonation() {
-//        return currentLocation != null;
-//    }
 }

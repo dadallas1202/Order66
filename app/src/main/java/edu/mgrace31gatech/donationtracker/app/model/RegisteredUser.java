@@ -30,7 +30,7 @@ public class RegisteredUser {
      * @param password The Registered User's password for the account.
      * @param isAdmin Whether the registered user is an admin or not.
      */
-    RegisteredUser(String name, String userName, String password, boolean isAdmin) {
+    public RegisteredUser(String name, String userName, String password, boolean isAdmin) {
         this.name = name;
         this.userName = userName;
         this.password = password;
@@ -52,14 +52,6 @@ public class RegisteredUser {
     public String getPassword() {
         return password;
     }
-
-//    /**
-//     * Gets the users of the app.
-//     * @return Map of the users.
-//     */
-//    public static Map<String, String> getUsers() {
-//        return Collections.unmodifiableMap(users);
-//    }
 
     /**
      * Gets the name of the registered user.

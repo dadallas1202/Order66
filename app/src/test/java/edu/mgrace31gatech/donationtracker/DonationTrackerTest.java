@@ -36,13 +36,17 @@ public class DonationTrackerTest {
 
         myLocations = new ArrayList<>();
         myLocations.add(new Location(1, "Boys and Girls Club", "33.73182", "-84.43971",
-                "1642 RICHLAND RD", "ATLANTA", "GEORGIA", "30332", "Store", "(404) 555 - 1234", "www.bgc.wool.ga"));
+                "1642 RICHLAND RD", "ATLANTA", "GEORGIA", "30332", "Store",
+                "(404) 555 - 1234", "www.bgc.wool.ga"));
         myLocations.add(new Location(2, "D&D CONVENIENCE STORE","33.71747" ,"-84.2521",
-                "2426 COLUMBIA DRIVE","DECATUR","GA","30034","Drop Off","(404) 555 - 9876","www.ddconv.com"));
+                "2426 COLUMBIA DRIVE","DECATUR","GA","30034","Drop Off",
+                "(404) 555 - 9876","www.ddconv.com"));
         myLocations.add(new Location(3,"KEEP NORTH FULTON BEAUTIFUL","33.96921","-84.3688",
-                "470 MORGAN FALLS RD","Sandy Springs","GA","30302","Store","(770) 555 - 7321","www.knfb.org"));
+                "470 MORGAN FALLS RD","Sandy Springs","GA","30302","Store",
+                "(770) 555 - 7321","www.knfb.org"));
         myLocations.add(new Location(1, "Boys and Girls Club", "33.73182", "-84.43971",
-                "1642 RICHLAND RD", "ATLANTA", "GEORGIA", "30332", "Store", "(404) 555 - 1234", "www.bgc.wool.ga"));
+                "1642 RICHLAND RD", "ATLANTA", "GEORGIA", "30332", "Store",
+                "(404) 555 - 1234", "www.bgc.wool.ga"));
 
 
         testDonationModel = new DonationModel();
@@ -52,9 +56,6 @@ public class DonationTrackerTest {
         testDonationModel.addDonation(new Donation("Rug", "furry rug",
                 "square furry rug", 35, "Household", "",
                 LocalTime.now(), LocalDate.now(), 2));
-
-//
-//
     }
 
     @Test
@@ -102,4 +103,13 @@ public class DonationTrackerTest {
         assertTrue("Location was added when not supposed to be added: " + myLocations.get(3),
                 !LocationsModel.addLocation(myLocations.get(3)));
     }
+
+    @Test
+    public void testSetUsers() {
+        RegisteredUser.setMyUsers(null);
+        assertEquals(new ArrayList<>(), RegisteredUser.getMyUsers());
+        RegisteredUser.setMyUsers(myUsers);
+        assertEquals(myUsers.get(0), RegisteredUser.getMyUsers().get(0));
+    }
+
 }

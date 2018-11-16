@@ -49,8 +49,6 @@ public class DonationModel {
         location.setInventory(listDonation);
     }
 
-    //public Donation getCurrentDonation() { return _currentDonation; }
-
     /**
      * Returns the donation at the specified index.
      *
@@ -58,8 +56,6 @@ public class DonationModel {
      * @return the donation at the index
      */
     public Donation getDonation(int index) { return _donations.get(index); }
-
-    //public List<Donation> getInventory() { return Collections.unmodifiableList(_donations); }
 
     /**
      * Finds a donation by the specified ID
@@ -73,11 +69,6 @@ public class DonationModel {
                 return d;
             }
         }
-        //Log.d("MYAPP", "Warning - Failed to find id: " + id);
         return null;
     }
-
-//    public void setCurrentDonation(Donation currentDonation) {
-//        this._currentDonation = currentDonation;
-//    }
 }
