@@ -26,6 +26,7 @@ public class DonationTrackerTest {
     private List<RegisteredUser> myUsers;
     private List<Location> myLocations;
     private DonationModel testDonationModel;
+    private LocationsModel testLocationModel;
     @Before
     public void setUp() {
         myUsers = new ArrayList<>();
@@ -56,6 +57,17 @@ public class DonationTrackerTest {
         testDonationModel.addDonation(new Donation("Rug", "furry rug",
                 "square furry rug", 35, "Household", "",
                 LocalTime.now(), LocalDate.now(), 2));
+        testLocationModel = new LocationsModel();
+    }
+    @Test
+    public void testAddLocation() {
+
+        assertTrue("Location was not added to the location list",
+                LocationsModel.addLocation(myLocations.get(0)));
+        assertTrue("Location was not added to the location list",
+                LocationsModel.addLocation(myLocations.get(1)));
+        assertTrue("Location was added when not supposed to be added: " + myLocations.get(3),
+                !LocationsModel.addLocation(myLocations.get(3)));
     }
 
     @Test
@@ -94,16 +106,7 @@ public class DonationTrackerTest {
         assertNotNull("No donation with this id", testDonationModel.findDonationById(2));
     }
 
-    @Test
-    public void testAddLocation() {
-        LocationsModel.getInstance().clear();
-        assertTrue("Location was not added to the location list",
-                LocationsModel.addLocation(myLocations.get(0)));
-        assertTrue("Location was not added to the location list",
-                LocationsModel.addLocation(myLocations.get(1)));
-        assertTrue("Location was added when not supposed to be added: " + myLocations.get(3),
-                !LocationsModel.addLocation(myLocations.get(3)));
-    }
+
 
     @Test
     public void testSetUsers() {

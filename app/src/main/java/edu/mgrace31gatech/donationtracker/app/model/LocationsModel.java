@@ -34,7 +34,7 @@ public final class LocationsModel {
     /**
      * make a new model
      */
-    private LocationsModel() {
+    public LocationsModel() {
             locationsList = new ArrayList<>();
     }
 
@@ -61,6 +61,7 @@ public final class LocationsModel {
      */
     public static boolean addLocation(Location location) {
            for (Location l :locationsList ) {
+               System.out.println(l.getName());
             String name = l.getName();
             String latitude = l.getLatitude();
             if (name.equals(location.getName())
@@ -105,7 +106,7 @@ public final class LocationsModel {
      */
     public List<Location> clear() {
         for (Location l: locationsList) {
-            l = null;
+            locationsList.remove(l);
         }
         return locationsList;
     }
