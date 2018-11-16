@@ -48,10 +48,10 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         }
 
         // make a list of categories
-        List<String> catergories = Donation.categories;
-        List<String> catergories2 = new ArrayList<>();
-        catergories2.add("All Categories");
-        catergories2.addAll(catergories);
+        List<String> categories = Donation.categories;
+        List<String> categories2 = new ArrayList<>();
+        categories2.add("All Categories");
+        categories2.addAll(categories);
 
         ListView list = findViewById(R.id.listview);
 
@@ -82,7 +82,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
         locationSpinner.setAdapter(adapter1);
 
         ArrayAdapter<String> adapter2 = new ArrayAdapter(
-                this, android.R.layout.simple_spinner_item, catergories2);
+                this, android.R.layout.simple_spinner_item, categories2);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySpinner.setAdapter(adapter2);
         super.onCreate(savedInstanceState);

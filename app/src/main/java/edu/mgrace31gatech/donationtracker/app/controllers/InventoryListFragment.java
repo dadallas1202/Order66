@@ -115,21 +115,6 @@ public class InventoryListFragment extends Fragment {
             recyclerView.setAdapter(adapter);
         }
 
-//    /**
-//     * Returns the list of donations for the location.
-//     *
-//     * @param key the key for the JSON object
-//     * @return a list of donations for that location
-//     */
-//    public List<Donation> getList(String key){
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
-//                Objects.requireNonNull(getActivity()).getBaseContext());
-//        Gson gson = new Gson();
-//        String json = prefs.getString(key, null);
-//        Type type = new TypeToken<List<Donation>>(){}.getType();
-//        return gson.fromJson(json, type);
-//    }
-
         /**
          * This inner class is our custom adapter. It takes our basic model information and
          * converts it to the correct layout for this view.

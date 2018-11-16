@@ -129,21 +129,6 @@ public class AddDonationActivity extends AppCompatActivity
         editor.apply();     // This line is IMPORTANT !!!
     }
 
-//    /**
-//     * Returns the list of donations.
-//     *
-//     * @param key the key for the JSON object
-//     * @return the list of donations
-//     */
-//    public List<Donation> getList(String key){
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(
-//                getApplicationContext());
-//        Gson gson = new Gson();
-//        String json = prefs.getString(key, null);
-//        Type type = new TypeToken<List<Donation>>(){}.getType();
-//        return gson.fromJson(json, type);
-//    }
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Object parent1 = parent.getItemAtPosition(position);

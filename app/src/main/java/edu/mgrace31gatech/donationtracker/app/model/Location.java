@@ -29,7 +29,7 @@ public class Location {
      * @param a   The address of the location.
      * @param c   The city of the location.
      * @param s   The state of the location.
-     * @param z   The zipcode of the location.
+     * @param z   The zip-code of the location.
      * @param t   The type of the location.
      * @param p   The phone number of the location.
      * @param w   The website of the location.
