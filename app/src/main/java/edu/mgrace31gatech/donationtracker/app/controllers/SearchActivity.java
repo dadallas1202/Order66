@@ -27,7 +27,7 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
     private ListViewAdapter adapter;
     private Spinner locationSpinner;
     private Spinner categorySpinner;
-    private final ArrayList<Donation> arraylist = new ArrayList<>();
+    private final List<Donation> donationList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,13 +59,13 @@ public class SearchActivity extends AppCompatActivity implements SearchView.OnQu
             Donation d = new Donation(allDonations.get(i));
 
             // Binds all strings into an array
-            arraylist.add(d);
-            Log.d("My App", arraylist.toString());
+            donationList.add(d);
+            Log.d("My App", donationList.toString());
 
         }
 
         // Pass results to ListViewAdapter Class
-        adapter = new ListViewAdapter(this, arraylist);
+        adapter = new ListViewAdapter(this, donationList);
 
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
