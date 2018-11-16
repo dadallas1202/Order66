@@ -74,12 +74,6 @@ public final class LocationsModel {
     }
 
     /**
-     * get the last added location
-     * @return theLastAddedElement
-     */
-//    public Location getTheLastAddedElement() { return theLastAddedElement; }
-
-    /**
      *
      * @return the currently selected location
      */

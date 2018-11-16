@@ -99,8 +99,8 @@ public class Donation implements Parcelable {
      * This constructor only for GUI use in edit/new student dialog
      */
     public Donation() {
-        this("enter new name", "NA", "NA", 1000, "NA", "NA", null, null);
-//        this.id = Donation.Next_Id++;
+        this("enter new name", "NA",
+                "NA", 1000, "NA", "NA", null, null);
     }
 
     /**
@@ -117,6 +117,7 @@ public class Donation implements Parcelable {
         this.time = donation.time;
         this.date = donation.date;
         this.id = donation.id;
+        this.viewId = donation.viewId;
     }
 
     /**
