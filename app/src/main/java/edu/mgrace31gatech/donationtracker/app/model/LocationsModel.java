@@ -60,7 +60,7 @@ public final class LocationsModel {
      * @return whether or not the location was added or not
      */
     public static boolean addLocation(Location location) {
-        for (Location l :locationsList ) {
+           for (Location l :locationsList ) {
             String name = l.getName();
             String latitude = l.getLatitude();
             if (name.equals(location.getName())
@@ -98,5 +98,15 @@ public final class LocationsModel {
             }
         }
         return null;
+    }
+    /**
+     * clear the list. USED FOR TESTING PURPOSES
+     * @return a empty list
+     */
+    public List<Location> clear() {
+        for (Location l: locationsList) {
+            l = null;
+        }
+        return locationsList;
     }
 }
