@@ -16,9 +16,11 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 import edu.mgrace31gatech.donationtracker.R;
 import edu.mgrace31gatech.donationtracker.app.model.RegisteredUser;
+import edu.mgrace31gatech.donationtracker.app.model.User;
 
 /**
  * Activity that allows for a user to login.
@@ -31,52 +33,48 @@ public class LoginActivity extends AppCompatActivity {
     private EditText Username;
     private EditText Password;
     private TextView BadAttempt;
+    private Button Login;
+    private Button Cancel;
     private int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Username = findViewById(R.id.userNameBox);
-        Password = findViewById(R.id.passWordBox);
-        BadAttempt = findViewById(R.id.badLoginAttempt);
-        Button login = findViewById(R.id.loginButton);
-        Button cancel = findViewById(R.id.cancelButton);
+        Username = (EditText)findViewById(R.id.userNameBox);
+        Password = (EditText)findViewById(R.id.passWordBox);
+        BadAttempt = (TextView)findViewById(R.id.badLoginAttempt);
+        Login = (Button)findViewById(R.id.loginButton);
+        Cancel = (Button)findViewById(R.id.cancelButton);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Editable user = Username.getText();
-                Editable pass = Password.getText();
-
-                validate(user.toString(), pass.toString());
+                validate(Username.getText().toString(), Password.getText().toString());
             }
         });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
+        Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, WelcomePageActivity.class);
                 startActivity(intent);
-                }
-        });
+            }
+    });
     }
 
     private void validate(String userName, String userPassword) {
-        List<RegisteredUser> users = getList("users");
-        boolean flag = false;
-        for (RegisteredUser u : users) {
-            if (userName.equals(u.getUserName()) && userPassword.equals(u.getPassword())) {
-                flag = true;
-            }
-        }
-        if(flag) {
+        Map<String, String> users = RegisteredUser.getUsers();
+        if(users.containsKey(userName) && users.get(userName).equals(userPassword)) {
             Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
             startActivity(intent);
         } else{
             counter++;
             String correct = "Number of incorrect attempts: " + String.valueOf(counter);
             BadAttempt.setText(correct);
+            if (counter >= 3) {
+                Login.setEnabled(false);
+            }
         }
     }
 
